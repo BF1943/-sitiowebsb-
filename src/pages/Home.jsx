@@ -180,7 +180,7 @@ function normalizeFeaturedCar(rawCar) {
     color: rawCar.color,
     motor: rawCar.motor || rawCar.cilindros,
     warranty: rawCar.warranty || rawCar['garantía'],
-    foto_url: rawCar.foto_url || rawCar.image || FALLBACK_IMAGE,
+    foto_url: getFirstImageUrl(rawCar.foto_url || rawCar.image),
   };
 }
 
