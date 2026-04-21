@@ -1,0 +1,243 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 243 51% 20%; /* #1E1B4B */
+  --foreground: 0 0% 100%; /* #FFFFFF */
+  
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 3.9%;
+
+  --popover: 243 51% 20%;
+  --popover-foreground: 0 0% 100%;
+
+  --primary: 38 92% 50%; /* amber-500 */
+  --primary-foreground: 240 10% 3.9%;
+
+  --secondary: 215 28% 93%; /* gray-300 */
+  --secondary-foreground: 240 10% 3.9%;
+
+  --muted: 215 28% 93%;
+  --muted-foreground: 215 20% 65%;
+
+  --accent: 215 28% 93%;
+  --accent-foreground: 240 10% 3.9%;
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 215 20% 87%;
+  --input: 215 20% 87%;
+  --ring: 38 92% 50%;
+
+  --radius: 0.5rem;
+
+  /* Featured Cars Variables */
+  --featured-badge-bg: 0 84% 60%;
+  --featured-border: 38 92% 50%;
+  --featured-price-color: 0 84% 60%;
+}
+
+.dark {
+  --background: 243 51% 20%;
+  --foreground: 0 0% 100%;
+
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 100%;
+
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 100%;
+
+  --primary: 38 92% 50%;
+  --primary-foreground: 240 10% 3.9%;
+
+  --secondary: 240 4% 16%;
+  --secondary-foreground: 0 0% 100%;
+
+  --muted: 240 4% 16%;
+  --muted-foreground: 240 5% 65%;
+
+  --accent: 240 4% 16%;
+  --accent-foreground: 0 0% 100%;
+
+  --destructive: 0 63% 31%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 240 4% 16%;
+  --input: 240 4% 16%;
+  --ring: 38 92% 50%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background-color: #1E1B4B;
+  color: #FFFFFF;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+}
+
+.whatsapp-float {
+  width: 60px;
+  height: 60px;
+  background-color: #25D366;
+  color: #FFF;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 100;
+}
+
+.whatsapp-tooltip {
+  background-color: #E0FDCF;
+  padding: 12px 16px;
+  border-radius: 12px;
+  max-width: 200px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+.whatsapp-tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: -8px; 
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top-color: #E0FDCF; 
+  border-bottom: 0;
+  border-right: 0;
+  margin-left: -10px;
+  margin-bottom: 5px;
+  transform: rotate(-45deg);
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, rgba(30, 27, 75, 0.9) 0%, rgba(30, 27, 75, 0.7) 100%);
+}
+
+.section-alternate {
+  background-color: #FFFFFF;
+  color: #111827;
+}
+
+.car-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.car-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.shadow-top-sm {
+  box-shadow: 0 -4px 6px -1px rgb(0 0 0 / 0.1), 0 -2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+@media (min-width: 640px) {
+  .shadow-top-sm {
+    box-shadow: none;
+  }
+}
+
+.btn-gradient {
+  background-image: linear-gradient(to right, #F59E0B, #D97706);
+  color: #111827;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-gradient:hover {
+  background-image: linear-gradient(to right, #FBBF24, #F59E0B);
+  box-shadow: 0 4px 15px 0 rgba(251, 191, 36, 0.5);
+}
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 20px rgba(245,158,11,0.6), 0 0 40px rgba(245,158,11,0.4), 0 0 60px rgba(245,158,11,0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(245,158,11,0.8), 0 0 60px rgba(245,158,11,0.6), 0 0 90px rgba(245,158,11,0.4);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(245,158,11,0.6), 0 0 40px rgba(245,158,11,0.4), 0 0 60px rgba(245,158,11,0.2);
+  }
+}
+
+.btn-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+.btn-glow:hover {
+  animation: none;
+  box-shadow: 0 0 20px rgba(245,158,11,0.6), 0 0 40px rgba(245,158,11,0.4), 0 0 60px rgba(245,158,11,0.2);
+}
+
+.bg-brand-whatsapp {
+  background-color: #25D366;
+}
+
+.hover\:bg-brand-whatsapp-hover:hover {
+  background-color: #1DAA50;
+}
+
+@keyframes subtle-tilt {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+@keyframes breathingGlow {
+  0%, 100% { box-shadow: 0 0 5px rgba(245, 158, 11, 0.4); opacity: 0.9; }
+  50% { box-shadow: 0 0 20px rgba(245, 158, 11, 0.8), 0 0 35px rgba(245, 158, 11, 0.5); opacity: 1; }
+}
+
+.warranty-shield {
+  will-change: transform, box-shadow, opacity;
+  border-radius: 50%;
+  animation: subtle-tilt 3s ease-in-out infinite, breathingGlow 2.5s ease-in-out infinite;
+}
+
+.car-card:hover .warranty-shield {
+  animation: breathingGlow 2.5s ease-in-out infinite;
+  transform: scale(1.15);
+}
+
+/* Featured Cars Custom Styles */
+@keyframes featured-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.animate-featured-pulse {
+  animation: featured-pulse 2s infinite;
+}
+
+.featured-glow {
+  box-shadow: 0 0 15px hsl(var(--featured-border) / 0.3);
+}
+.featured-glow:hover {
+  box-shadow: 0 0 25px hsl(var(--featured-border) / 0.6);
+}
+
+@layer base {
+  :root {
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+  .dark {
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}

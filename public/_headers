@@ -1,0 +1,19 @@
+# HTML — nunca se cachea para que los nuevos deploys se sirvan inmediatamente
+/index.html
+  Cache-Control: no-cache, no-store, must-revalidate
+
+# Assets con hash (Vite los genera con nombre único por build) — se cachean para siempre
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Imágenes, fuentes y SVG estáticos
+*.webp
+  Cache-Control: public, max-age=31536000, immutable
+*.jpg
+  Cache-Control: public, max-age=31536000, immutable
+*.png
+  Cache-Control: public, max-age=31536000, immutable
+*.svg
+  Cache-Control: public, max-age=31536000, immutable
+*.woff2
+  Cache-Control: public, max-age=31536000, immutable

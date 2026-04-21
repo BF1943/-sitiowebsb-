@@ -1,0 +1,9 @@
+{
+    "name": "Seminuevos Baja",
+    "short_name": "Seminuevos",
+    "description": "Compra, vende o consigna tu auto seminuevo en Tijuana y Ensenada. El mejor inventario y opciones de financiamiento.",
+    "theme_color": "#1E1B4B",
+    "background_color": "#1E1B4B",
+    "display": "standalone",
+    "start_url": "/"
+}

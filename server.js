@@ -1,0 +1,2 @@
+// This file has been disabled as server-side infrastructure is incompatible with the Horizons static environment.
+// Modern crawlers execute JavaScript and will read the titles injected by react-helmet-async.

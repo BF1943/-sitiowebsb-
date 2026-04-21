@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!--
+    IMPORTANTE:
+    title, description, canonical, og:url, og:title, og:description,
+    twitter:title y twitter:description se inyectan dinámicamente por página
+    mediante react-helmet-async y se consolidan en prerender.js.
+
+    Este <title> base existe para que el prerender pueda reemplazarlo correctamente.
+    NO pongas aquí valores fijos por página.
+  -->
+  <title>Seminuevos Baja</title>
+
+  <!-- Fallback SEO base -->
+  <meta name="description"
+    content="Agencia de autos seminuevos nacionales en Ensenada con compra, venta, consignación y financiamiento en Seminuevos Baja." />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+
+  <!-- Favicon and Brand Icons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png" />
+
+  <!-- Open Graph global -->
+  <meta property="og:locale" content="es_MX" />
+  <meta property="og:site_name" content="Seminuevos Baja" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter global -->
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="msapplication-TileColor" content="#ffffff" />
+  <meta name="apple-mobile-web-app-title" content="Seminuevos Baja" />
+  <meta name="application-name" content="Seminuevos Baja" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
+  <!-- Structured Data global del negocio -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AutoDealer",
+      "name": "Seminuevos Baja",
+      "alternateName": "Seminuevos Ensenada",
+      "url": "https://seminuevosbaja.com.mx/",
+      "logo": "https://horizons-cdn.hostinger.com/6224f76d-ecf5-45af-9c0f-743e5ebf8984/f929719291db3722f5d8881d2469bbe0.png",
+      "image": "https://horizons-cdn.hostinger.com/6224f76d-ecf5-45af-9c0f-743e5ebf8984/f929719291db3722f5d8881d2469bbe0.png",
+      "description": "Seminuevos Ensenada: agencia de autos seminuevos nacionales con garantía mecánica de 12 meses, financiamiento flexible y avalúo gratis. Compra, venta y consignación segura en Ensenada, Baja California.",
+      "telephone": "+526469778808",
+      "email": "info@seminuevosbaja.com.mx",
+      "priceRange": "$$",
+      "currenciesAccepted": "MXN",
+      "paymentAccepted": "Efectivo, Transferencia, Financiamiento",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Calle Delante #200, Fracc. Costa Azul",
+        "addressLocality": "Ensenada",
+        "addressRegion": "Baja California",
+        "postalCode": "22890",
+        "addressCountry": "MX"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 31.8667,
+        "longitude": -116.5964
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "10:00",
+          "closes": "15:00"
+        }
+      ],
+      "areaServed": [
+        { "@type": "City", "name": "Ensenada" },
+        { "@type": "City", "name": "Tijuana" },
+        { "@type": "City", "name": "Rosarito" },
+        { "@type": "City", "name": "San Quintín" },
+        { "@type": "City", "name": "Valle de Guadalupe" }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/seminuevosbaja",
+        "https://www.instagram.com/seminuevosbaja"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Inventario de Seminuevos Ensenada",
+        "url": "https://seminuevosbaja.com.mx/inventario",
+        "itemListElement": [
+          { "@type": "OfferCatalog", "name": "Autos seminuevos nacionales" },
+          { "@type": "OfferCatalog", "name": "Consignación de autos" },
+          { "@type": "OfferCatalog", "name": "Financiamiento automotriz" }
+        ]
+      }
+    }
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZB4L2JNZE9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-ZB4L2JNZE9');
+  </script>
+
+  <link rel="stylesheet" href="/src/index.css" />
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>
