@@ -1,1 +1,0 @@
-// This file has been disabled as Netlify edge functions are not applicable to the Horizons environment.
