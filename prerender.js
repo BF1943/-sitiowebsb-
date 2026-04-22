@@ -255,7 +255,9 @@ function buildFallbackSeoTags(route) {
 function buildMissingFallbackSeoTags(route, helmet) {
   const helmetMeta = helmet?.meta?.toString?.() ?? '';
   const helmetLink = helmet?.link?.toString?.() ?? '';
+  const helmetPriority = helmet?.priority?.toString?.() ?? '';
   const helmetTitle = helmet?.title?.toString?.() ?? '';
+  const helmetAll = `${helmetPriority}${helmetMeta}${helmetLink}`;
   const routeTitle = route.title || '';
   const routeDescription = route.description || '';
   const canonicalUrl = toAbsoluteUrl(route.path || '/');
@@ -266,63 +268,63 @@ function buildMissingFallbackSeoTags(route, helmet) {
 
   const tags = [];
 
-  if (!hasTag(helmetMeta, /name=["']robots["']/i)) {
+  if (!hasTag(helmetAll, /name=["']robots["']/i)) {
     tags.push(`<meta name="robots" content="${DEFAULT_ROBOTS}">`);
   }
 
-  if (!hasTag(helmetLink, /rel=["']canonical["']/i)) {
+  if (!hasTag(helmetAll, /rel=["']canonical["']/i)) {
     tags.push(`<link rel="canonical" href="${escapeHtmlAttribute(canonicalUrl)}">`);
   }
 
-  if (!hasTag(helmetMeta, /property=["']og:url["']/i)) {
+  if (!hasTag(helmetAll, /property=["']og:url["']/i)) {
     tags.push(`<meta property="og:url" content="${escapeHtmlAttribute(canonicalUrl)}">`);
   }
 
-  if (!hasTag(helmetMeta, /property=["']og:type["']/i)) {
+  if (!hasTag(helmetAll, /property=["']og:type["']/i)) {
     tags.push(`<meta property="og:type" content="${DEFAULT_OG_TYPE}">`);
   }
 
-  if (!hasTag(helmetMeta, /property=["']og:locale["']/i)) {
+  if (!hasTag(helmetAll, /property=["']og:locale["']/i)) {
     tags.push(`<meta property="og:locale" content="${DEFAULT_LOCALE}">`);
   }
 
-  if (!hasTag(helmetMeta, /property=["']og:site_name["']/i)) {
+  if (!hasTag(helmetAll, /property=["']og:site_name["']/i)) {
     tags.push(`<meta property="og:site_name" content="${DEFAULT_SITE_NAME}">`);
   }
 
-  if (!hasTag(helmetMeta, /name=["']twitter:card["']/i)) {
+  if (!hasTag(helmetAll, /name=["']twitter:card["']/i)) {
     tags.push(`<meta name="twitter:card" content="${DEFAULT_TWITTER_CARD}">`);
   }
 
-  if (routeDescription && !hasTag(helmetMeta, /name=["']description["']/i)) {
+  if (routeDescription && !hasTag(helmetAll, /name=["']description["']/i)) {
     tags.push(buildDescriptionMetaTag(routeDescription));
   }
 
-  if (routeTitle && !hasTag(helmetMeta, /property=["']og:title["']/i)) {
+  if (routeTitle && !hasTag(helmetAll, /property=["']og:title["']/i)) {
     tags.push(`<meta property="og:title" content="${escapeHtmlAttribute(routeTitle)}">`);
   }
 
-  if (routeTitle && !hasTag(helmetMeta, /name=["']twitter:title["']/i)) {
+  if (routeTitle && !hasTag(helmetAll, /name=["']twitter:title["']/i)) {
     tags.push(`<meta name="twitter:title" content="${escapeHtmlAttribute(routeTitle)}">`);
   }
 
-  if (routeDescription && !hasTag(helmetMeta, /property=["']og:description["']/i)) {
+  if (routeDescription && !hasTag(helmetAll, /property=["']og:description["']/i)) {
     tags.push(
       `<meta property="og:description" content="${escapeHtmlAttribute(routeDescription)}">`
     );
   }
 
-  if (routeDescription && !hasTag(helmetMeta, /name=["']twitter:description["']/i)) {
+  if (routeDescription && !hasTag(helmetAll, /name=["']twitter:description["']/i)) {
     tags.push(
       `<meta name="twitter:description" content="${escapeHtmlAttribute(routeDescription)}">`
     );
   }
 
-  if (ogImage && !hasTag(helmetMeta, /property=["']og:image["']/i)) {
+  if (ogImage && !hasTag(helmetAll, /property=["']og:image["']/i)) {
     tags.push(`<meta property="og:image" content="${escapeHtmlAttribute(ogImage)}">`);
   }
 
-  if (ogImage && !hasTag(helmetMeta, /name=["']twitter:image["']/i)) {
+  if (ogImage && !hasTag(helmetAll, /name=["']twitter:image["']/i)) {
     tags.push(`<meta name="twitter:image" content="${escapeHtmlAttribute(ogImage)}">`);
   }
 
