@@ -399,7 +399,7 @@ function generateSitemapXml(routes) {
             };
 
       return `  <url>
-    <loc>${escapeXml(`${SITE_URL}${route.path}`)}</loc>
+    <loc>${escapeXml(route.path === '/' ? SITE_URL : `${SITE_URL}${route.path}`)}</loc>
     <lastmod>${metadata.lastmod}</lastmod>
     <changefreq>${metadata.changefreq}</changefreq>
     <priority>${metadata.priority}</priority>

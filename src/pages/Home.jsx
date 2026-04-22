@@ -265,7 +265,7 @@ export default function Home() {
     'Seminuevos Ensenada | Autos Nacionales con Garantía | Seminuevos Baja';
   const pageDescription =
     'Seminuevos Ensenada con autos nacionales, garantía mecánica y opciones de financiamiento. Compra, vende o consigna tu auto con Seminuevos Baja.';
-  const canonicalUrl = `${SITE_URL}/`;
+  const canonicalUrl = SITE_URL;
 
   const getCarDetailUrl = (car) => `/auto/${car.slug || car.id}`;
 
