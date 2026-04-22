@@ -31,10 +31,9 @@ import { getImageUrl, FALLBACK_IMAGE } from '@/lib/getImageUrl.js';
 import { generateCarSlug } from '@/lib/generateCarSlug';
 import { PageSEO } from '@/hooks/useSEO';
 
-const HOME_OG_IMAGE =
-  'https://horizons-cdn.hostinger.com/6224f76d-ecf5-45af-9c0f-743e5ebf8984/f929719291db3722f5d8881d2469bbe0.png';
-
 const SITE_URL = 'https://seminuevosbaja.com.mx';
+const HOME_OG_IMAGE = `${SITE_URL}/og-image.png`;
+const HOME_LOGO_IMAGE = `${SITE_URL}/logo.png`;
 const BUSINESS_PHONE = '+526469778808';
 const WHATSAPP_NUMBER = '526461616696';
 
@@ -135,12 +134,6 @@ const faqData = [
       'Estamos en Calle Delante #200, Fracc. Costa Azul, Ensenada, Baja California. Contamos con estacionamiento exclusivo. Atendemos de lunes a viernes de 9:00 a 17:00 y sábados de 10:00 a 15:00.',
   },
 ];
-
-function toAbsoluteUrl(url) {
-  if (!url) return '';
-  if (/^https?:\/\//i.test(url)) return url;
-  return `${SITE_URL}${url.startsWith('/') ? url : `/${url}`}`;
-}
 
 function getGlobalPrerenderData() {
   if (typeof globalThis !== 'undefined' && globalThis.__PRERENDER_DATA__) {
@@ -364,40 +357,6 @@ export default function Home() {
   }, [supabase, toast, initialPrerenderFeaturedCars.length]);
 
   const homeSchema = useMemo(() => {
-    const featuredItemList =
-      featuredCars.length > 0
-        ? {
-            '@type': 'ItemList',
-            name: 'Autos seminuevos destacados en Ensenada',
-            numberOfItems: featuredCars.length,
-            itemListElement: featuredCars.map((car, index) => ({
-              '@type': 'ListItem',
-              position: index + 1,
-              url: toAbsoluteUrl(getCarDetailUrl(car)),
-              item: {
-                '@type': 'Car',
-                name: `${car.brand} ${car.model} ${car.year}`,
-                image: toAbsoluteUrl(car.foto_url),
-                brand: car.brand
-                  ? {
-                      '@type': 'Brand',
-                      name: car.brand,
-                    }
-                  : undefined,
-                model: car.model,
-                vehicleModelDate: car.year ? String(car.year) : undefined,
-                offers: {
-                  '@type': 'Offer',
-                  price: car.price || 0,
-                  priceCurrency: 'MXN',
-                  availability: 'https://schema.org/InStock',
-                  url: toAbsoluteUrl(getCarDetailUrl(car)),
-                },
-              },
-            })),
-          }
-        : null;
-
     return {
       '@context': 'https://schema.org',
       '@graph': [
@@ -410,7 +369,7 @@ export default function Home() {
           url: canonicalUrl,
           telephone: BUSINESS_PHONE,
           image: HOME_OG_IMAGE,
-          logo: HOME_OG_IMAGE,
+          logo: HOME_LOGO_IMAGE,
           priceRange: '$$',
           address: {
             '@type': 'PostalAddress',
@@ -462,10 +421,9 @@ export default function Home() {
             },
           })),
         },
-        ...(featuredItemList ? [featuredItemList] : []),
       ],
     };
-  }, [featuredCars, siteName]);
+  }, [siteName]);
 
   const handleInterest = (e, car) => {
     e.stopPropagation();
