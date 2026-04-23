@@ -39,6 +39,9 @@ import VenderAutoTijuana from './pages/blog/VenderAutoTijuana.jsx';
 
 // Keep only genuinely non-prerendered / backoffice routes lazy
 const AdminPage = React.lazy(() => import('./pages/AdminPage.jsx'));
+const Login = React.lazy(() => import('./pages/Login.jsx'));
+
+import RequireAuth from './components/RequireAuth';
 
 const LoadingFallback = () => (
   <div className="flex min-h-screen items-center justify-center bg-brand-blue">
@@ -98,13 +101,24 @@ function App() {
               />
 
               <Route
+                path="/login"
+                element={
+                  <Suspense fallback={<LoadingFallback />}>
+                    <Login />
+                  </Suspense>
+                }
+              />
+
+              <Route
                 path="/admin"
                 element={
-                  <Layout>
-                    <Suspense fallback={<LoadingFallback />}>
-                      <AdminPage />
-                    </Suspense>
-                  </Layout>
+                  <RequireAuth requireAdmin>
+                    <Layout>
+                      <Suspense fallback={<LoadingFallback />}>
+                        <AdminPage />
+                      </Suspense>
+                    </Layout>
+                  </RequireAuth>
                 }
               />
 

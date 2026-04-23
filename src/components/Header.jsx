@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown, Shield } from 'lucide-react';
 import { Button } from './ui/button';
 import { SiteContext } from '../context/SiteContext.jsx';
-import { useHorizonsEditor } from '../hooks/useHorizonsEditor';
+import { useAuth } from '../hooks/useAuth';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -55,7 +55,7 @@ function HeaderComponent() {
   const location = useLocation();
   const navigate = useNavigate();
   const { siteName } = useContext(SiteContext);
-  const { isInHorizonsEditor } = useHorizonsEditor();
+  const { isAdmin } = useAuth();
   const logoUrl = "/logo.png";
 
   useEffect(() => {
@@ -119,7 +119,7 @@ function HeaderComponent() {
               )
             ))}
 
-            {isInHorizonsEditor && (
+            {isAdmin && (
               <button
                 onClick={handleAdminNavigate}
                 className="text-gray-400 hover:text-amber-500 transition-colors bg-transparent border-none p-0 cursor-pointer focus:outline-none flex items-center"
@@ -137,7 +137,7 @@ function HeaderComponent() {
           </div>
 
           <div className="md:hidden flex items-center gap-4">
-            {isInHorizonsEditor && (
+            {isAdmin && (
               <button
                 onClick={handleAdminNavigate}
                 className="text-gray-400 hover:text-amber-500 transition-colors bg-transparent border-none p-0 cursor-pointer focus:outline-none"
