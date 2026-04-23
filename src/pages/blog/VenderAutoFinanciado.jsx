@@ -42,7 +42,7 @@ export default function VenderAutoFinanciado() {
       "name": "Seminuevos Baja",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://horizons-cdn.hostinger.com/6224f76d-ecf5-45af-9c0f-743e5ebf8984/b4d3b845b40978d0e126afc9d55daac7.png"
+        "url": "https://seminuevosbaja.com.mx/logo.png"
       }
     },
     "datePublished": "2026-03-04",

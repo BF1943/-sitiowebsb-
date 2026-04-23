@@ -75,7 +75,7 @@ export default function GuiaSeminuevosEnsenada() {
         <link rel="canonical" href={`https://seminuevosbaja.com.mx${location.pathname}`} />
         <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
         <meta property="og:url" content={`https://seminuevosbaja.com.mx${location.pathname}`} />
-        <meta property="og:image" content="https://horizons-cdn.hostinger.com/6224f76d-ecf5-45af-9c0f-743e5ebf8984/f929719291db3722f5d8881d2469bbe0.png" />
+        <meta property="og:image" content="https://seminuevosbaja.com.mx/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="og:locale" content="es_MX" />
         <meta property="og:site_name" content="Seminuevos Baja" />

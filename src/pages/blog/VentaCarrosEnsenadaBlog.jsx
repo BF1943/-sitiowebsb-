@@ -19,7 +19,7 @@ import { PageSEO } from '@/hooks/useSEO';
 
 const PAGE_URL = 'https://seminuevosbaja.com.mx/blog/venta-carros-ensenada';
 const PAGE_IMAGE =
-  'https://horizons-cdn.hostinger.com/6224f76d-ecf5-45af-9c0f-743e5ebf8984/f929719291db3722f5d8881d2469bbe0.png';
+  'https://seminuevosbaja.com.mx/og-image.png';
 
 function safeJsonLd(data) {
   return JSON.stringify(data)

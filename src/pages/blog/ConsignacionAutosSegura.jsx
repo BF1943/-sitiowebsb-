@@ -22,12 +22,12 @@ export default function ConsignacionAutosSegura() {
         <meta property="og:title" content="Consignar mi Auto en Ensenada | Guía Segura | Seminuevos Baja" />
         <meta property="og:description" content="Descubre cómo funciona la consignación de autos en Ensenada. La forma más segura y rentable de vender tu vehículo seminuevo sin riesgos." />
         <meta property="og:url" content={`https://seminuevosbaja.com.mx${location.pathname}`} />
-        <meta property="og:image" content="https://horizons-cdn.hostinger.com/6224f76d-ecf5-45af-9c0f-743e5ebf8984/f929719291db3722f5d8881d2469bbe0.png" />
+        <meta property="og:image" content="https://seminuevosbaja.com.mx/og-image.png" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Consignar mi Auto en Ensenada | Guía Segura | Seminuevos Baja" />
         <meta name="twitter:description" content="Descubre cómo funciona la consignación de autos en Ensenada. La forma más segura y rentable de vender tu vehículo seminuevo sin riesgos." />
-        <meta name="twitter:image" content="https://horizons-cdn.hostinger.com/6224f76d-ecf5-45af-9c0f-743e5ebf8984/f929719291db3722f5d8881d2469bbe0.png" />
+        <meta name="twitter:image" content="https://seminuevosbaja.com.mx/og-image.png" />
       </Helmet>
 
       <div className="min-h-screen bg-white">
