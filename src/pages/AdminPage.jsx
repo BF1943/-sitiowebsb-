@@ -32,8 +32,12 @@ export default function AdminPage() {
             </div>
 
             <div className="flex items-center gap-3">
-              <span className="hidden sm:inline text-sm text-gray-500">{user?.email}</span>
-              <Button variant="outline" size="sm" onClick={signOut}>
+              <span className="hidden sm:inline text-sm text-gray-700 font-medium">{user?.email}</span>
+              <Button
+                size="sm"
+                onClick={signOut}
+                className="bg-brand-blue text-white border border-brand-blue hover:bg-blue-900 hover:text-white shadow-sm"
+              >
                 <LogOut className="w-4 h-4 mr-2" /> Cerrar sesión
               </Button>
             </div>
