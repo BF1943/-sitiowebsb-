@@ -44,6 +44,37 @@ async function run() {
   await fs.writeFile(icoPath, icoBuffer);
   const { size: icoBytes } = await fs.stat(icoPath);
   console.log(`wrote favicon.ico (${icoSizes.join('/')}, ${icoBytes} B)`);
+
+  const fallbackWidth = 800;
+  const fallbackHeight = 600;
+  const fallbackLogoWidth = 280;
+  const brandBg = { r: 0x1e, g: 0x1b, b: 0x4b };
+
+  const resizedLogo = await sharp(src)
+    .resize({ width: fallbackLogoWidth, fit: 'inside' })
+    .toBuffer();
+  const logoMeta = await sharp(resizedLogo).metadata();
+
+  const fallbackPath = path.join(publicDir, 'fallback-car.jpg');
+  await sharp({
+    create: {
+      width: fallbackWidth,
+      height: fallbackHeight,
+      channels: 3,
+      background: brandBg,
+    },
+  })
+    .composite([
+      {
+        input: resizedLogo,
+        top: Math.round((fallbackHeight - logoMeta.height) / 2),
+        left: Math.round((fallbackWidth - logoMeta.width) / 2),
+      },
+    ])
+    .jpeg({ quality: 85, progressive: true, mozjpeg: true })
+    .toFile(fallbackPath);
+  const { size: fbBytes } = await fs.stat(fallbackPath);
+  console.log(`wrote fallback-car.jpg (${fallbackWidth}x${fallbackHeight}, ${fbBytes} B)`);
 }
 
 run().catch((err) => {

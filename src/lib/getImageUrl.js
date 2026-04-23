@@ -1,5 +1,4 @@
-export const FALLBACK_IMAGE =
-  'https://horizons-cdn.hostinger.com/6224f76d-ecf5-45af-9c0f-743e5ebf8984/d633c3a9f029a10243452bd7ce96317e.jpg';
+export const FALLBACK_IMAGE = '/fallback-car.jpg';
 
 export const resolveImageUrlSync = (path, supabase) => {
   if (!path) return FALLBACK_IMAGE;
