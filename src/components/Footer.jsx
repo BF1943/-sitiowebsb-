@@ -6,7 +6,7 @@ function FooterComponent() {
   const {
     siteName
   } = useContext(SiteContext);
-  const logoUrl = "https://horizons-cdn.hostinger.com/6224f76d-ecf5-45af-9c0f-743e5ebf8984/b4d3b845b40978d0e126afc9d55daac7.png";
+  const logoUrl = "/logo.png";
   return <footer className="bg-gray-900/50 border-t border-white/10 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">

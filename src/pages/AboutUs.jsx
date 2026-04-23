@@ -12,7 +12,7 @@ const AboutUs = () => {
         "@context": "https://schema.org",
         "@type": "AutoDealer",
         "name": "Seminuevos Baja",
-        "image": "https://horizons-cdn.hostinger.com/6224f76d-ecf5-45af-9c0f-743e5ebf8984/f929719291db3722f5d8881d2469bbe0.png",
+        "image": "https://seminuevosbaja.com.mx/og-image.png",
         "description": "Somos una agencia de autos en Ensenada con años de experiencia. Descubre por qué somos la mejor opción para comprar y vender autos seminuevos.",
         "address": {
             "@type": "PostalAddress",
@@ -54,7 +54,7 @@ const AboutUs = () => {
                 <meta property="og:url" content={`https://seminuevosbaja.com.mx${location.pathname}`} />
                 <meta
                     property="og:image"
-                    content="https://horizons-cdn.hostinger.com/6224f76d-ecf5-45af-9c0f-743e5ebf8984/f929719291db3722f5d8881d2469bbe0.png"
+                    content="https://seminuevosbaja.com.mx/og-image.png"
                 />
 
                 <meta name="twitter:card" content="summary_large_image" />
@@ -65,7 +65,7 @@ const AboutUs = () => {
                 />
                 <meta
                     name="twitter:image"
-                    content="https://horizons-cdn.hostinger.com/6224f76d-ecf5-45af-9c0f-743e5ebf8984/f929719291db3722f5d8881d2469bbe0.png"
+                    content="https://seminuevosbaja.com.mx/og-image.png"
                 />
 
                 {/* ✅ dangerouslySetInnerHTML evita problemas de parsing en react-helmet-async */}

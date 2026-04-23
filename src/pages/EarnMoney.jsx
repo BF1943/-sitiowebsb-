@@ -56,7 +56,7 @@ const EarnMoney = () => {
     "provider": {
       "@type": "LocalBusiness",
       "name": siteName,
-      "image": "https://horizons-cdn.hostinger.com/6224f76d-ecf5-45af-9c0f-743e5ebf8984/b4d3b845b40978d0e126afc9d55daac7.png",
+      "image": "https://seminuevosbaja.com.mx/logo.png",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Ensenada",
@@ -95,9 +95,9 @@ const EarnMoney = () => {
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Seminuevos Baja" />
         <meta property="og:url" content={`https://seminuevosbaja.com.mx${location.pathname}`} />
-        <meta property="og:image" content="https://horizons-cdn.hostinger.com/6224f76d-ecf5-45af-9c0f-743e5ebf8984/f929719291db3722f5d8881d2469bbe0.png" />
+        <meta property="og:image" content="https://seminuevosbaja.com.mx/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://horizons-cdn.hostinger.com/6224f76d-ecf5-45af-9c0f-743e5ebf8984/f929719291db3722f5d8881d2469bbe0.png" />
+        <meta name="twitter:image" content="https://seminuevosbaja.com.mx/og-image.png" />
       </Helmet>
 
       <div className="bg-brand-blue text-white">

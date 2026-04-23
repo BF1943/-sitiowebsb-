@@ -56,7 +56,7 @@ function HeaderComponent() {
   const navigate = useNavigate();
   const { siteName } = useContext(SiteContext);
   const { isInHorizonsEditor } = useHorizonsEditor();
-  const logoUrl = "https://horizons-cdn.hostinger.com/6224f76d-ecf5-45af-9c0f-743e5ebf8984/b4d3b845b40978d0e126afc9d55daac7.png";
+  const logoUrl = "/logo.png";
 
   useEffect(() => {
     if (isMenuOpen) {
