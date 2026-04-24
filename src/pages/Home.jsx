@@ -487,18 +487,34 @@ export default function Home() {
 
       <section className="relative flex min-h-screen items-center justify-center overflow-hidden text-center text-white">
         <div className="absolute inset-0 z-0">
-          <img
-            className="h-full w-full object-cover"
-            alt="Seminuevos Ensenada — lote de autos seminuevos nacionales en agencia Seminuevos Baja"
-            src="https://images.unsplash.com/photo-1473165816037-490771a08a44?w=1200&q=75&auto=format"
-            srcSet="
-              https://images.unsplash.com/photo-1473165816037-490771a08a44?w=640&q=70&auto=format 640w,
-              https://images.unsplash.com/photo-1473165816037-490771a08a44?w=1200&q=75&auto=format 1200w,
-              https://images.unsplash.com/photo-1473165816037-490771a08a44?w=1920&q=80&auto=format 1920w
-            "
-            sizes="100vw"
-            fetchPriority="high"
-          />
+          <picture>
+            <source
+              media="(max-width: 640px)"
+              type="image/webp"
+              srcSet="/hero-seminuevos-mobile-750.webp 750w, /hero-seminuevos-mobile-900.webp 900w"
+              sizes="100vw"
+            />
+            <source
+              media="(max-width: 640px)"
+              srcSet="/hero-seminuevos-mobile-900.jpg"
+            />
+            <source
+              type="image/webp"
+              srcSet="/hero-seminuevos-1280.webp 1280w, /hero-seminuevos-1920.webp 1920w"
+              sizes="100vw"
+            />
+            <img
+              className="h-full w-full object-cover object-center"
+              alt="Seminuevos Ensenada | BMW 5 Series y Porsche Panamera en exhibición, autos seminuevos nacionales en Seminuevos Baja"
+              src="/hero-seminuevos-1280.jpg"
+              srcSet="/hero-seminuevos-1280.jpg 1280w, /hero-seminuevos-1920.jpg 1920w"
+              sizes="100vw"
+              width="1920"
+              height="1080"
+              fetchPriority="high"
+              decoding="async"
+            />
+          </picture>
           <div className="hero-gradient absolute inset-0" />
         </div>
 
@@ -509,7 +525,7 @@ export default function Home() {
             transition={{ duration: 0.8 }}
           >
             <h1 className="mb-6 text-4xl font-bold text-white md:text-6xl">
-              Seminuevos Ensenada — Autos nacionales con garantía
+              Seminuevos Ensenada | Autos nacionales con garantía
             </h1>
 
             <p className="mx-auto mb-8 max-w-3xl text-xl font-bold text-gray-300 md:text-2xl">

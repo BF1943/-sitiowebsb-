@@ -1,5 +1,5 @@
 const DEFAULT_OG_IMAGE =
-  'https://images.unsplash.com/photo-1473165816037-490771a08a44?w=1200&q=75&auto=format';
+  'https://seminuevosbaja.com.mx/hero-seminuevos-1280.jpg';
 
 export const seoConfig = {
   home: {
