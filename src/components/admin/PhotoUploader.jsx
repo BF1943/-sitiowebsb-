@@ -45,7 +45,7 @@ export default function PhotoUploader({ car, supabase, onUpdate, onRefresh }) {
         const fileName = `inventario/${car.id}-${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`;
         
         const { error: uploadError } = await supabase.storage
-          .from('fotos-interesados-venta')
+          .from('autos-inventario')
           .upload(fileName, file, { cacheControl: '3600', upsert: false });
 
         if (uploadError) {
@@ -54,7 +54,7 @@ export default function PhotoUploader({ car, supabase, onUpdate, onRefresh }) {
         }
 
         const { data: { publicUrl } } = supabase.storage
-          .from('fotos-interesados-venta')
+          .from('autos-inventario')
           .getPublicUrl(fileName);
 
         const validatedUrl = await getImageUrl(publicUrl, supabase);

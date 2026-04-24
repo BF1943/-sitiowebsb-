@@ -1,7 +1,9 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { ShieldAlert, LogOut } from 'lucide-react';
+import { ShieldAlert, LogOut, Car, Camera } from 'lucide-react';
 import AdminPhotoManager from '@/components/admin/AdminPhotoManager';
+import AdminCarEditor from '@/components/admin/AdminCarEditor';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/hooks/useAuth';
 
@@ -24,9 +26,9 @@ export default function AdminPage() {
                 <ShieldAlert className="w-8 h-8 text-amber-500" />
               </div>
               <div>
-                <h1 className="text-3xl font-bold text-gray-900 tracking-tight">Gestor de Fotos de Autos</h1>
+                <h1 className="text-3xl font-bold text-gray-900 tracking-tight">Panel de administración</h1>
                 <p className="mt-1 text-sm text-gray-500">
-                  Administra las galerías de imágenes del inventario de vehículos.
+                  Gestiona autos y fotografías del inventario.
                 </p>
               </div>
             </div>
@@ -43,7 +45,22 @@ export default function AdminPage() {
             </div>
           </div>
 
-          <AdminPhotoManager />
+          <Tabs defaultValue="cars" className="w-full">
+            <TabsList className="grid w-full max-w-md grid-cols-2 mb-6">
+              <TabsTrigger value="cars">
+                <Car className="w-4 h-4 mr-2" /> Editor de autos
+              </TabsTrigger>
+              <TabsTrigger value="photos">
+                <Camera className="w-4 h-4 mr-2" /> Gestor de fotos
+              </TabsTrigger>
+            </TabsList>
+            <TabsContent value="cars">
+              <AdminCarEditor />
+            </TabsContent>
+            <TabsContent value="photos">
+              <AdminPhotoManager />
+            </TabsContent>
+          </Tabs>
 
         </div>
       </div>
