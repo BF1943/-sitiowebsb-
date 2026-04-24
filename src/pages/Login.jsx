@@ -105,7 +105,7 @@ export default function Login() {
                   placeholder="tu-email@example.com"
                   required
                   autoFocus
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none"
+                  className="w-full px-4 py-3 !bg-white !text-gray-900 border border-gray-300 rounded-lg placeholder:!text-gray-400 focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none"
                 />
               </div>
               <Button type="submit" disabled={sending} className="w-full bg-brand-blue hover:bg-blue-800 text-white">
