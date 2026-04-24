@@ -519,8 +519,15 @@ async function prerender() {
 
         finalHtml = ensureTitleTag(finalHtml, titleTag);
 
+        const heroPreloadTags =
+          route.path === '/'
+            ? '<link rel="preload" as="image" fetchpriority="high" type="image/webp" media="(max-width: 640px)" imagesrcset="/hero-seminuevos-mobile-750.webp 750w, /hero-seminuevos-mobile-900.webp 900w" imagesizes="100vw">' +
+              '<link rel="preload" as="image" fetchpriority="high" type="image/webp" media="(min-width: 641px)" imagesrcset="/hero-seminuevos-1280.webp 1280w, /hero-seminuevos-1920.webp 1920w" imagesizes="100vw">'
+            : '';
+
         const headTags = [
           helmetPriority,
+          heroPreloadTags,
           helmetMeta,
           extraTags,
           helmetLink,
