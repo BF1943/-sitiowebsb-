@@ -134,7 +134,7 @@ export default function CarImageGallery({ imageUrl, altText }) {
               className="h-full w-full object-cover"
               loading={safeIndex === 0 ? 'eager' : 'lazy'}
               decoding="async"
-              onLoad={(e) => handleLoad(e.currentTarget.currentSrc || currentUrl)}
+              onLoad={() => handleLoad(currentUrl)}
               onError={(e) => {
                 handleError(currentUrl);
                 e.currentTarget.onerror = null;
