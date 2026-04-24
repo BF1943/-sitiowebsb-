@@ -331,7 +331,7 @@ export default function AdminCarEditor() {
               name="transmisión"
               value={form['transmisión']}
               onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none"
+              className="w-full px-3 py-2 bg-white text-gray-900 border border-gray-300 rounded-lg placeholder:text-gray-400 focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none"
             >
               <option value="Automática">Automática</option>
               <option value="Manual">Manual</option>
@@ -463,7 +463,7 @@ function Field({ label, name, type = 'text', value, onChange, placeholder, requi
         required={required}
         min={min}
         max={max}
-        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none"
+        className="w-full px-3 py-2 bg-white text-gray-900 border border-gray-300 rounded-lg placeholder:text-gray-400 focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none"
       />
     </div>
   );
