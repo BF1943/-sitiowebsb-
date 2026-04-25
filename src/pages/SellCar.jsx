@@ -22,9 +22,9 @@ const SellCar = () => {
   const { trackLeadInterest, trackWhatsAppClick } = useGoogleAnalytics();
 
   const pageTitle =
-    'Vende tu Auto en Ensenada | Avalúo Gratis y Pago Inmediato | Seminuevos Baja';
+    'Cotización de Mi Auto | Vende tu Auto en Ensenada';
   const pageDescription =
-    'Vende tu auto en Ensenada con avalúo gratis, oferta clara y pago inmediato. En Seminuevos Baja revisamos tu vehículo y te damos un precio real de mercado.';
+    'Vende tu auto usado en Ensenada con cotización profesional, oferta clara y opción de pago inmediato en Seminuevos Baja.';
   const pageSchema = {
     '@context': 'https://schema.org',
     '@type': 'AutoDealer',

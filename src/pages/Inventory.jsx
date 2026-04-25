@@ -200,6 +200,32 @@ export default function Inventory() {
     [filteredCars]
   );
 
+  const inventoryFaq = useMemo(
+    () => [
+      {
+        question: '¿Qué marcas de autos manejan en inventario?',
+        answer:
+          'Manejamos una amplia variedad de marcas incluyendo Toyota, Honda, Nissan, Ford, Chevrolet, Volkswagen, Mazda y Jeep. Nuestro stock se actualiza semanalmente con las mejores opciones del mercado en Ensenada.',
+      },
+      {
+        question: '¿Los autos tienen garantía?',
+        answer:
+          'Sí. Todas las unidades cuentan con respaldo. Según el modelo, pueden conservar la garantía de fábrica vigente o, al concluir esa garantía, entran en una póliza propia de garantía mecánica de 12 meses que cubre motor, transmisión y otros sistemas clave.',
+      },
+      {
+        question: '¿Cuáles son los requisitos para financiamiento?',
+        answer:
+          'Los requisitos básicos son identificación oficial vigente (INE o pasaporte), comprobante de domicilio reciente y comprobantes de ingresos de los últimos meses. Te orientamos durante todo el proceso para encontrar una opción de crédito acorde a tu perfil.',
+      },
+      {
+        question: '¿Puedo dar mi auto a cuenta?',
+        answer:
+          'Sí. Aceptamos tu auto actual como parte del pago mediante avalúo profesional. Descontamos el valor del avalúo del precio del seminuevo que elijas, manteniendo el proceso claro y transparente.',
+      },
+    ],
+    []
+  );
+
   const inventorySchema = useMemo(() => {
     const schemaCars = cars.slice(0, 24);
     const inventoryUrl = `${SITE_URL}/inventario`;
@@ -291,9 +317,20 @@ export default function Inventory() {
           '@id': `${inventoryUrl}#itemlist`,
           ...itemList,
         },
+        {
+          '@type': 'FAQPage',
+          mainEntity: inventoryFaq.map((item) => ({
+            '@type': 'Question',
+            name: item.question,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: item.answer,
+            },
+          })),
+        },
       ],
     };
-  }, [cars, siteName]);
+  }, [cars, siteName, inventoryFaq]);
 
   const handleInterest = useCallback(
     (e, car) => {

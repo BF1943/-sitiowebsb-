@@ -364,6 +364,15 @@ export default function CarDetailPage() {
             availability: 'https://schema.org/InStock',
             itemCondition: 'https://schema.org/UsedCondition',
             url: canonicalUrl,
+            warranty: {
+              '@type': 'WarrantyPromise',
+              durationOfWarranty: {
+                '@type': 'QuantitativeValue',
+                value: 12,
+                unitCode: 'MON',
+              },
+              warrantyScope: 'https://schema.org/PartsAndLaborWarranty',
+            },
             seller: {
               '@type': 'AutoDealer',
               name: siteName || 'Seminuevos Baja',

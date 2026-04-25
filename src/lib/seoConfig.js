@@ -3,9 +3,9 @@ const DEFAULT_OG_IMAGE =
 
 export const seoConfig = {
   home: {
-    title: 'Seminuevos Ensenada | Autos Nacionales con Garantía | Seminuevos Baja',
+    title: 'Seminuevos Ensenada | Autos Nacionales con Garantía',
     description:
-      'Seminuevos Ensenada con autos nacionales, garantía mecánica y opciones de financiamiento. Compra, vende o consigna tu auto con Seminuevos Baja.',
+      'Compra autos seminuevos nacionales en Ensenada con póliza de garantía mecánica de 12 meses, financiamiento y atención directa.',
     ogImage: DEFAULT_OG_IMAGE,
     ogImageAlt: 'Autos seminuevos nacionales en Ensenada',
     ogType: 'website',
@@ -13,9 +13,9 @@ export const seoConfig = {
   },
 
   inventory: {
-    title: 'Autos Seminuevos en Ensenada | Inventario | Seminuevos Baja',
+    title: 'Autos Seminuevos en Ensenada | Seminuevos Baja',
     description:
-      'Explora nuestro inventario de autos seminuevos en Ensenada: SUVs, sedanes y pickups nacionales con garantía mecánica, financiamiento y documentación en orden.',
+      'Explora autos seminuevos y usados en venta en Ensenada. Unidades nacionales con financiamiento y póliza de garantía mecánica de 12 meses.',
     ogImage: DEFAULT_OG_IMAGE,
     ogImageAlt: 'Inventario de autos seminuevos en Ensenada',
     ogType: 'website',
@@ -23,21 +23,21 @@ export const seoConfig = {
   },
 
   sellCar: {
-    title: 'Vende tu Auto en Ensenada | Avalúo Profesional | Seminuevos Baja',
+    title: 'Cotización de Mi Auto | Vende tu Auto en Ensenada',
     description:
-      'Vende tu auto en Ensenada con avalúo profesional, revisión ágil y oferta con precio real de mercado. Atención clara y proceso rápido en Seminuevos Baja.',
+      'Vende tu auto usado en Ensenada con cotización profesional, oferta clara y opción de pago inmediato en Seminuevos Baja.',
     ogImage: DEFAULT_OG_IMAGE,
-    ogImageAlt: 'Servicio para vender tu auto en Ensenada',
+    ogImageAlt: 'Cotización profesional para vender tu auto en Ensenada',
     ogType: 'website',
     canonical: '/vender',
   },
 
   consignCar: {
-    title: 'Consigna tu Auto en Ensenada | Mejor Precio | Seminuevos Baja',
+    title: 'Consigna tu Auto en Ensenada | Precio Justo de Mercado',
     description:
-      'Consigna tu auto en Ensenada con mayor exposición, atención profesional y acompañamiento durante la venta. Obtén una mejor oportunidad de precio con Seminuevos Baja.',
+      'Consigna tu auto en Ensenada y véndelo a un precio justo de mercado con apoyo profesional y atención a compradores reales.',
     ogImage: DEFAULT_OG_IMAGE,
-    ogImageAlt: 'Servicio de consignación de autos en Ensenada',
+    ogImageAlt: 'Consignación de autos en Ensenada con Seminuevos Baja',
     ogType: 'website',
     canonical: '/consigna',
   },
@@ -53,11 +53,11 @@ export const seoConfig = {
   },
 
   financing: {
-    title: 'Financiamiento de Autos en Ensenada | Seminuevos Baja',
+    title: 'Autos a Crédito en Ensenada | Financiamiento',
     description:
-      'Consulta opciones de financiamiento para autos seminuevos en Ensenada. Simula tu crédito, conoce enganches y revisa pagos mensuales con Seminuevos Baja.',
+      'Consulta autos seminuevos a crédito en Ensenada. Te orientamos según vehículo, enganche, plazo y perfil del comprador.',
     ogImage: DEFAULT_OG_IMAGE,
-    ogImageAlt: 'Financiamiento para autos seminuevos en Ensenada',
+    ogImageAlt: 'Autos a crédito y financiamiento en Ensenada',
     ogType: 'website',
     canonical: '/financiamiento',
   },

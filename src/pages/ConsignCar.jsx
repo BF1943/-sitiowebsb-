@@ -33,9 +33,9 @@ const ConsignCar = () => {
   const { trackLeadInterest, trackWhatsAppClick } = useGoogleAnalytics();
 
   const pageTitle =
-    'Consigna tu Auto en Ensenada | Mayor Exposición y Venta Segura | Seminuevos Baja';
+    'Consigna tu Auto en Ensenada | Precio Justo de Mercado';
   const pageDescription =
-    'Consigna tu auto en Ensenada con mayor exposición, filtro de interesados y acompañamiento profesional. En Seminuevos Baja te ayudamos a vender con más orden y menos riesgo.';
+    'Consigna tu auto en Ensenada y véndelo a un precio justo de mercado con apoyo profesional y atención a compradores reales.';
 
   const handleChatbotClick = () => {
     trackLeadInterest({

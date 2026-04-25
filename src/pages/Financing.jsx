@@ -34,9 +34,9 @@ export default function Financing() {
   }, [location]);
 
   const pageTitle =
-    'Financiamiento de Autos en Ensenada | Simula tu Crédito | Seminuevos Baja';
+    'Autos a Crédito en Ensenada | Financiamiento';
   const pageDescription =
-    'Simula tu crédito para autos seminuevos en Ensenada. Revisa enganche, plazo y mensualidad con opciones de financiamiento en Seminuevos Baja.';
+    'Consulta autos seminuevos a crédito en Ensenada. Te orientamos según vehículo, enganche, plazo y perfil del comprador.';
 
   const financingSchema = {
     '@context': 'https://schema.org',
@@ -137,7 +137,7 @@ export default function Financing() {
               transition={{ duration: 0.6 }}
               className="mb-6 text-4xl font-bold md:text-6xl"
             >
-              Financiamiento de <span className="text-amber-500">autos en Ensenada</span>
+              Autos a crédito <span className="text-amber-500">en Ensenada</span>
             </motion.h1>
 
             <motion.p
@@ -146,9 +146,9 @@ export default function Financing() {
               transition={{ delay: 0.2, duration: 0.6 }}
               className="mx-auto max-w-3xl text-xl font-medium text-gray-200"
             >
-              Simula tu crédito para comprar un auto seminuevo en Ensenada. Revisa
-              enganche, plazo y mensualidad con opciones de financiamiento en
-              Seminuevos Baja.
+              Consulta autos seminuevos a crédito en Ensenada. Te orientamos según
+              el vehículo, enganche, plazo y perfil del comprador para encontrar
+              una opción de financiamiento que funcione.
             </motion.p>
           </div>
         </section>

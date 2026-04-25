@@ -463,6 +463,22 @@ async function prerender() {
     }
 
     const template = fs.readFileSync(templatePath, 'utf-8');
+
+    if (!template.includes('<div id="root"></div>')) {
+      console.error(
+        '❌ dist/index.html está contaminado: no contiene el placeholder <div id="root"></div>.'
+      );
+      console.error(
+        '   Esto suele ocurrir al re-ejecutar `node prerender.js` sin un `vite build` previo,'
+      );
+      console.error(
+        '   porque la primera iteración del prerender sobrescribe el template original.'
+      );
+      console.error('   Ejecuta `npm run build` (o `rm -rf dist && npm run build`) y vuelve a intentarlo.');
+      process.exitCode = 1;
+      return;
+    }
+
     const { render } = await vite.ssrLoadModule('/src/entry-server.jsx');
 
     let cars = [];

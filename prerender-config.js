@@ -2,39 +2,39 @@
 export const routes = [
   {
     path: '/',
-    title: 'Seminuevos Ensenada | Autos Nacionales con Garantía | Seminuevos Baja',
+    title: 'Seminuevos Ensenada | Autos Nacionales con Garantía',
     description:
-      'Autos seminuevos nacionales en Ensenada con garantía mecánica y opciones de financiamiento. También compramos y consignamos tu auto con avalúo profesional.',
+      'Compra autos seminuevos nacionales en Ensenada con póliza de garantía mecánica de 12 meses, financiamiento y atención directa.',
   },
   {
     path: '/inventario',
-    title: 'Autos Seminuevos en Ensenada | Inventario | Seminuevos Baja',
+    title: 'Autos Seminuevos en Ensenada | Seminuevos Baja',
     description:
-      'Explora nuestro inventario de autos seminuevos en Ensenada. SUVs, sedanes y pickups nacionales con garantía mecánica y opciones de financiamiento.',
+      'Explora autos seminuevos y usados en venta en Ensenada. Unidades nacionales con financiamiento y póliza de garantía mecánica de 12 meses.',
   },
   {
     path: '/vender',
-    title: 'Vende tu Auto en Ensenada | Avalúo Profesional | Seminuevos Baja',
+    title: 'Cotización de Mi Auto | Vende tu Auto en Ensenada',
     description:
-      'Vende tu auto en Ensenada con Seminuevos Baja. Recibe un avalúo profesional y una oferta con precio real de mercado de forma rápida y clara.',
+      'Vende tu auto usado en Ensenada con cotización profesional, oferta clara y opción de pago inmediato en Seminuevos Baja.',
   },
   {
     path: '/consigna',
-    title: 'Consigna tu Auto en Ensenada | Obtén un Mejor Precio | Seminuevos Baja',
+    title: 'Consigna tu Auto en Ensenada | Precio Justo de Mercado',
     description:
-      'Consigna tu auto en Ensenada con respaldo profesional, mayor exposición y acompañamiento en el proceso de venta. Obtén un mejor precio con Seminuevos Baja.',
+      'Consigna tu auto en Ensenada y véndelo a un precio justo de mercado con apoyo profesional y atención a compradores reales.',
   },
   {
     path: '/consigna-desde-tijuana',
-    title: 'Consigna tu Auto desde Tijuana | Obtén un Mejor Precio | Seminuevos Baja',
+    title: 'Consigna tu Auto desde Tijuana | Mejor Precio | Seminuevos Baja',
     description:
-      'Si en Tijuana te ofrecen menos de lo esperado, consigna tu auto en Ensenada con Seminuevos Baja y accede a una mejor oportunidad de venta.',
+      'Si en Tijuana te ofrecen menos de lo esperado, consigna tu auto en Ensenada con Seminuevos Baja y obtén una mejor oportunidad de venta.',
   },
   {
     path: '/financiamiento',
-    title: 'Financiamiento de Autos en Ensenada | Seminuevos Baja',
+    title: 'Autos a Crédito en Ensenada | Financiamiento',
     description:
-      'Conoce nuestras opciones de financiamiento para autos seminuevos en Ensenada. Simula tu crédito, revisa enganches y pagos mensuales.',
+      'Consulta autos seminuevos a crédito en Ensenada. Te orientamos según vehículo, enganche, plazo y perfil del comprador.',
   },
   {
     path: '/gana-dinero',
@@ -133,5 +133,11 @@ export const routes = [
     title: 'Consignación de Autos Segura en Ensenada | Seminuevos Baja',
     description:
       'Descubre cómo funciona la consignación de autos en Ensenada y por qué puede ser una alternativa más segura y conveniente para vender tu vehículo.',
+  },
+  {
+    path: '/blog/vender-auto-tijuana-mejor-precio',
+    title: 'Cómo Vender tu Auto en Tijuana al Mejor Precio | Seminuevos Baja',
+    description:
+      'Si en Tijuana te ofrecen poco por tu auto, conoce cómo venderlo a un precio justo de mercado con consignación profesional en Seminuevos Baja.',
   },
 ];
