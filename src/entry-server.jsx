@@ -3,7 +3,7 @@ import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom/server';
 import { HelmetProvider } from 'react-helmet-async';
 import { SiteProvider } from './context/SiteContext.jsx';
-import App from './App.jsx';
+import App from './AppServer.jsx';
 
 function escapeJsonForHtml(value) {
   return JSON.stringify(value ?? null)
