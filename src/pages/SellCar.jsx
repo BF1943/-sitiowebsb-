@@ -10,6 +10,7 @@ import ValuationSection from '@/components/sell-car/ValuationSection';
 import SellProcess from '@/components/sell-car/SellProcess';
 import SEOContent from '@/components/sell-car/SEOContent';
 import Testimonials from '@/components/sell-car/Testimonials';
+import SellCarFAQ, { sellCarFaqData } from '@/components/sell-car/SellCarFAQ';
 
 const BUSINESS_PHONE = '+526469778808';
 const WHATSAPP_NUMBER = '526461616696';
@@ -27,49 +28,64 @@ const SellCar = () => {
     'Vende tu auto usado en Ensenada con cotización profesional, oferta clara y opción de pago inmediato en Seminuevos Baja.';
   const pageSchema = {
     '@context': 'https://schema.org',
-    '@type': 'AutoDealer',
-    name: siteName || 'Seminuevos Baja',
-    alternateName: 'Seminuevos Ensenada',
-    url: PAGE_URL,
-    image: PAGE_IMAGE,
-    logo: PAGE_IMAGE,
-    description:
-      'Vende tu auto en Ensenada con avalúo gratis, oferta clara y pago inmediato en Seminuevos Baja.',
-    telephone: BUSINESS_PHONE,
-    priceRange: '$$',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: 'Calle Delante #200, Fracc. Costa Azul',
-      addressLocality: 'Ensenada',
-      addressRegion: 'Baja California',
-      postalCode: '22890',
-      addressCountry: 'MX'
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: '31.8667',
-      longitude: '-116.5964'
-    },
-    openingHoursSpecification: [
+    '@graph': [
       {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-        opens: '09:00',
-        closes: '17:00'
+        '@type': 'AutoDealer',
+        name: siteName || 'Seminuevos Baja',
+        alternateName: 'Seminuevos Ensenada',
+        url: PAGE_URL,
+        image: PAGE_IMAGE,
+        logo: PAGE_IMAGE,
+        description:
+          'Vende tu auto en Ensenada con cotización profesional, oferta clara y opción de pago inmediato en Seminuevos Baja.',
+        telephone: BUSINESS_PHONE,
+        priceRange: '$$',
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: 'Calle Delante #200, Fracc. Costa Azul',
+          addressLocality: 'Ensenada',
+          addressRegion: 'Baja California',
+          postalCode: '22890',
+          addressCountry: 'MX'
+        },
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: '31.8667',
+          longitude: '-116.5964'
+        },
+        openingHoursSpecification: [
+          {
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+            opens: '09:00',
+            closes: '17:00'
+          },
+          {
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: 'Saturday',
+            opens: '10:00',
+            closes: '15:00'
+          }
+        ],
+        areaServed: [
+          'Ensenada',
+          'Tijuana',
+          'Rosarito',
+          'San Quintín',
+          'Valle de Guadalupe'
+        ]
       },
       {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: 'Saturday',
-        opens: '10:00',
-        closes: '15:00'
+        '@type': 'FAQPage',
+        mainEntity: sellCarFaqData.map((item) => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: item.answer
+          }
+        }))
       }
-    ],
-    areaServed: [
-      'Ensenada',
-      'Tijuana',
-      'Rosarito',
-      'San Quintín',
-      'Valle de Guadalupe'
     ]
   };
 
@@ -115,6 +131,8 @@ const SellCar = () => {
         <SellProcess />
 
         <SEOContent onWhatsAppClick={handleWhatsAppClick} />
+
+        <SellCarFAQ />
 
         <Testimonials />
 

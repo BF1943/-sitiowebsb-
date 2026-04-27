@@ -6,6 +6,7 @@ import FinancingBenefits from '../components/financing/FinancingBenefits';
 import CreditCalculator from '../components/financing/CreditCalculator';
 import FinancingRequirements from '../components/financing/FinancingRequirements';
 import FinancingCTA from '../components/financing/FinancingCTA';
+import FinancingFAQ, { financingFaqData } from '@/components/financing/FinancingFAQ';
 import { PageSEO } from '@/hooks/useSEO';
 
 const PAGE_URL = 'https://seminuevosbaja.com.mx/financiamiento';
@@ -40,73 +41,88 @@ export default function Financing() {
 
   const financingSchema = {
     '@context': 'https://schema.org',
-    '@type': 'Service',
-    name: 'Financiamiento automotriz en Ensenada',
-    description: `Simula tu crédito automotriz con ${siteName}. Revisa enganche, plazo y mensualidad para comprar un auto seminuevo en Ensenada.`,
-    url: PAGE_URL,
-    serviceType: 'Vehicle Financing',
-    image: PAGE_IMAGE,
-    provider: {
-      '@type': 'AutoDealer',
-      name: siteName,
-      alternateName: 'Seminuevos Ensenada',
-      url: 'https://seminuevosbaja.com.mx',
-      image: PAGE_IMAGE,
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: 'Calle Delante #200, Fracc. Costa Azul',
-        addressLocality: 'Ensenada',
-        addressRegion: 'Baja California',
-        postalCode: '22890',
-        addressCountry: 'MX'
-      },
-      telephone: '+526469778808'
-    },
-    areaServed: [
+    '@graph': [
       {
-        '@type': 'City',
-        name: 'Ensenada'
-      },
-      {
-        '@type': 'State',
-        name: 'Baja California'
-      }
-    ],
-    offers: {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'MXN',
-      description: 'Simulación de crédito gratuita y sin compromiso',
-      availability: 'https://schema.org/InStock'
-    },
-    hasOfferCatalog: {
-      '@type': 'OfferCatalog',
-      name: 'Opciones de crédito automotriz',
-      itemListElement: [
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'FinancialProduct',
-            name: 'Crédito bancario tradicional',
-            description:
-              'Opción para perfiles con historial crediticio sólido y comprobantes de ingresos.'
-          }
+        '@type': 'Service',
+        name: 'Financiamiento automotriz en Ensenada',
+        description: `Simula tu crédito automotriz con ${siteName}. Revisa enganche, plazo y mensualidad para comprar un auto seminuevo en Ensenada.`,
+        url: PAGE_URL,
+        serviceType: 'Vehicle Financing',
+        image: PAGE_IMAGE,
+        provider: {
+          '@type': 'AutoDealer',
+          name: siteName,
+          alternateName: 'Seminuevos Ensenada',
+          url: 'https://seminuevosbaja.com.mx',
+          image: PAGE_IMAGE,
+          address: {
+            '@type': 'PostalAddress',
+            streetAddress: 'Calle Delante #200, Fracc. Costa Azul',
+            addressLocality: 'Ensenada',
+            addressRegion: 'Baja California',
+            postalCode: '22890',
+            addressCountry: 'MX'
+          },
+          telephone: '+526469778808'
         },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'FinancialProduct',
-            name: 'Crédito por financiera',
-            description:
-              'Opción con requisitos más flexibles para distintos perfiles de comprador.'
+        areaServed: [
+          {
+            '@type': 'City',
+            name: 'Ensenada'
+          },
+          {
+            '@type': 'State',
+            name: 'Baja California'
           }
+        ],
+        offers: {
+          '@type': 'Offer',
+          price: '0',
+          priceCurrency: 'MXN',
+          description: 'Simulación de crédito gratuita y sin compromiso',
+          availability: 'https://schema.org/InStock'
+        },
+        hasOfferCatalog: {
+          '@type': 'OfferCatalog',
+          name: 'Opciones de crédito automotriz',
+          itemListElement: [
+            {
+              '@type': 'Offer',
+              itemOffered: {
+                '@type': 'FinancialProduct',
+                name: 'Crédito bancario tradicional',
+                description:
+                  'Opción para perfiles con historial crediticio sólido y comprobantes de ingresos.'
+              }
+            },
+            {
+              '@type': 'Offer',
+              itemOffered: {
+                '@type': 'FinancialProduct',
+                name: 'Crédito por financiera',
+                description:
+                  'Opción con requisitos más flexibles para distintos perfiles de comprador.'
+              }
+            }
+          ]
+        },
+        serviceOutput: {
+          '@type': 'Thing',
+          name: 'Simulación de crédito automotriz'
         }
-      ]
-    },
-    serviceOutput: {
-      '@type': 'Thing',
-      name: 'Simulación de crédito automotriz'
-    }
+      },
+      {
+        '@type': 'FAQPage',
+        mainEntity: financingFaqData.map((item) => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: item.answer
+          }
+        }))
+      }
+    ]
   };
 
   return (
@@ -190,6 +206,8 @@ export default function Financing() {
             <FinancingRequirements />
           </div>
         </div>
+
+        <FinancingFAQ />
 
         <FinancingCTA />
       </div>
