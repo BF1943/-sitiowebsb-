@@ -1,16 +1,8 @@
-[build]
-    command = "npm run build"
-    publish = "dist"
-
-# Netlify Image CDN: permite optimizar bajo demanda imagenes que viven en el
-# bucket publico de Supabase Storage. El proyecto envuelve estas URLs con
-# /.netlify/images?url=...&w=...&q=... y Netlify las redimensiona, convierte a
-# webp/avif y cachea, sirviendolas optimizadas en cada peticion.
-[images]
-  remote_images = ["https://pxlmgbjzzfwjjfpfywmg.supabase.co/.*"]
-
-# SPA fallback configuration
-[[redirects]]
+[build]     
+    command = "npm run build"                                                                                                                                                         
+    publish = "dist"                                                                                                                                                                     
+  # SPA fallback configuration                                                                                                                                                        
+  [[redirects]]   
     from = "/*"
     to = "/index.html"
     status = 200

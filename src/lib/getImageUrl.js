@@ -1,35 +1,10 @@
 export const FALLBACK_IMAGE = '/fallback-car.jpg';
 
-// Netlify Image CDN: transforma imagenes remotas via /.netlify/images?url=...
-// Solo se aplica cuando se pide un tamano explicito (las pantallas del admin
-// piden la imagen sin opciones para verla en su resolucion original) y solo
-// en produccion (en localhost el endpoint /.netlify/images no existe, asi
-// que devolvemos la URL original para que el preview local funcione).
-function isLocalHost() {
-  if (typeof window === 'undefined') return false;
-  const h = window.location.hostname;
-  return h === 'localhost' || h === '127.0.0.1' || h.startsWith('192.168.');
-}
-
-function wrapWithNetlifyImageCDN(url, options) {
-  if (!options || !options.width) return url;
-  if (typeof url !== 'string' || !url.startsWith('http')) return url;
-  if (isLocalHost()) return url;
-
-  const params = new URLSearchParams();
-  params.set('url', url);
-  params.set('w', String(options.width));
-  params.set('q', String(options.quality ?? 75));
-  if (options.fit) params.set('fit', options.fit);
-
-  return `/.netlify/images?${params.toString()}`;
-}
-
-export const resolveImageUrlSync = (path, supabase, options) => {
+export const resolveImageUrlSync = (path, supabase) => {
   if (!path) return FALLBACK_IMAGE;
 
   if (typeof path === 'string' && (path.startsWith('http://') || path.startsWith('https://'))) {
-    return wrapWithNetlifyImageCDN(path, options);
+    return path;
   }
 
   try {
@@ -42,14 +17,13 @@ export const resolveImageUrlSync = (path, supabase, options) => {
     }
 
     const { data } = supabase.storage.from('autos-inventario').getPublicUrl(path);
-    const publicUrl = data?.publicUrl || FALLBACK_IMAGE;
-    return wrapWithNetlifyImageCDN(publicUrl, options);
+    return data?.publicUrl || FALLBACK_IMAGE;
   } catch (error) {
     console.error('Error generating public URL for image:', error);
     return FALLBACK_IMAGE;
   }
 };
 
-export const getImageUrl = async (path, supabase, options) => {
-  return resolveImageUrlSync(path, supabase, options);
+export const getImageUrl = async (path, supabase) => {
+  return resolveImageUrlSync(path, supabase);
 };
