@@ -13,7 +13,7 @@ function getInitialImage(fotoUrl, supabase) {
   if (!fotoUrl) return FALLBACK_IMAGE;
   const firstUrl =
     typeof fotoUrl === 'string' ? fotoUrl.split(',')[0].trim() : fotoUrl;
-  return resolveImageUrlSync(firstUrl, supabase);
+  return resolveImageUrlSync(firstUrl, supabase, { width: 600, quality: 75, fit: 'cover' });
 }
 
 function buildCarName(car) {
