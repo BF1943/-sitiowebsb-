@@ -519,11 +519,7 @@ export default function Home() {
         </div>
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
+          <div>
             <h1 className="mb-6 text-4xl font-bold text-white md:text-6xl">
               Seminuevos Ensenada | Autos nacionales con garantía
             </h1>
@@ -567,7 +563,7 @@ export default function Home() {
                 Conoce cómo funciona la consignación
               </Link>
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
