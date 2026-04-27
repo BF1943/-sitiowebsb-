@@ -15,13 +15,28 @@ function isLocalHost() {
   return h === 'localhost' || h === '127.0.0.1' || h.startsWith('192.168.');
 }
 
+function safeDecodeUrl(url) {
+  try {
+    return decodeURIComponent(url);
+  } catch {
+    return url;
+  }
+}
+
 function wrapWithNetlifyImageCDN(url, options) {
   if (!options || !options.width) return url;
   if (typeof url !== 'string' || !url.startsWith('http')) return url;
   if (isLocalHost()) return url;
 
+  // Las URLs publicas de Supabase llegan con espacios y caracteres
+  // especiales ya escapados (%20, %23, etc). URLSearchParams vuelve a
+  // escapar el % a %25, generando doble encoding (%2520) que Netlify
+  // pasa literal al storage y resulta en 400. Decodificamos primero
+  // para que params.set haga un encode unico y limpio.
+  const cleanUrl = safeDecodeUrl(url);
+
   const params = new URLSearchParams();
-  params.set('url', url);
+  params.set('url', cleanUrl);
   params.set('w', String(options.width));
   if (options.height) params.set('h', String(options.height));
   params.set('q', String(options.quality ?? 75));
