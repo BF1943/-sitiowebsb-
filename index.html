@@ -117,15 +117,22 @@
     }
   </script>
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZB4L2JNZE9"></script>
+  <!-- Google tag (gtag.js): la cola se inicializa de inmediato para no perder
+       eventos, pero el script remoto se difiere hasta despues del evento load
+       para que no compita con el LCP del home. Cuando gtag.js cargue, procesa
+       todos los eventos encolados en dataLayer. -->
+  <link rel="preconnect" href="https://www.googletagmanager.com">
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-    gtag('config', 'G-ZB4L2JNZE9');
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', 'G-ZB4L2JNZE9');
+    window.addEventListener('load', function loadGtag() {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZB4L2JNZE9';
+      document.head.appendChild(s);
+    }, { once: true });
   </script>
 
   <link rel="stylesheet" href="/src/index.css" />
