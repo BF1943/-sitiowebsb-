@@ -306,13 +306,48 @@ export default defineConfig({
 		},
 	},
 	build: {
+		modulePreload: {
+			// Evita precargar chunks que el home no usa en el primer paint.
+			// Supabase solo se carga cuando el usuario entra al inventario,
+			// hace login o accede al admin — no debe competir por ancho de
+			// banda en el LCP del home.
+			resolveDependencies(filename, deps) {
+				return deps.filter((dep) => !dep.includes('vendor-supabase'));
+			}
+		},
 		rollupOptions: {
 			external: [
 				'@babel/parser',
 				'@babel/traverse',
 				'@babel/generator',
 				'@babel/types'
-			]
+			],
+			output: {
+				// Code splitting por vendor para que el home no tenga que bajar
+				// 616 KB monolíticos. Cada chunk se cachea por separado y al
+				// navegar a otras rutas solo baja el chunk de la página.
+				manualChunks(id) {
+					if (!id.includes('node_modules')) return undefined;
+
+					const normalized = id.replace(/\\/g, '/');
+
+					if (normalized.includes('/@radix-ui/')) return 'vendor-radix';
+					if (normalized.includes('/@supabase/')) return 'vendor-supabase';
+					if (normalized.includes('/framer-motion/')) return 'vendor-motion';
+					if (normalized.includes('/lucide-react/')) return 'vendor-icons';
+					if (normalized.includes('/react-helmet-async/')) return 'vendor-helmet';
+					if (normalized.includes('/react-router')) return 'vendor-router';
+					if (
+						normalized.includes('/react-dom/') ||
+						normalized.includes('/react/') ||
+						normalized.includes('/scheduler/')
+					) {
+						return 'vendor-react';
+					}
+
+					return undefined;
+				}
+			}
 		}
 	}
 });
