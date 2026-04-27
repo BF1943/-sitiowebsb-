@@ -212,7 +212,7 @@ const AboutUs = () => {
                         <p className="text-xl text-gray-600 mb-10 font-medium">Ya sea que busques comprar, vender o consignar, Seminuevos Baja está aquí para ayudarte con el mejor servicio local.</p>
                         <div className="flex flex-col sm:flex-row justify-center gap-4">
                             <Button asChild size="lg" className="px-8 py-6 text-lg">
-                                <Link to="/inventario">Ver Inventario</Link>
+                                <Link to="/inventario">Ver autos seminuevos en Ensenada</Link>
                             </Button>
                             <Button asChild size="lg" variant="outline" className="px-8 py-6 text-lg border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white">
                                 <Link to="/vender">Vender mi Auto</Link>

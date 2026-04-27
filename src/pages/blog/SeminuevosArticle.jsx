@@ -238,7 +238,7 @@ export default function SeminuevosArticle() {
                   size="lg"
                   className="h-auto bg-brand-blue px-8 py-6 text-lg font-bold text-white shadow-xl transition-all hover:bg-blue-800 hover:shadow-2xl"
                 >
-                  <Link to="/inventario">Ver todos los autos disponibles</Link>
+                  <Link to="/inventario">Ver autos seminuevos en Ensenada</Link>
                 </Button>
 
                 <Button

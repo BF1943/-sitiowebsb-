@@ -608,7 +608,7 @@ export default function Home() {
                   size="lg"
                   className="border-amber-500 text-amber-600 hover:bg-amber-50 hover:text-amber-700"
                 >
-                  <Link to="/inventario">Ver autos seminuevos disponibles</Link>
+                  <Link to="/inventario">Ver autos seminuevos en Ensenada</Link>
                 </Button>
               </div>
             </TabsContent>
@@ -767,7 +767,7 @@ export default function Home() {
               size="lg"
               className="border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-gray-900"
             >
-              <Link to="/inventario">Ver todo el inventario</Link>
+              <Link to="/inventario">Ver autos seminuevos en Ensenada</Link>
             </Button>
           </div>
         </div>
@@ -877,7 +877,7 @@ export default function Home() {
 
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Button asChild size="lg">
-                <Link to="/inventario">Ver inventario</Link>
+                <Link to="/inventario">Ver autos seminuevos en Ensenada</Link>
               </Button>
 
               <Button
@@ -893,7 +893,7 @@ export default function Home() {
             <p className="mt-6 text-sm font-bold text-gray-300">
               ¿Quieres vender tu auto?{' '}
               <Link to="/vender" className="underline underline-offset-4 hover:text-white">
-                Inicia aquí
+                Cotización de mi auto
               </Link>
             </p>
           </motion.div>

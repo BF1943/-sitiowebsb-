@@ -159,7 +159,7 @@ export default function VenderAutoFinanciado() {
                   Cotizar mi Auto Hoy
                 </Button>
                 <Button asChild size="lg" variant="outline" className="bg-transparent border-2 border-white text-white hover:bg-white/10 font-bold px-8 py-6 rounded-xl transition-all">
-                  <Link to="/vender">Conoce el Proceso General</Link>
+                  <Link to="/vender">Cotización profesional para tu auto</Link>
                 </Button>
               </div>
             </motion.div>

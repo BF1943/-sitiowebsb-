@@ -477,9 +477,10 @@ export default function Blog() {
                       <div className="mt-auto">
                         <Link
                           to={post.url}
+                          aria-label={`Leer artículo: ${post.title}`}
                           className="inline-flex items-center space-x-2 font-bold text-amber-500 transition-colors hover:text-amber-400"
                         >
-                          <span>Leer más</span>
+                          <span>Leer artículo completo</span>
                           <ArrowRight className="h-4 w-4" />
                         </Link>
                       </div>

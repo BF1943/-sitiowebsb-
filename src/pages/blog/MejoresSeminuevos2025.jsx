@@ -199,7 +199,7 @@ export default function MejoresSeminuevos2025() {
             <p className="text-lg text-gray-300 mb-6 font-bold">En Seminuevos Baja, contamos con unidades seleccionadas y verificadas para darte la máxima confianza.</p>
             <div className="flex justify-center gap-4 mb-8 flex-wrap">
               <Button asChild size="lg">
-                <Link to="/inventario">Ver Inventario</Link>
+                <Link to="/inventario">Ver autos seminuevos en Ensenada</Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-brand-blue">
                 <Link to="/contacto">Contáctanos</Link>
