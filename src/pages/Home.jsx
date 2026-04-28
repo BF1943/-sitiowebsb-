@@ -27,7 +27,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { useGoogleAnalytics } from '@/hooks/useGoogleAnalytics';
-import { getImageUrl, FALLBACK_IMAGE } from '@/lib/getImageUrl.js';
+import { getImageUrl, FALLBACK_IMAGE, resolveImageUrlSync } from '@/lib/getImageUrl.js';
 import { generateCarSlug } from '@/lib/generateCarSlug';
 import { PageSEO } from '@/hooks/useSEO';
 
@@ -655,7 +655,19 @@ export default function Home() {
             </div>
           ) : featuredCars.length > 0 ? (
             <div className="mb-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              {featuredCars.map((car, index) => (
+              {featuredCars.map((car, index) => {
+                const firstUrl =
+                  typeof car.foto_url === 'string'
+                    ? car.foto_url.split(',')[0].trim()
+                    : car.foto_url;
+                const imgSrc = resolveImageUrlSync(firstUrl, supabase, {
+                  width: 600,
+                  height: 600,
+                  quality: 75,
+                  fit: 'cover',
+                });
+
+                return (
                 <motion.article
                   key={car.id}
                   initial={{ opacity: 0, y: 20 }}
@@ -668,11 +680,11 @@ export default function Home() {
                       <img
                         className="h-full w-full object-cover transition-transform duration-700 hover:scale-110"
                         alt={getFeaturedCarAlt(car)}
-                        src={car.foto_url}
+                        src={imgSrc || FALLBACK_IMAGE}
                         loading="lazy"
                         decoding="async"
-                        width="400"
-                        height="300"
+                        width="600"
+                        height="600"
                       />
                     </div>
                   </Link>
@@ -741,7 +753,8 @@ export default function Home() {
                     </div>
                   </div>
                 </motion.article>
-              ))}
+                );
+              })}
             </div>
           ) : (
             <div className="py-10 text-center text-white">
