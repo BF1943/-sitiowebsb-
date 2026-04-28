@@ -2,7 +2,7 @@ import React, { createContext } from 'react';
 import { supabase } from '../lib/supabase.js';
 
 const siteSettings = Object.freeze({
-  logoUrl: '/logo-seminuevos-baja.png',
+  logoUrl: '/logo.png',
   siteName: 'Seminuevos Baja',
   supabase,
 });

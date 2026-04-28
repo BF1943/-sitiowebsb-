@@ -134,10 +134,4 @@ export const routes = [
     description:
       'Descubre cómo funciona la consignación de autos en Ensenada y por qué puede ser una alternativa más segura y conveniente para vender tu vehículo.',
   },
-  {
-    path: '/blog/vender-auto-tijuana-mejor-precio',
-    title: 'Cómo Vender tu Auto en Tijuana al Mejor Precio | Seminuevos Baja',
-    description:
-      'Si en Tijuana te ofrecen poco por tu auto, conoce cómo venderlo a un precio justo de mercado con consignación profesional en Seminuevos Baja.',
-  },
 ];

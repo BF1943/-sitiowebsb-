@@ -20,7 +20,7 @@ const env = typeof process !== 'undefined' ? process.env : {};
 
 const SUPABASE_URL =
   env.VITE_SUPABASE_URL ||
-  'https://pxlmgbjzzwjfjpfywmq.supabase.co';
+  'https://pxlmgbjzzfwjjfpfywmg.supabase.co';
 
 const SUPABASE_ANON_KEY =
   env.VITE_SUPABASE_ANON_KEY ||

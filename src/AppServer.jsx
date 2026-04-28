@@ -34,7 +34,6 @@ import VentaCarrosEnsenadaBlog from './pages/blog/VentaCarrosEnsenadaBlog.jsx';
 import SeminuevosArticle from './pages/blog/SeminuevosArticle.jsx';
 import VenderAutoFinanciado from './pages/blog/VenderAutoFinanciado.jsx';
 import ConsignacionAutosSegura from './pages/blog/ConsignacionAutosSegura.jsx';
-import VenderAutoTijuana from './pages/blog/VenderAutoTijuana.jsx';
 
 // Keep only genuinely non-prerendered / backoffice routes lazy
 const AdminPage = React.lazy(() => import('./pages/AdminPage.jsx'));
@@ -155,10 +154,6 @@ function App() {
               <Route
                 path="/blog/consignacion-autos-segura"
                 element={<Layout><ConsignacionAutosSegura /></Layout>}
-              />
-              <Route
-                path="/blog/vender-auto-tijuana-mejor-precio"
-                element={<Layout><VenderAutoTijuana /></Layout>}
               />
             </Routes>
           </ErrorBoundary>

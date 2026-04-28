@@ -38,7 +38,6 @@ const VentaCarrosEnsenadaBlog = React.lazy(() => import('./pages/blog/VentaCarro
 const SeminuevosArticle = React.lazy(() => import('./pages/blog/SeminuevosArticle.jsx'));
 const VenderAutoFinanciado = React.lazy(() => import('./pages/blog/VenderAutoFinanciado.jsx'));
 const ConsignacionAutosSegura = React.lazy(() => import('./pages/blog/ConsignacionAutosSegura.jsx'));
-const VenderAutoTijuana = React.lazy(() => import('./pages/blog/VenderAutoTijuana.jsx'));
 
 const AdminPage = React.lazy(() => import('./pages/AdminPage.jsx'));
 const Login = React.lazy(() => import('./pages/Login.jsx'));
@@ -150,10 +149,6 @@ function App() {
                 <Route
                   path="/blog/consignacion-autos-segura"
                   element={<Layout><ConsignacionAutosSegura /></Layout>}
-                />
-                <Route
-                  path="/blog/vender-auto-tijuana-mejor-precio"
-                  element={<Layout><VenderAutoTijuana /></Layout>}
                 />
               </Routes>
             </Suspense>
