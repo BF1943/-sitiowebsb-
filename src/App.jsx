@@ -1,6 +1,5 @@
 import React, { Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import { Toaster } from './components/ui/toaster';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -68,15 +67,6 @@ function App() {
   return (
     <>
       <ScrollToTop />
-
-      <Helmet>
-        <link
-          rel="preconnect"
-          href="https://images.unsplash.com"
-          crossOrigin="anonymous"
-        />
-        <link rel="dns-prefetch" href="https://images.unsplash.com" />
-      </Helmet>
 
       <AuthProvider>
         <div className="min-h-screen bg-brand-blue">

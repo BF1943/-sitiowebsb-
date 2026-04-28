@@ -206,6 +206,26 @@ function appendToBody(html, bodyContent) {
   return html.replace('</body>', `${bodyContent}</body>`);
 }
 
+// Vite emite el <script type="module"> antes del <link rel="stylesheet">,
+// lo que hace que el preload scanner del navegador descubra el JS primero
+// y el CSS quede en cadena. El CSS bloquea el render, así que lo movemos
+// arriba para que ambos recursos se descarguen en paralelo desde el inicio.
+function reorderStylesheetBeforeScript(html) {
+  const stylesheetMatch = html.match(/<link\s+rel="stylesheet"[^>]*>/i);
+  const scriptMatch = html.match(/<script[^>]*type="module"[^>]*><\/script>/i);
+
+  if (!stylesheetMatch || !scriptMatch) return html;
+
+  const stylesheetIdx = html.indexOf(stylesheetMatch[0]);
+  const scriptIdx = html.indexOf(scriptMatch[0]);
+
+  if (stylesheetIdx < scriptIdx) return html;
+
+  return html
+    .replace(stylesheetMatch[0], '')
+    .replace(scriptMatch[0], `${stylesheetMatch[0]}${scriptMatch[0]}`);
+}
+
 function hasTag(content, pattern) {
   return pattern.test(content || '');
 }
@@ -462,7 +482,8 @@ async function prerender() {
       return;
     }
 
-    const template = fs.readFileSync(templatePath, 'utf-8');
+    const rawTemplate = fs.readFileSync(templatePath, 'utf-8');
+    const template = reorderStylesheetBeforeScript(rawTemplate);
 
     if (!template.includes('<div id="root"></div>')) {
       console.error(
