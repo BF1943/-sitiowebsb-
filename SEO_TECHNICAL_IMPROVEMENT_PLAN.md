@@ -29,7 +29,7 @@ Este plan resume los hallazgos principales de la auditoria tecnica. La regla de 
    - Archivos probables: `src/App.jsx`, providers globales, imports de librerias compartidas.
    - Objetivo: reducir JavaScript inicial para mejorar carga movil, TBT e interactividad.
    - Riesgo: medio. Requiere cambios graduales y pruebas.
-   - Estado: pendiente.
+   - Estado: completado.
 
 ## Prioridad media
 

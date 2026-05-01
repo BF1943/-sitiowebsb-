@@ -1,12 +1,11 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { SiteContext } from '@/context/SiteContext';
+import React, { useState, useEffect } from 'react';
+import { supabase } from '@/lib/supabase';
 import { Loader2, Car, ChevronDown } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 import PhotoGallery from './PhotoGallery';
 import PhotoUploader from './PhotoUploader';
 
 export default function AdminPhotoManager() {
-  const { supabase } = useContext(SiteContext);
   const [cars, setCars] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedCarId, setSelectedCarId] = useState('');

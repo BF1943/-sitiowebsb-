@@ -10,6 +10,7 @@ import React, {
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { SiteContext } from '@/context/SiteContext';
+import { supabase } from '@/lib/supabase';
 import { Loader2, ArrowLeft, AlertTriangle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { formatNumber } from '@/lib/utils';
@@ -88,7 +89,7 @@ function getInitialPrerenderCar(currentSlug) {
 export default function CarDetailPage() {
   const { slug } = useParams();
   const navigate = useNavigate();
-  const { siteName, supabase } = useContext(SiteContext);
+  const { siteName } = useContext(SiteContext);
   const { trackLeadInterest, trackEvent } = useGoogleAnalytics();
 
   // Use ref to store initial prerender car (only read once)

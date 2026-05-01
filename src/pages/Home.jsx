@@ -240,7 +240,7 @@ const SellingOptionCard = ({ title, benefits, buttonLink, buttonText, index }) =
 );
 
 export default function Home() {
-  const { siteName, supabase } = useContext(SiteContext);
+  const { siteName } = useContext(SiteContext);
   const initialPrerenderFeaturedCars = useMemo(
     () => getInitialPrerenderFeaturedCars(),
     []
@@ -281,7 +281,9 @@ export default function Home() {
     }
 
     const fetchFeaturedCars = async () => {
-      if (!supabase) {
+      const { supabase: supabaseClient } = await import('@/lib/supabase');
+
+      if (!supabaseClient) {
         if (isMounted) {
           setLoadingState(false);
         }
@@ -291,7 +293,7 @@ export default function Home() {
       try {
         setLoadingState(true);
 
-        let { data: cars, error } = await supabase
+        let { data: cars, error } = await supabaseClient
           .from('fotos_de_autos')
           .select('*')
           .eq('destacado', true)
@@ -303,7 +305,7 @@ export default function Home() {
         }
 
         if (!cars || cars.length === 0) {
-          const fallbackResult = await supabase
+          const fallbackResult = await supabaseClient
             .from('fotos_de_autos')
             .select('*')
             .order('created_at', { ascending: false })
@@ -322,7 +324,7 @@ export default function Home() {
           (cars || []).map(async (rawCar) => {
             const normalizedCar = normalizeFeaturedCar(rawCar);
             const firstUrl = getFirstImageUrl(normalizedCar.foto_url);
-            const resolvedUrl = await getImageUrl(firstUrl, supabase);
+            const resolvedUrl = await getImageUrl(firstUrl, supabaseClient);
 
             return {
               ...normalizedCar,
@@ -354,7 +356,7 @@ export default function Home() {
     return () => {
       isMounted = false;
     };
-  }, [supabase, toast, initialPrerenderFeaturedCars.length]);
+  }, [toast, initialPrerenderFeaturedCars.length]);
 
   const homeSchema = useMemo(() => {
     return {
@@ -511,7 +513,6 @@ export default function Home() {
               sizes="100vw"
               width="1920"
               height="1080"
-              fetchpriority="high"
               decoding="async"
             />
           </picture>
@@ -660,7 +661,7 @@ export default function Home() {
                   typeof car.foto_url === 'string'
                     ? car.foto_url.split(',')[0].trim()
                     : car.foto_url;
-                const imgSrc = resolveImageUrlSync(firstUrl, supabase, {
+                const imgSrc = resolveImageUrlSync(firstUrl, null, {
                   width: 600,
                   height: 600,
                   quality: 75,

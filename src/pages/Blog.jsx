@@ -325,7 +325,6 @@ export default function Blog() {
                     alt="Fotografía profesional de auto seminuevo en carretera de Baja California"
                     src={featuredPost.image}
                     loading="eager"
-                    fetchpriority="high"
                   />
                 </div>
               </div>

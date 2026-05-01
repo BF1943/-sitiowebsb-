@@ -39,10 +39,25 @@ const SeminuevosArticle = React.lazy(() => import('./pages/blog/SeminuevosArticl
 const VenderAutoFinanciado = React.lazy(() => import('./pages/blog/VenderAutoFinanciado.jsx'));
 const ConsignacionAutosSegura = React.lazy(() => import('./pages/blog/ConsignacionAutosSegura.jsx'));
 
-const AdminPage = React.lazy(() => import('./pages/AdminPage.jsx'));
 const Login = React.lazy(() => import('./pages/Login.jsx'));
+const AdminRoute = React.lazy(async () => {
+  const [{ default: RequireAuth }, { default: AdminPage }] = await Promise.all([
+    import('./components/RequireAuth.jsx'),
+    import('./pages/AdminPage.jsx'),
+  ]);
 
-import RequireAuth from './components/RequireAuth';
+  return {
+    default: function LazyAdminRoute() {
+      return (
+        <RequireAuth requireAdmin>
+          <Layout>
+            <AdminPage />
+          </Layout>
+        </RequireAuth>
+      );
+    },
+  };
+});
 
 const LoadingFallback = () => (
   <div className="flex min-h-screen items-center justify-center bg-brand-blue">
@@ -97,13 +112,7 @@ function App() {
 
                 <Route
                   path="/admin"
-                  element={
-                    <RequireAuth requireAdmin>
-                      <Layout>
-                        <AdminPage />
-                      </Layout>
-                    </RequireAuth>
-                  }
+                  element={<AdminRoute />}
                 />
 
                 <Route

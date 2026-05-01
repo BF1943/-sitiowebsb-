@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useContext, useMemo } from 'react';
-import { SiteContext } from '@/context/SiteContext';
+import React, { useState, useEffect, useMemo } from 'react';
+import { supabase } from '@/lib/supabase';
 import { Loader2, Save, Trash2, Plus, Car, AlertTriangle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/components/ui/use-toast';
@@ -44,7 +44,6 @@ function sanitizeFileName(name) {
 }
 
 export default function AdminCarEditor() {
-  const { supabase } = useContext(SiteContext);
   const { toast } = useToast();
   const [cars, setCars] = useState([]);
   const [loadingCars, setLoadingCars] = useState(true);

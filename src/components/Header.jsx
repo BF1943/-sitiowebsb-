@@ -1,10 +1,9 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ChevronDown, Shield } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from './ui/button';
 import { SiteContext } from '../context/SiteContext.jsx';
-import { useAuth } from '../hooks/useAuth';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -53,9 +52,7 @@ const MobileNavLink = ({ href, children, currentPath, onClick }) => (
 function HeaderComponent() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
   const { siteName } = useContext(SiteContext);
-  const { isAdmin } = useAuth();
   const logoUrl = "/logo.png";
 
   useEffect(() => {
@@ -71,11 +68,6 @@ function HeaderComponent() {
 
   const closeMenu = () => setIsMenuOpen(false);
 
-  const handleAdminNavigate = () => {
-    closeMenu();
-    navigate('/admin');
-  };
-
   return (
     <header className="bg-brand-blue/80 border-b border-white/10 sticky top-0 z-50 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -88,7 +80,6 @@ function HeaderComponent() {
                 className="h-14 w-auto"
                 width="200"
                 height="56"
-                fetchpriority="high"
               />
               <span className="text-white font-bold text-xl hidden sm:inline">{siteName}</span>
             </Link>
@@ -119,15 +110,6 @@ function HeaderComponent() {
               )
             ))}
 
-            {isAdmin && (
-              <button
-                onClick={handleAdminNavigate}
-                className="text-gray-400 hover:text-amber-500 transition-colors bg-transparent border-none p-0 cursor-pointer focus:outline-none flex items-center"
-                title="Panel Admin"
-              >
-                <Shield className="w-5 h-5" />
-              </button>
-            )}
           </div>
 
           <div className="hidden md:block">
@@ -137,15 +119,6 @@ function HeaderComponent() {
           </div>
 
           <div className="md:hidden flex items-center gap-4">
-            {isAdmin && (
-              <button
-                onClick={handleAdminNavigate}
-                className="text-gray-400 hover:text-amber-500 transition-colors bg-transparent border-none p-0 cursor-pointer focus:outline-none"
-                title="Panel Admin"
-              >
-                <Shield className="w-5 h-5" />
-              </button>
-            )}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-300 hover:text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-amber-500"

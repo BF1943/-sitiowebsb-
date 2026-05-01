@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext, useMemo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SiteContext } from '@/context/SiteContext';
+import { supabase } from '@/lib/supabase';
 import { Loader2, Search, FilterX, AlertTriangle, Flame } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -87,7 +88,7 @@ function getInitialPrerenderCars() {
 }
 
 export default function Inventory() {
-  const { siteName, supabase } = useContext(SiteContext);
+  const { siteName } = useContext(SiteContext);
   const initialPrerenderCars = useMemo(() => getInitialPrerenderCars(), []);
   const [cars, setCars] = useState(initialPrerenderCars);
   const [loading, setLoading] = useState(initialPrerenderCars.length === 0);
