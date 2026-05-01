@@ -10,14 +10,6 @@ const EarnMoney = () => {
   const ctaLink = "https://conectaseminuevos.com";
   const videoId = "Dm5ENrpycxQ"; 
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 },
-    },
-  };
-
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
     visible: {
@@ -86,28 +78,23 @@ const EarnMoney = () => {
 
       <div className="bg-brand-blue text-white">
         {/* Hero Section */}
-        <motion.section 
+        <section
           className="min-h-[70vh] flex items-center justify-center text-center bg-white py-20 px-4"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
         >
           <div className="max-w-4xl">
-            <motion.h1 
+            <h1
               className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 text-brand-gray-title leading-tight"
-              variants={itemVariants}
             >
               La mejor forma de <span className="text-amber-500 block sm:inline">ganar dinero por internet</span> en México
-            </motion.h1>
+            </h1>
             
-            <motion.p 
+            <p
               className="text-lg md:text-xl text-gray-600 font-medium mb-8 max-w-3xl mx-auto"
-              variants={itemVariants}
             >
               Transforma tus contactos en ingresos reales. Utiliza nuestra plataforma potenciada por <span className="font-bold text-amber-600">inteligencia artificial</span> para conectar compradores y vendedores de autos, y gana comisiones desde tu celular.
-            </motion.p>
+            </p>
             
-            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 asChild
                 className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-white font-bold text-lg py-6 px-8 rounded-lg shadow-xl shadow-amber-500/20 transition-all transform hover:-translate-y-1"
@@ -116,14 +103,14 @@ const EarnMoney = () => {
                   Empezar a ganar ahora
                 </a>
               </Button>
-            </motion.div>
+            </div>
           </div>
-        </motion.section>
+        </section>
 
         {/* Benefits Section */}
         <motion.section 
           className="py-16 md:py-24 bg-gray-50 text-gray-900"
-          initial={{ opacity: 0 }}
+          initial={false}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
@@ -154,7 +141,7 @@ const EarnMoney = () => {
         {/* Video Section */}
         <motion.section 
           className="py-16 md:py-24 text-center bg-white text-gray-900"
-          initial={{ opacity: 0 }}
+          initial={false}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
@@ -179,7 +166,7 @@ const EarnMoney = () => {
         {/* Toolkit Section */}
         <motion.section 
           className="py-16 md:py-24 bg-brand-blue text-white"
-          initial={{ opacity: 0 }}
+          initial={false}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
@@ -213,7 +200,7 @@ const EarnMoney = () => {
         {/* Testimonials Section */}
         <motion.section 
           className="py-16 md:py-24 bg-gray-50 text-gray-900"
-          initial={{ opacity: 0 }}
+          initial={false}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
@@ -244,7 +231,7 @@ const EarnMoney = () => {
         {/* Final CTA Section */}
         <motion.section 
           className="py-20 bg-gray-900 text-white text-center px-4 relative overflow-hidden"
-          initial={{ opacity: 0 }}
+          initial={false}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}

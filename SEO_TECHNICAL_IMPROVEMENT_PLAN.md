@@ -23,7 +23,7 @@ Este plan resume los hallazgos principales de la auditoria tecnica. La regla de 
    - Archivos probables: `src/pages/EarnMoney.jsx` y otras rutas con `framer-motion`
    - Objetivo: que el contenido principal sea visible aunque el JS tarde en cargar.
    - Riesgo: bajo si se mantiene el mismo aspecto visual.
-   - Estado: pendiente.
+   - Estado: completado.
 
 4. Revisar peso del bundle principal.
    - Archivos probables: `src/App.jsx`, providers globales, imports de librerias compartidas.
