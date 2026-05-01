@@ -1,13 +1,11 @@
 import React, { useContext } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { SiteContext } from '../context/SiteContext';
-import { Zap, BarChart2, Banknote, Rocket, GraduationCap, ClipboardList, LayoutDashboard, LifeBuoy, BrainCircuit } from 'lucide-react';
-import { useLocation } from 'react-router-dom';
+import { Zap, BarChart2, Banknote, Rocket, GraduationCap, LayoutDashboard, LifeBuoy, BrainCircuit } from 'lucide-react';
+import { PageSEO } from '@/hooks/useSEO';
 
 const EarnMoney = () => {
-  const location = useLocation();
   const { siteName } = useContext(SiteContext);
   const ctaLink = "https://conectaseminuevos.com";
   const videoId = "Dm5ENrpycxQ"; 
@@ -84,21 +82,7 @@ const EarnMoney = () => {
 
   return (
     <>
-      <Helmet prioritizeSeoTags>
-        <title>Cómo Ganar Dinero por Internet en México | {siteName}</title>
-        <meta name="description" content="Descubre cómo ganar dinero por internet de forma segura con Conecta Seminuevos. Gana $10,000 MXN por referido usando nuestra plataforma con inteligencia artificial. ¡Regístrate gratis!" />
-        <meta name="keywords" content="ganar dinero por internet, ingresos extra online, programa de afiliados autos, ganar dinero desde casa, inteligencia artificial ventas" />
-        <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
-        <link rel="canonical" href={`https://seminuevosbaja.com.mx${location.pathname}`} />
-        <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
-        <meta property="og:locale" content="es_MX" />
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Seminuevos Baja" />
-        <meta property="og:url" content={`https://seminuevosbaja.com.mx${location.pathname}`} />
-        <meta property="og:image" content="https://seminuevosbaja.com.mx/og-image.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://seminuevosbaja.com.mx/og-image.png" />
-      </Helmet>
+      <PageSEO routeKey="earnMoney" customConfig={{ schema: schemaData }} />
 
       <div className="bg-brand-blue text-white">
         {/* Hero Section */}

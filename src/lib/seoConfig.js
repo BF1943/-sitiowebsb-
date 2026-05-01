@@ -63,11 +63,11 @@ export const seoConfig = {
   },
 
   earnMoney: {
-    title: 'Programa de Referidos | Gana Dinero | Seminuevos Baja',
+    title: 'Programa de Referidos de Autos | Seminuevos Baja',
     description:
-      'Gana dinero refiriendo compradores y vendedores de autos en Ensenada con el programa de referidos de Seminuevos Baja.',
-    ogImage: DEFAULT_OG_IMAGE,
-    ogImageAlt: 'Programa de referidos de Seminuevos Baja',
+      'Gana dinero refiriendo compradores y vendedores de autos con el programa de referidos de Seminuevos Baja y Conecta Seminuevos.',
+    ogImage: 'https://seminuevosbaja.com.mx/og-image.png',
+    ogImageAlt: 'Programa de referidos de autos de Seminuevos Baja',
     ogType: 'website',
     canonical: '/gana-dinero',
   },

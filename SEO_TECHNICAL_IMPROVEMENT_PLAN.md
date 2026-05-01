@@ -10,14 +10,14 @@ Este plan resume los hallazgos principales de la auditoria tecnica. La regla de 
    - Archivo: `src/main.jsx`
    - Objetivo: aprovechar el HTML prerenderizado y evitar que React reconstruya innecesariamente la pagina en el navegador.
    - Riesgo: medio-bajo. Puede revelar diferencias entre HTML prerenderizado y React cliente, por eso requiere build y revision.
-   - Estado: en proceso.
+   - Estado: completado.
 
 2. Unificar el SEO tecnico de `/gana-dinero`.
    - Archivos probables: `src/pages/EarnMoney.jsx`, `src/lib/seoConfig.js`, `prerender-config.js`
    - Objetivo: evitar titles, descriptions, Open Graph y Twitter tags inconsistentes que puedan confundir a Google o redes sociales.
    - Nota de negocio: los datos de comisiones y programa de referidos son reales, por lo que no se eliminan por defecto.
    - Riesgo: bajo si solo se unifica metadata.
-   - Estado: pendiente.
+   - Estado: completado.
 
 3. Evitar contenido invisible por animaciones above-the-fold.
    - Archivos probables: `src/pages/EarnMoney.jsx` y otras rutas con `framer-motion`

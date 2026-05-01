@@ -38,9 +38,9 @@ export const routes = [
   },
   {
     path: '/gana-dinero',
-    title: 'Programa de Referidos | Gana Dinero | Seminuevos Baja',
+    title: 'Programa de Referidos de Autos | Seminuevos Baja',
     description:
-      'Gana dinero refiriendo compradores y vendedores de autos en Ensenada. Únete al programa de referidos de Seminuevos Baja.',
+      'Gana dinero refiriendo compradores y vendedores de autos con el programa de referidos de Seminuevos Baja y Conecta Seminuevos.',
   },
   {
     path: '/quienes-somos',
