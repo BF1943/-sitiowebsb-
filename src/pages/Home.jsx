@@ -511,7 +511,7 @@ export default function Home() {
               sizes="100vw"
               width="1920"
               height="1080"
-              fetchPriority="high"
+              fetchpriority="high"
               decoding="async"
             />
           </picture>

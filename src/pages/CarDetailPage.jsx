@@ -21,7 +21,8 @@ import WhatsAppShare from '@/components/WhatsAppShare';
 
 const SITE_URL = 'https://seminuevosbaja.com.mx';
 const WHATSAPP_PHONE = '526461616696';
-const DISPLAY_PHONE = '646 161 6696';
+const BUSINESS_PHONE = '526469778808';
+const DISPLAY_PHONE = '646 977 8808';
 const DEFAULT_ROBOTS =
   'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1';
 
@@ -384,7 +385,7 @@ export default function CarDetailPage() {
                 postalCode: '22890',
                 addressCountry: 'MX',
               },
-              telephone: '+526461616696',
+              telephone: `+${BUSINESS_PHONE}`,
             },
           },
         },
@@ -627,7 +628,7 @@ export default function CarDetailPage() {
                   <p className="text-sm text-gray-400">
                     ¿Tienes dudas? Llámanos al{' '}
                     <a
-                      href={`tel:+${WHATSAPP_PHONE}`}
+                      href={`tel:+${BUSINESS_PHONE}`}
                       className="font-bold text-amber-500 hover:underline"
                     >
                       {DISPLAY_PHONE}

@@ -28,7 +28,7 @@ const AboutUs = () => {
             "longitude": "-116.5964"
         },
         "url": `https://seminuevosbaja.com.mx${location.pathname}`,
-        "telephone": "+526461616696",
+        "telephone": "+526469778808",
         "priceRange": "$$"
     };
 

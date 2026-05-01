@@ -88,7 +88,7 @@ function HeaderComponent() {
                 className="h-14 w-auto"
                 width="200"
                 height="56"
-                fetchPriority="high"
+                fetchpriority="high"
               />
               <span className="text-white font-bold text-xl hidden sm:inline">{siteName}</span>
             </Link>
