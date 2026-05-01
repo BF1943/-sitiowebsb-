@@ -163,9 +163,9 @@ function buildCarTitle(car) {
 
 function buildCarDescription(car) {
   const priceText =
-    typeof car.precio === 'number'
-      ? `$${new Intl.NumberFormat('es-MX').format(car.precio)} MXN`
-      : 'precio disponible';
+    Number.isFinite(Number(car.precio)) && Number(car.precio) > 0
+      ? `$${new Intl.NumberFormat('es-MX').format(Number(car.precio))} MXN`
+      : 'precio a consultar';
 
   const mileageText = car.kilometraje
     ? `${new Intl.NumberFormat('es-MX').format(car.kilometraje)} km`

@@ -43,7 +43,7 @@ Este plan resume los hallazgos principales de la auditoria tecnica. La regla de 
    - Archivo: `src/pages/CarDetailPage.jsx`
    - Objetivo: no publicar `price: 0` o `InStock` si el dato no aplica.
    - Riesgo: depende de los campos disponibles en Supabase.
-   - Estado: pendiente.
+   - Estado: completado.
 
 7. Mejorar accesibilidad de formularios.
    - Archivos probables: `src/components/sell-car/ValuationForm.jsx`, `src/pages/Contact.jsx`

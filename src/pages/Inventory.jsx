@@ -25,6 +25,11 @@ function getPrimaryImage(fotoUrl) {
   );
 }
 
+function getPositiveNumber(value) {
+  const numberValue = Number(value);
+  return Number.isFinite(numberValue) && numberValue > 0 ? numberValue : null;
+}
+
 function getGlobalPrerenderData() {
   if (typeof globalThis !== 'undefined' && globalThis.__PRERENDER_DATA__) {
     return globalThis.__PRERENDER_DATA__;
@@ -238,45 +243,51 @@ export default function Inventory() {
         'Inventario de autos seminuevos nacionales con garantía mecánica y opciones de financiamiento en Ensenada, Baja California.',
       numberOfItems: cars.length,
       itemListOrder: 'https://schema.org/ItemListOrderAscending',
-      itemListElement: schemaCars.map((car, index) => ({
-        '@type': 'ListItem',
-        position: index + 1,
-        url: `${SITE_URL}/auto/${car.slug || car.id}`,
-        item: {
-          '@type': 'Car',
-          name: `${car.brand} ${car.model} ${car.year}`,
-          image: getPrimaryImage(car.foto_url) || undefined,
-          brand: car.brand
-            ? {
-                '@type': 'Brand',
-                name: car.brand,
-              }
-            : undefined,
-          model: car.model,
-          vehicleModelDate: car.year ? String(car.year) : undefined,
-          color: car.color || undefined,
-          mileageFromOdometer: car.mileage
-            ? {
-                '@type': 'QuantitativeValue',
-                value: car.mileage,
-                unitCode: 'KMT',
-              }
-            : undefined,
-          vehicleTransmission: car.transmission || 'No especificada',
-          offers: {
-            '@type': 'Offer',
-            price: car.price || 0,
-            priceCurrency: 'MXN',
-            availability: 'https://schema.org/InStock',
-            itemCondition: 'https://schema.org/UsedCondition',
-            url: `${SITE_URL}/auto/${car.slug || car.id}`,
-            seller: {
-              '@type': 'AutoDealer',
-              name: siteName || 'Seminuevos Baja',
-            },
+      itemListElement: schemaCars.map((car, index) => {
+        const detailUrl = `${SITE_URL}/auto/${car.slug || car.id}`;
+        const price = getPositiveNumber(car.price);
+
+        return {
+          '@type': 'ListItem',
+          position: index + 1,
+          url: detailUrl,
+          item: {
+            '@type': 'Car',
+            name: `${car.brand} ${car.model} ${car.year}`,
+            image: getPrimaryImage(car.foto_url) || undefined,
+            brand: car.brand
+              ? {
+                  '@type': 'Brand',
+                  name: car.brand,
+                }
+              : undefined,
+            model: car.model,
+            vehicleModelDate: car.year ? String(car.year) : undefined,
+            color: car.color || undefined,
+            mileageFromOdometer: car.mileage
+              ? {
+                  '@type': 'QuantitativeValue',
+                  value: car.mileage,
+                  unitCode: 'KMT',
+                }
+              : undefined,
+            vehicleTransmission: car.transmission || 'No especificada',
+            offers: price
+              ? {
+                  '@type': 'Offer',
+                  price,
+                  priceCurrency: 'MXN',
+                  itemCondition: 'https://schema.org/UsedCondition',
+                  url: detailUrl,
+                  seller: {
+                    '@type': 'AutoDealer',
+                    name: siteName || 'Seminuevos Baja',
+                  },
+                }
+              : undefined,
           },
-        },
-      })),
+        };
+      }),
     };
 
     return {

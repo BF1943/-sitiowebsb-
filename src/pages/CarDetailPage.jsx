@@ -36,6 +36,23 @@ function toAbsoluteUrl(url) {
   return `${SITE_URL}${url.startsWith('/') ? url : `/${url}`}`;
 }
 
+function toCanonicalUrl(path) {
+  const cleanPath = String(path || '/')
+    .split('#')[0]
+    .split('?')[0]
+    .replace(/\/{2,}/g, '/')
+    .replace(/\/+$/g, '');
+
+  if (!cleanPath || cleanPath === '/') return SITE_URL;
+
+  return `${SITE_URL}${cleanPath.startsWith('/') ? cleanPath : `/${cleanPath}`}/`;
+}
+
+function getPositiveNumber(value) {
+  const numberValue = Number(value);
+  return Number.isFinite(numberValue) && numberValue > 0 ? numberValue : null;
+}
+
 function safeJsonLd(data) {
   if (!data) return '';
   return JSON.stringify(data)
@@ -259,7 +276,7 @@ export default function CarDetailPage() {
     return slug ? `/auto/${slug}` : '/inventario';
   }, [car?.slug, slug]);
 
-  const canonicalUrl = `${SITE_URL}${canonicalPath}`;
+  const canonicalUrl = toCanonicalUrl(canonicalPath);
 
   const primaryImage = useMemo(() => {
     if (!car?.foto_url) return '';
@@ -308,6 +325,39 @@ export default function CarDetailPage() {
 
   const carSchema = useMemo(() => {
     if (!car) return null;
+
+    const price = getPositiveNumber(car.precio);
+    const offer = price
+      ? {
+          '@type': 'Offer',
+          price,
+          priceCurrency: 'MXN',
+          itemCondition: 'https://schema.org/UsedCondition',
+          url: canonicalUrl,
+          warranty: {
+            '@type': 'WarrantyPromise',
+            durationOfWarranty: {
+              '@type': 'QuantitativeValue',
+              value: 12,
+              unitCode: 'MON',
+            },
+            warrantyScope: 'https://schema.org/PartsAndLaborWarranty',
+          },
+          seller: {
+            '@type': 'AutoDealer',
+            name: siteName || 'Seminuevos Baja',
+            address: {
+              '@type': 'PostalAddress',
+              streetAddress: 'Calle Delante #200, Fracc. Costa Azul',
+              addressLocality: 'Ensenada',
+              addressRegion: 'Baja California',
+              postalCode: '22890',
+              addressCountry: 'MX',
+            },
+            telephone: `+${BUSINESS_PHONE}`,
+          },
+        }
+      : undefined;
 
     return {
       '@context': 'https://schema.org',
@@ -359,36 +409,7 @@ export default function CarDetailPage() {
           itemCondition: 'https://schema.org/UsedCondition',
           image: primaryImage || undefined,
           url: canonicalUrl,
-          offers: {
-            '@type': 'Offer',
-            price: car.precio || 0,
-            priceCurrency: 'MXN',
-            availability: 'https://schema.org/InStock',
-            itemCondition: 'https://schema.org/UsedCondition',
-            url: canonicalUrl,
-            warranty: {
-              '@type': 'WarrantyPromise',
-              durationOfWarranty: {
-                '@type': 'QuantitativeValue',
-                value: 12,
-                unitCode: 'MON',
-              },
-              warrantyScope: 'https://schema.org/PartsAndLaborWarranty',
-            },
-            seller: {
-              '@type': 'AutoDealer',
-              name: siteName || 'Seminuevos Baja',
-              address: {
-                '@type': 'PostalAddress',
-                streetAddress: 'Calle Delante #200, Fracc. Costa Azul',
-                addressLocality: 'Ensenada',
-                addressRegion: 'Baja California',
-                postalCode: '22890',
-                addressCountry: 'MX',
-              },
-              telephone: `+${BUSINESS_PHONE}`,
-            },
-          },
+          offers: offer,
         },
       ],
     };
