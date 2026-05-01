@@ -37,7 +37,7 @@ Este plan resume los hallazgos principales de la auditoria tecnica. La regla de 
    - Archivos probables: `netlify.toml`, `public/_redirects`
    - Objetivo: evitar duplicados como `/inventario` y `/inventario/`.
    - Riesgo: medio si una regla de redirect queda demasiado amplia.
-   - Estado: pendiente.
+   - Estado: completado.
 
 6. Mejorar schema de autos cuando falte precio o disponibilidad real.
    - Archivo: `src/pages/CarDetailPage.jsx`

@@ -69,6 +69,65 @@ function toAbsoluteUrl(url) {
   return `${SITE_URL}${url.startsWith('/') ? url : `/${url}`}`;
 }
 
+function normalizeRoutePath(value = '/') {
+  let raw = String(value || '/').trim();
+
+  if (!raw) raw = '/';
+
+  raw = raw.split('#')[0].split('?')[0];
+  raw = raw.replace(/\/{2,}/g, '/');
+
+  if (!raw.startsWith('/')) {
+    raw = `/${raw}`;
+  }
+
+  if (raw.length > 1) {
+    raw = raw.replace(/\/+$/g, '');
+  }
+
+  return raw || '/';
+}
+
+function toCanonicalPath(value = '/') {
+  const normalized = normalizeRoutePath(value);
+
+  if (normalized === '/') return '/';
+  if (/\.[a-z0-9]{2,8}$/i.test(normalized)) return normalized;
+
+  return `${normalized}/`;
+}
+
+function toAbsoluteCanonicalUrl(url) {
+  if (!url) return SITE_URL;
+
+  if (/^https?:\/\//i.test(url)) {
+    try {
+      const parsed = new URL(url);
+      const canonicalPath = toCanonicalPath(parsed.pathname || '/');
+      return `${parsed.origin}${canonicalPath === '/' ? '' : canonicalPath}`;
+    } catch {
+      return url;
+    }
+  }
+
+  const canonicalPath = toCanonicalPath(url);
+  return `${SITE_URL}${canonicalPath === '/' ? '' : canonicalPath}`;
+}
+
+function normalizeRenderedUrlMetadata(html) {
+  return String(html || '')
+    .replace(
+      /(<link\b[^>]*rel=["']canonical["'][^>]*href=["'])(https:\/\/seminuevosbaja\.com\.mx[^"']*)(["'][^>]*>)/gi,
+      (match, prefix, url, suffix) =>
+        `${prefix}${escapeHtmlAttribute(toAbsoluteCanonicalUrl(url))}${suffix}`
+    )
+    .replace(
+      /(<meta\b[^>]*property=["']og:url["'][^>]*content=["'])(https:\/\/seminuevosbaja\.com\.mx[^"']*)(["'][^>]*>)/gi,
+      (match, prefix, url, suffix) =>
+        `${prefix}${escapeHtmlAttribute(toAbsoluteCanonicalUrl(url))}${suffix}`
+    );
+}
+
 function normalizeCarData(rawCar) {
   if (!rawCar) return null;
 
@@ -233,7 +292,7 @@ function hasTag(content, pattern) {
 function buildFallbackSeoTags(route) {
   const title = route.title || '';
   const description = route.description || '';
-  const canonicalUrl = toAbsoluteUrl(route.path || '/');
+  const canonicalUrl = toAbsoluteCanonicalUrl(route.path || '/');
   const ogImage =
     route.type === 'car' && route.renderData?.car?.foto_url
       ? toAbsoluteUrl(getPrimaryImage(route.renderData.car.foto_url))
@@ -280,7 +339,7 @@ function buildMissingFallbackSeoTags(route, helmet) {
   const helmetAll = `${helmetPriority}${helmetMeta}${helmetLink}`;
   const routeTitle = route.title || '';
   const routeDescription = route.description || '';
-  const canonicalUrl = toAbsoluteUrl(route.path || '/');
+  const canonicalUrl = toAbsoluteCanonicalUrl(route.path || '/');
   const ogImage =
     route.type === 'car' && route.renderData?.car?.foto_url
       ? toAbsoluteUrl(getPrimaryImage(route.renderData.car.foto_url))
@@ -419,7 +478,7 @@ function generateSitemapXml(routes) {
             };
 
       return `  <url>
-    <loc>${escapeXml(route.path === '/' ? SITE_URL : `${SITE_URL}${route.path}`)}</loc>
+    <loc>${escapeXml(toAbsoluteCanonicalUrl(route.path))}</loc>
     <lastmod>${metadata.lastmod}</lastmod>
     <changefreq>${metadata.changefreq}</changefreq>
     <priority>${metadata.priority}</priority>
@@ -587,6 +646,7 @@ async function prerender() {
           finalHtml = appendToHead(finalHtml, headTags);
         }
 
+        finalHtml = normalizeRenderedUrlMetadata(finalHtml);
         finalHtml = appendToBody(finalHtml, initialDataScript);
 
         const outputDir = buildOutputDir(route.path);

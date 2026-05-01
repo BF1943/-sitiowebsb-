@@ -46,14 +46,71 @@ function toAbsoluteUrl(url) {
   return `${BASE_URL}${normalizedPath === '/' ? '' : normalizedPath}`;
 }
 
+function normalizeCanonicalPath(value = '/') {
+  const normalized = normalizePath(value);
+
+  if (normalized === '/') return '/';
+  if (/\.[a-z0-9]{2,8}$/i.test(normalized)) return normalized;
+
+  return `${normalized}/`;
+}
+
+function toAbsoluteCanonicalUrl(url) {
+  if (!url) return BASE_URL;
+
+  if (/^https?:\/\//i.test(url)) {
+    try {
+      const parsed = new URL(url);
+      const normalized = normalizeCanonicalPath(parsed.pathname || '/');
+      return `${parsed.origin}${normalized === '/' ? '' : normalized}`;
+    } catch {
+      return url;
+    }
+  }
+
+  const normalizedPath = normalizeCanonicalPath(url);
+  return `${BASE_URL}${normalizedPath === '/' ? '' : normalizedPath}`;
+}
+
+function normalizeSameSiteStructuredUrl(value) {
+  if (typeof value !== 'string') return value;
+
+  if (!value.startsWith(BASE_URL)) return value;
+
+  try {
+    const parsed = new URL(value);
+    const canonicalPath = normalizeCanonicalPath(parsed.pathname || '/');
+    return `${parsed.origin}${canonicalPath === '/' ? '' : canonicalPath}${parsed.search}${parsed.hash}`;
+  } catch {
+    return value;
+  }
+}
+
+function normalizeStructuredDataUrls(value) {
+  if (Array.isArray(value)) {
+    return value.map(normalizeStructuredDataUrls);
+  }
+
+  if (value && typeof value === 'object') {
+    return Object.fromEntries(
+      Object.entries(value).map(([key, entryValue]) => [
+        key,
+        normalizeStructuredDataUrls(entryValue),
+      ])
+    );
+  }
+
+  return normalizeSameSiteStructuredUrl(value);
+}
+
 function normalizeCanonical(canonical, pathname) {
   const rawValue = canonical || pathname || '/';
 
   if (/^https?:\/\//i.test(rawValue)) {
-    return toAbsoluteUrl(rawValue);
+    return toAbsoluteCanonicalUrl(rawValue);
   }
 
-  return toAbsoluteUrl(normalizePath(rawValue));
+  return toAbsoluteCanonicalUrl(rawValue);
 }
 
 function buildRobotsValue({ noindex, nofollow, robots }) {
@@ -68,7 +125,7 @@ function buildRobotsValue({ noindex, nofollow, robots }) {
 function safeJsonLd(data) {
   if (!data) return '';
 
-  return JSON.stringify(data)
+  return JSON.stringify(normalizeStructuredDataUrls(data))
     .replace(/</g, '\\u003c')
     .replace(/>/g, '\\u003e')
     .replace(/&/g, '\\u0026')
