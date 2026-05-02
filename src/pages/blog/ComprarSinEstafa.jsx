@@ -41,7 +41,11 @@ const ComprarSinEstafa = () => {
           <img 
             className="absolute inset-0 w-full h-full object-cover" 
             alt="Persona inspeccionando un auto seminuevo con una lupa, simbolizando la compra segura" 
-            src="https://images.unsplash.com/photo-1595872018818-97555653a011"
+            src="https://images.unsplash.com/photo-1595872018818-97555653a011?w=1600&q=75&auto=format&fit=crop"
+            width="1600"
+            height="900"
+            loading="eager"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center">
             <div className="text-center px-4">

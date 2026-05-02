@@ -74,7 +74,12 @@ export default function AutosChocolateVsNacionales() {
           <img
             className="w-full h-full object-cover"
             alt="Contraste entre un auto 'chocolate' oxidado y descuidado y un auto nacional seminuevo, limpio y brillante, con un sello de 'Verificado' superpuesto en el lado del auto nacional."
-           src="https://images.unsplash.com/photo-1698466415140-7b6fa1d93299" />
+            src="https://images.unsplash.com/photo-1698466415140-7b6fa1d93299?w=1600&q=75&auto=format&fit=crop"
+            width="1600"
+            height="900"
+            loading="eager"
+            decoding="async"
+          />
           <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

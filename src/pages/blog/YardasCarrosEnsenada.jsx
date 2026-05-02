@@ -87,6 +87,10 @@ export default function YardasCarrosEnsenada() {
                   src="https://images.unsplash.com/photo-1549666012-706f9d45e412?q=80&w=2070&auto=format&fit=crop"
                   alt="Vista comparativa conceptual entre yarda informal y agencia de autos establecida"
                   className="w-full h-full object-cover"
+                  width="2070"
+                  height="1380"
+                  loading="eager"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               </div>

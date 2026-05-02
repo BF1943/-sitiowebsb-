@@ -129,7 +129,7 @@ export default function MejoresSeminuevos2025() {
               {articleContent.title}
             </h1>
             <div className="w-full aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-2xl mb-6">
-              <img className="w-full h-full object-cover" alt="Fotografía profesional de un SUV moderno y elegante en una carretera costera al atardecer, evocando calidad y confianza." src="https://images.unsplash.com/photo-1692600681037-547f598a1b38" />
+              <img className="w-full h-full object-cover" alt="Fotografía profesional de un SUV moderno y elegante en una carretera costera al atardecer, evocando calidad y confianza." src="https://images.unsplash.com/photo-1692600681037-547f598a1b38?w=1600&q=75&auto=format&fit=crop" width="1600" height="900" loading="eager" decoding="async" />
             </div>
             {articleContent.intro.map((p, i) => (
               <p key={i} className="text-lg text-gray-300 font-bold mb-4">

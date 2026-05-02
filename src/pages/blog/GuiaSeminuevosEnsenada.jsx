@@ -85,7 +85,7 @@ export default function GuiaSeminuevosEnsenada() {
               {articleContent.title}
             </h1>
             <div className="w-full aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-2xl mb-6">
-              <img className="w-full h-full object-cover" alt="Comprar seminuevo en agencia en Ensenada — comparativa agencia vs tianguis" src="https://images.unsplash.com/photo-1656912988940-8fd625032209" />
+              <img className="w-full h-full object-cover" alt="Comprar seminuevo en agencia en Ensenada — comparativa agencia vs tianguis" src="https://images.unsplash.com/photo-1656912988940-8fd625032209?w=1600&q=75&auto=format&fit=crop" width="1600" height="900" loading="eager" decoding="async" />
             </div>
             <p className="text-lg text-gray-300 font-bold mb-4">
               {articleContent.intro}

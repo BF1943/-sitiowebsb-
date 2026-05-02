@@ -234,6 +234,10 @@ export default function VenderAutoTijuana() {
                 src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800&q=75&auto=format"
                 alt="Auto premium en análisis de mercado para venta entre Tijuana y Ensenada"
                 className="relative aspect-[4/3] w-full rounded-2xl border border-white/10 object-cover shadow-2xl transition-transform duration-500 hover:scale-[1.02]"
+                width="800"
+                height="600"
+                loading="eager"
+                decoding="async"
               />
             </motion.div>
           </div>

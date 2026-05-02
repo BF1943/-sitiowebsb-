@@ -236,6 +236,10 @@ export default function VentaCarrosEnsenadaBlog() {
                 src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?q=80&w=2071&auto=format&fit=crop"
                 alt="Autos seminuevos en Ensenada con respaldo y revisión"
                 className="relative aspect-[4/3] w-full rounded-2xl border border-white/10 object-cover shadow-2xl transition-transform duration-500 hover:scale-[1.02]"
+                width="1200"
+                height="900"
+                loading="eager"
+                decoding="async"
               />
             </motion.div>
           </div>

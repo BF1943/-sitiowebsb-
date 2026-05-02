@@ -119,6 +119,10 @@ export default function VenderAutoFinanciado() {
               src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2000&auto=format&fit=crop"
               alt="Documentos financieros y llaves de auto sobre una mesa"
               className="w-full h-full object-cover"
+              width="2000"
+              height="1333"
+              loading="eager"
+              decoding="async"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 to-brand-blue/80 mix-blend-multiply" />
             <div className="absolute inset-0 bg-black/40" />

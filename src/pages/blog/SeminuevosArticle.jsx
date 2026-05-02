@@ -88,6 +88,10 @@ export default function SeminuevosArticle() {
               src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2072&auto=format&fit=crop"
               alt="Autos seminuevos listos para entrega en Ensenada"
               className="h-[400px] w-full object-cover transition-transform duration-700 hover:scale-105"
+              width="2072"
+              height="1381"
+              loading="eager"
+              decoding="async"
             />
           </motion.div>
 

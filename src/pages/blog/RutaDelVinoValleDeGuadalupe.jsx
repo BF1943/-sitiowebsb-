@@ -34,7 +34,12 @@ export default function RutaDelVinoValleDeGuadalupe() {
           <img 
             className="w-full h-full object-cover" 
             alt="Carretera escénica hacia el Valle de Guadalupe con viñedos de fondo"
-           src="https://images.unsplash.com/photo-1684598593545-12e206d579d1" />
+            src="https://images.unsplash.com/photo-1684598593545-12e206d579d1?w=1600&q=75&auto=format&fit=crop"
+            width="1600"
+            height="900"
+            loading="eager"
+            decoding="async"
+          />
           <div className="absolute inset-0 z-20 flex items-center justify-center">
             <div className="max-w-4xl mx-auto px-4 text-center">
               <span className="inline-block bg-amber-500 text-brand-blue px-4 py-1 rounded-full text-sm font-bold mb-4">

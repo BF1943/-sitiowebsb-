@@ -63,7 +63,7 @@ Este plan resume los hallazgos principales de la auditoria tecnica. La regla de 
    - Archivos probables: `src/pages/blog/*.jsx`
    - Objetivo: mejorar CLS/LCP usando imagenes optimizadas, dimensiones y lazy loading.
    - Riesgo: bajo.
-   - Estado: pendiente.
+   - Estado: completado.
 
 10. Ajustar lint/resolver para que `npm run lint` funcione de forma estable.
     - Archivo probable: `eslint.config.mjs`

@@ -44,6 +44,10 @@ export default function ConsignacionAutosSegura() {
               src="https://images.unsplash.com/photo-1560179707-f14e90ef3dab?q=80&w=1974&auto=format&fit=crop"
               alt="Handshake over a deal"
               className="w-full h-full object-cover opacity-20"
+              width="1974"
+              height="1316"
+              loading="eager"
+              decoding="async"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-brand-blue via-transparent to-transparent"></div>
           </div>
@@ -246,6 +250,10 @@ export default function ConsignacionAutosSegura() {
                     src="https://images.unsplash.com/photo-1595872018818-97555653a011?q=80&w=2070&auto=format&fit=crop"
                     alt="Inspection"
                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                    width="600"
+                    height="400"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <div className="p-6">
@@ -262,6 +270,10 @@ export default function ConsignacionAutosSegura() {
                     src="https://images.unsplash.com/photo-1553440569-b2dcba423693?q=80&w=2070&auto=format&fit=crop"
                     alt="Cars comparison"
                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                    width="600"
+                    height="400"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <div className="p-6">
@@ -278,6 +290,10 @@ export default function ConsignacionAutosSegura() {
                     src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=2070&auto=format&fit=crop"
                     alt="Driving"
                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                    width="600"
+                    height="400"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <div className="p-6">
