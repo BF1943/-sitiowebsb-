@@ -621,9 +621,15 @@ async function prerender() {
               '<link rel="preload" as="image" fetchpriority="high" type="image/webp" media="(min-width: 641px)" imagesrcset="/hero-seminuevos-1280.webp 1280w, /hero-seminuevos-1920.webp 1920w" imagesizes="100vw">'
             : '';
 
+        if (heroPreloadTags) {
+          finalHtml = finalHtml.replace(
+            /(<link\s+rel="stylesheet"[^>]*>)/i,
+            `${heroPreloadTags}$1`
+          );
+        }
+
         const headTags = [
           helmetPriority,
-          heroPreloadTags,
           helmetMeta,
           extraTags,
           helmetLink,

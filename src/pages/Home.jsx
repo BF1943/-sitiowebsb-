@@ -513,6 +513,10 @@ export default function Home() {
               sizes="100vw"
               width="1920"
               height="1080"
+              // React 18.2 SSR warns on fetchPriority; lowercase emits the browser attribute cleanly.
+              // eslint-disable-next-line react/no-unknown-property
+              fetchpriority="high"
+              loading="eager"
               decoding="async"
             />
           </picture>
