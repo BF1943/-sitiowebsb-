@@ -158,6 +158,10 @@ export function PageSEO({ routeKey, customConfig = {} }) {
 
   const ogImageAlt = config.ogImageAlt || '';
   const twitterImageAlt = config.twitterImageAlt || ogImageAlt;
+  const ogTitle = config.ogTitle || title;
+  const ogDescription = config.ogDescription || description;
+  const twitterTitle = config.twitterTitle || title;
+  const twitterDescription = config.twitterDescription || description;
 
   const schema = safeJsonLd(config.schema);
 
@@ -168,6 +172,12 @@ export function PageSEO({ routeKey, customConfig = {} }) {
       {description ? (
         <meta name="description" content={description} />
       ) : null}
+
+      {config.keywords ? (
+        <meta name="keywords" content={config.keywords} />
+      ) : null}
+
+      {config.author ? <meta name="author" content={config.author} /> : null}
 
       <meta name="robots" content={robots} />
       <meta name="googlebot" content={robots} />
@@ -181,25 +191,22 @@ export function PageSEO({ routeKey, customConfig = {} }) {
 
       <meta name="twitter:card" content={twitterCard} />
 
-      {title ? (
-        <>
-          <meta property="og:title" content={title} />
-          <meta name="twitter:title" content={title} />
-        </>
+      {ogTitle ? <meta property="og:title" content={ogTitle} /> : null}
+
+      {twitterTitle ? <meta name="twitter:title" content={twitterTitle} /> : null}
+
+      {ogDescription ? (
+        <meta property="og:description" content={ogDescription} />
       ) : null}
 
-      {description ? (
-        <>
-          <meta property="og:description" content={description} />
-          <meta name="twitter:description" content={description} />
-        </>
+      {twitterDescription ? (
+        <meta name="twitter:description" content={twitterDescription} />
       ) : null}
+
+      {ogImage ? <meta property="og:image" content={ogImage} /> : null}
 
       {ogImage ? (
-        <>
-          <meta property="og:image" content={ogImage} />
-          <meta property="og:image:secure_url" content={ogImage} />
-        </>
+        <meta property="og:image:secure_url" content={ogImage} />
       ) : null}
 
       {twitterImage ? (

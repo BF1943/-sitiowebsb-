@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { SiteContext } from '../../context/SiteContext';
@@ -20,15 +19,6 @@ import { PageSEO } from '@/hooks/useSEO';
 const PAGE_URL = 'https://seminuevosbaja.com.mx/blog/venta-carros-ensenada';
 const PAGE_IMAGE =
   'https://seminuevosbaja.com.mx/og-image.png';
-
-function safeJsonLd(data) {
-  return JSON.stringify(data)
-    .replace(/</g, '\\u003c')
-    .replace(/>/g, '\\u003e')
-    .replace(/&/g, '\\u0026')
-    .replace(/\u2028/g, '\\u2028')
-    .replace(/\u2029/g, '\\u2029');
-}
 
 export default function VentaCarrosEnsenadaBlog() {
   const { siteName } = useContext(SiteContext);
@@ -164,16 +154,9 @@ export default function VentaCarrosEnsenadaBlog() {
           twitterImage: PAGE_IMAGE,
           ogImageAlt: 'Guía para comprar un seminuevo con respaldo en Ensenada',
           twitterImageAlt: 'Guía para comprar un seminuevo con respaldo en Ensenada',
-          schema: articleSchema
+          schema: [articleSchema, faqSchema]
         }}
       />
-
-      <Helmet>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: safeJsonLd(faqSchema) }}
-        />
-      </Helmet>
 
       <article className="min-h-screen bg-brand-blue pb-16 pt-24 text-white">
         <section className="relative mx-auto mb-16 max-w-4xl px-4 sm:px-6 lg:px-8">

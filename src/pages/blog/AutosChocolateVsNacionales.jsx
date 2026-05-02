@@ -1,12 +1,11 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { ShieldCheck, AlertTriangle, FileWarning, Search, Wrench, HeartHandshake as Handshake, TrendingUp } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { PageSEO } from '@/hooks/useSEO';
 
 export default function AutosChocolateVsNacionales() {
-  const location = useLocation();
   const sections = [
     {
       title: 'Introducción: La Decisión que Define tu Tranquilidad al Volante',
@@ -55,22 +54,20 @@ export default function AutosChocolateVsNacionales() {
 
   return (
     <>
-      <Helmet prioritizeSeoTags>
-        <title>Autos Chocolate vs Nacionales en Baja California | Riesgos y Costos</title>
-        <meta name="description" content="Descubre la verdad sobre los autos 'chocolate' en Tijuana y Ensenada. Compara los riesgos, costos ocultos y problemas legales vs. la certeza de un auto nacional." />
-        <meta property="og:title" content="Autos Chocolate vs Nacionales en Baja California | Riesgos y Costos" />
-        <meta property="og:description" content="No te dejes engañar por el precio bajo. Analizamos los 4 riesgos ocultos de comprar un auto 'chocolate' en BC y por qué un nacional es tu mejor inversión." />
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content={`https://seminuevosbaja.com.mx${location.pathname}`} />
-        <meta property="og:image" content="https://images.unsplash.com/photo-1698466415140-7b6fa1d93299" />
-        <meta name="keywords" content="autos chocolate, autos nacionales, regularizacion autos, riesgos autos chocolate, comprar auto tijuana, comprar auto ensenada, seminuevos baja california, decreto autos chocolate, REPUVE, pedimento importacion" />
-        <link rel="canonical" href={`https://seminuevosbaja.com.mx${location.pathname}`} />
-        <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
-        <meta property="og:image" content="https://seminuevosbaja.com.mx/og-image.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta property="og:locale" content="es_MX" />
-        <meta property="og:site_name" content="Seminuevos Baja" />
-      </Helmet>
+      <PageSEO
+        customConfig={{
+          title: 'Autos Chocolate vs Nacionales en Baja California | Riesgos y Costos',
+          description:
+            "Descubre la verdad sobre los autos 'chocolate' en Tijuana y Ensenada. Compara los riesgos, costos ocultos y problemas legales vs. la certeza de un auto nacional.",
+          ogDescription:
+            "No te dejes engaÃ±ar por el precio bajo. Analizamos los 4 riesgos ocultos de comprar un auto 'chocolate' en BC y por quÃ© un nacional es tu mejor inversiÃ³n.",
+          keywords:
+            'autos chocolate, autos nacionales, regularizacion autos, riesgos autos chocolate, comprar auto tijuana, comprar auto ensenada, seminuevos baja california, decreto autos chocolate, REPUVE, pedimento importacion',
+          canonical: '/blog/autos-chocolate-vs-nacionales',
+          ogType: 'article',
+          ogImage: '/og-image.png',
+        }}
+      />
 
       <div className="bg-brand-blue text-white">
         <div className="relative h-64 md:h-80">

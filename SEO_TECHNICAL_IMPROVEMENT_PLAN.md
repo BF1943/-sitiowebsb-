@@ -55,7 +55,7 @@ Este plan resume los hallazgos principales de la auditoria tecnica. La regla de 
    - Archivos probables: `src/pages/AboutUs.jsx`, `src/pages/Terms.jsx`, `src/pages/blog/*.jsx`
    - Objetivo: reducir duplicacion de SEO tecnico y evitar diferencias entre rutas.
    - Riesgo: bajo-medio.
-   - Estado: pendiente.
+   - Estado: completado.
 
 ## Prioridad baja
 

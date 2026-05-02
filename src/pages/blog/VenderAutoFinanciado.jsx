@@ -1,11 +1,11 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
 import { ChevronRight, DollarSign, Shield, Clock, CheckCircle, TrendingUp, Banknote, HelpCircle, Phone } from 'lucide-react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../../components/ui/accordion";
 import { useGoogleAnalytics } from '../../hooks/useGoogleAnalytics';
+import { PageSEO } from '@/hooks/useSEO';
 
 export default function VenderAutoFinanciado() {
   const location = useLocation();
@@ -91,28 +91,24 @@ export default function VenderAutoFinanciado() {
 
   return (
     <>
-      <Helmet prioritizeSeoTags>
-        <title>Vender mi Auto Financiado en Ensenada | Seminuevos Baja</title>
-        <meta name="description" content="¿Tienes un auto financiado? Seminuevos Baja compra autos con deuda. Pagamos directamente al banco. Recibe la diferencia. ¡Vende tu auto hoy en Ensenada!" />
-        <meta name="keywords" content="vender auto financiado, auto con deuda, seminuevos baja, Ensenada, liquidar credito automotriz" />
-        <link rel="canonical" href={`https://seminuevosbaja.com.mx${location.pathname}`} />
-        <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
-
-        <meta property="og:locale" content="es_MX" />
-        <meta property="og:type" content="article" />
-        <meta property="og:site_name" content="Seminuevos Baja" />
-        <meta property="og:title" content="Vender mi Auto Financiado en Ensenada | Seminuevos Baja" />
-        <meta property="og:description" content="¿Tienes un auto financiado? Seminuevos Baja compra autos con deuda. Pagamos directamente al banco y tú recibes la diferencia. Rápido y seguro en Ensenada." />
-        <meta property="og:url" content={`https://seminuevosbaja.com.mx${location.pathname}`} />
-        <meta property="og:image" content="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=1200&auto=format&fit=crop" />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Vender mi Auto Financiado en Ensenada | Seminuevos Baja" />
-        <meta name="twitter:description" content="¿Tienes un auto financiado? Seminuevos Baja compra autos con deuda. Pagamos directamente al banco y tú recibes la diferencia. Rápido y seguro en Ensenada." />
-        <meta name="twitter:image" content="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=1200&auto=format&fit=crop" />
-
-        <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
-      </Helmet>
+      <PageSEO
+        customConfig={{
+          title: 'Vender mi Auto Financiado en Ensenada | Seminuevos Baja',
+          description:
+            'Â¿Tienes un auto financiado? Seminuevos Baja compra autos con deuda. Pagamos directamente al banco. Recibe la diferencia. Â¡Vende tu auto hoy en Ensenada!',
+          ogDescription:
+            'Â¿Tienes un auto financiado? Seminuevos Baja compra autos con deuda. Pagamos directamente al banco y tÃº recibes la diferencia. RÃ¡pido y seguro en Ensenada.',
+          twitterDescription:
+            'Â¿Tienes un auto financiado? Seminuevos Baja compra autos con deuda. Pagamos directamente al banco y tÃº recibes la diferencia. RÃ¡pido y seguro en Ensenada.',
+          keywords:
+            'vender auto financiado, auto con deuda, seminuevos baja, Ensenada, liquidar credito automotriz',
+          canonical: '/blog/vender-auto-financiado',
+          ogType: 'article',
+          ogImage:
+            'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=1200&auto=format&fit=crop',
+          schema: articleSchema,
+        }}
+      />
 
       <main className="min-h-screen bg-gray-50 pb-20">
 

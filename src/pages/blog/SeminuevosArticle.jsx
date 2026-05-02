@@ -1,5 +1,4 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
@@ -10,6 +9,7 @@ import {
   DollarSign
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { PageSEO } from '@/hooks/useSEO';
 
 export default function SeminuevosArticle() {
   const canonicalUrl = 'https://seminuevosbaja.com.mx/blog/seminuevos';
@@ -48,36 +48,17 @@ export default function SeminuevosArticle() {
 
   return (
     <>
-      <Helmet prioritizeSeoTags>
-        <title>{pageTitle}</title>
-        <meta name="description" content={pageDescription} />
-        <link rel="canonical" href={canonicalUrl} />
-        <meta
-          name="robots"
-          content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
-        />
-        <meta property="og:locale" content="es_MX" />
-        <meta property="og:type" content="article" />
-        <meta property="og:site_name" content="Seminuevos Baja" />
-        <meta property="og:title" content={pageTitle} />
-        <meta property="og:description" content={pageDescription} />
-        <meta property="og:url" content={canonicalUrl} />
-        <meta
-          property="og:image"
-          content="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2072&auto=format&fit=crop"
-        />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={pageTitle} />
-        <meta name="twitter:description" content={pageDescription} />
-        <meta
-          name="twitter:image"
-          content="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2072&auto=format&fit=crop"
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
-        />
-      </Helmet>
+      <PageSEO
+        customConfig={{
+          title: pageTitle,
+          description: pageDescription,
+          canonical: '/blog/seminuevos',
+          ogType: 'article',
+          ogImage:
+            'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2072&auto=format&fit=crop',
+          schema: articleSchema,
+        }}
+      />
 
       <div className="min-h-screen bg-slate-50 pb-16 pt-24">
         <article className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">

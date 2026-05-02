@@ -1,33 +1,31 @@
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Calendar, User, Clock, ArrowLeft, CheckCircle, AlertTriangle, MapPin } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { PageSEO } from '@/hooks/useSEO';
 
 export default function RutaDelVinoValleDeGuadalupe() {
-  const location = useLocation();
-  
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
     <>
-      <Helmet prioritizeSeoTags>
-        <title>Ruta del Vino: ¿Qué auto necesitas para el Valle de Guadalupe? | Seminuevos Baja</title>
-        <meta name="description" content="¿Planeas visitar el Valle de Guadalupe? Descubre qué tipo de auto es ideal para los caminos de terracería. Toyota RAV4, Honda CR-V, Nissan X-Trail y más." />
-        <meta name="keywords" content="Valle de Guadalupe, Ruta del Vino, Toyota RAV4, Honda CR-V, Nissan X-Trail, VW Tiguan, Baja California, turismo en auto" />
-        <meta property="og:title" content="Ruta del Vino: ¿Qué auto necesitas realmente para visitar el Valle de Guadalupe?" />
-        <meta property="og:image" content="https://images.unsplash.com/photo-1533656636878-843697864229" />
-        <link rel="canonical" href={`https://seminuevosbaja.com.mx${location.pathname}`} />
-        <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
-        <meta property="og:url" content={`https://seminuevosbaja.com.mx${location.pathname}`} />
-        <meta property="og:image" content="https://seminuevosbaja.com.mx/og-image.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta property="og:locale" content="es_MX" />
-        <meta property="og:site_name" content="Seminuevos Baja" />
-      </Helmet>
+      <PageSEO
+        customConfig={{
+          title: 'Ruta del Vino: Â¿QuÃ© auto necesitas para el Valle de Guadalupe? | Seminuevos Baja',
+          description:
+            'Â¿Planeas visitar el Valle de Guadalupe? Descubre quÃ© tipo de auto es ideal para los caminos de terracerÃ­a. Toyota RAV4, Honda CR-V, Nissan X-Trail y mÃ¡s.',
+          ogTitle:
+            'Ruta del Vino: Â¿QuÃ© auto necesitas realmente para visitar el Valle de Guadalupe?',
+          keywords:
+            'Valle de Guadalupe, Ruta del Vino, Toyota RAV4, Honda CR-V, Nissan X-Trail, VW Tiguan, Baja California, turismo en auto',
+          canonical: '/blog/ruta-del-vino-valle-de-guadalupe-auto-ideal',
+          ogType: 'article',
+          ogImage: '/og-image.png',
+        }}
+      />
 
       <article className="min-h-screen bg-gray-50 pt-20 pb-16">
         {/* Hero Image */}

@@ -1,34 +1,27 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Calendar, User, Clock, ArrowLeft, CheckCircle, AlertTriangle, HelpCircle, ShieldCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { PageSEO } from '@/hooks/useSEO';
 
 export default function ConsignacionAutosSegura() {
-  const location = useLocation();
   return (
     <>
-      <Helmet prioritizeSeoTags>
-        <title>Consignar mi Auto en Ensenada | Guía Segura | Seminuevos Baja</title>
-        <meta name="description" content="Descubre cómo funciona la consignación de autos en Tijuana y Ensenada. Aprende por qué es la forma más segura y rentable de vender tu vehículo seminuevo sin riesgos." />
-        <meta name="keywords" content="consignación de autos, vender auto seguro, consignar auto tijuana, consignar auto ensenada, venta autos seminuevos baja california" />
-        <link rel="canonical" href={`https://seminuevosbaja.com.mx${location.pathname}`} />
-        <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
-
-        <meta property="og:locale" content="es_MX" />
-        <meta property="og:type" content="article" />
-        <meta property="og:site_name" content="Seminuevos Baja" />
-        <meta property="og:title" content="Consignar mi Auto en Ensenada | Guía Segura | Seminuevos Baja" />
-        <meta property="og:description" content="Descubre cómo funciona la consignación de autos en Ensenada. La forma más segura y rentable de vender tu vehículo seminuevo sin riesgos." />
-        <meta property="og:url" content={`https://seminuevosbaja.com.mx${location.pathname}`} />
-        <meta property="og:image" content="https://seminuevosbaja.com.mx/og-image.png" />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Consignar mi Auto en Ensenada | Guía Segura | Seminuevos Baja" />
-        <meta name="twitter:description" content="Descubre cómo funciona la consignación de autos en Ensenada. La forma más segura y rentable de vender tu vehículo seminuevo sin riesgos." />
-        <meta name="twitter:image" content="https://seminuevosbaja.com.mx/og-image.png" />
-      </Helmet>
+      <PageSEO
+        customConfig={{
+          title: 'Consignar mi Auto en Ensenada | GuÃ­a Segura | Seminuevos Baja',
+          description:
+            'Descubre cÃ³mo funciona la consignaciÃ³n de autos en Tijuana y Ensenada. Aprende por quÃ© es la forma mÃ¡s segura y rentable de vender tu vehÃ­culo seminuevo sin riesgos.',
+          ogDescription:
+            'Descubre cÃ³mo funciona la consignaciÃ³n de autos en Ensenada. La forma mÃ¡s segura y rentable de vender tu vehÃ­culo seminuevo sin riesgos.',
+          keywords:
+            'consignaciÃ³n de autos, vender auto seguro, consignar auto tijuana, consignar auto ensenada, venta autos seminuevos baja california',
+          canonical: '/blog/consignacion-autos-segura',
+          ogType: 'article',
+          ogImage: '/og-image.png',
+        }}
+      />
 
       <div className="min-h-screen bg-white">
         {/* Breadcrumb & Back Button */}

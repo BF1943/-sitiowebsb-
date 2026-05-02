@@ -1,26 +1,25 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Calendar, User, ArrowLeft, ShieldAlert, FileWarning, BadgeDollarSign, Car, CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
+import { PageSEO } from '@/hooks/useSEO';
 
 const AutosPorDecretoSeguro = () => {
-  const location = useLocation();
   return (
     <>
-      <Helmet prioritizeSeoTags>
-        <title>Autos Decreto y Seguros: El Riesgo Oculto para tu Patrimonio | Seminuevos Baja</title>
-        <meta name="description" content="¿Tienes un auto regularizado por decreto? Cuidado: las aseguradoras tienen 'letras chiquitas' que podrían dejarte sin pago en caso de pérdida total. Conoce la verdad aquí." />
-        <meta name="keywords" content="autos decreto seguro, regularización autos chocolate, seguro auto decreto cobertura, riesgos autos legalizados, seminuevos ensenada, libro azul autos decreto" />
-        <link rel="canonical" href={`https://seminuevosbaja.com.mx${location.pathname}`} />
-        <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
-        <meta property="og:url" content={`https://seminuevosbaja.com.mx${location.pathname}`} />
-        <meta property="og:image" content="https://seminuevosbaja.com.mx/og-image.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta property="og:locale" content="es_MX" />
-        <meta property="og:site_name" content="Seminuevos Baja" />
-      </Helmet>
+      <PageSEO
+        customConfig={{
+          title: 'Autos Decreto y Seguros: El Riesgo Oculto para tu Patrimonio | Seminuevos Baja',
+          description:
+            "Â¿Tienes un auto regularizado por decreto? Cuidado: las aseguradoras tienen 'letras chiquitas' que podrÃ­an dejarte sin pago en caso de pÃ©rdida total. Conoce la verdad aquÃ­.",
+          keywords:
+            'autos decreto seguro, regularizaciÃ³n autos chocolate, seguro auto decreto cobertura, riesgos autos legalizados, seminuevos ensenada, libro azul autos decreto',
+          canonical: '/blog/autos-por-decreto-seguro-punto-ciego',
+          ogType: 'article',
+          ogImage: '/og-image.png',
+        }}
+      />
 
       <div className="bg-white min-h-screen pt-24 pb-16">
         <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -1,12 +1,11 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { PageSEO } from '@/hooks/useSEO';
 
 export default function MejoresSeminuevos2025() {
-  const location = useLocation();
   const articleContent = {
     title: "Los 10 Mejores Autos Seminuevos para Comprar en Tijuana y Ensenada en 2025 (Modelos 2020-2025)",
     metaTitle: "Mejores Seminuevos en Tijuana y Ensenada (2025) | Seminuevos Baja",
@@ -108,20 +107,15 @@ export default function MejoresSeminuevos2025() {
 
   return (
     <>
-      <Helmet prioritizeSeoTags>
-        <title>{articleContent.metaTitle}</title>
-        <meta name="description" content={articleContent.metaDescription} />
-        <meta property="og:title" content={articleContent.metaTitle} />
-        <meta property="og:description" content={articleContent.metaDescription} />
-        <meta property="og:type" content="article" />
-        <link rel="canonical" href={`https://seminuevosbaja.com.mx${location.pathname}`} />
-        <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
-        <meta property="og:url" content={`https://seminuevosbaja.com.mx${location.pathname}`} />
-        <meta property="og:image" content="https://seminuevosbaja.com.mx/og-image.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta property="og:locale" content="es_MX" />
-        <meta property="og:site_name" content="Seminuevos Baja" />
-      </Helmet>
+      <PageSEO
+        customConfig={{
+          title: articleContent.metaTitle,
+          description: articleContent.metaDescription,
+          canonical: '/blog/mejores-seminuevos-tijuana-ensenada-2025',
+          ogType: 'article',
+          ogImage: '/og-image.png',
+        }}
+      />
 
       <div className="bg-brand-blue text-white py-12 md:py-16">
         <motion.article

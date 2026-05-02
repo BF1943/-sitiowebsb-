@@ -257,12 +257,12 @@ function ensureTitleTag(html, titleTag) {
 
 function appendToHead(html, headContent) {
   if (!headContent || !headContent.trim()) return html;
-  return html.replace('</head>', `${headContent}</head>`);
+  return html.replace('</head>', () => `${headContent}</head>`);
 }
 
 function appendToBody(html, bodyContent) {
   if (!bodyContent || !bodyContent.trim()) return html;
-  return html.replace('</body>', `${bodyContent}</body>`);
+  return html.replace('</body>', () => `${bodyContent}</body>`);
 }
 
 // Vite emite el <script type="module"> antes del <link rel="stylesheet">,

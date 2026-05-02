@@ -1,5 +1,4 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
@@ -20,15 +19,6 @@ const PAGE_URL = 'https://seminuevosbaja.com.mx/blog/vender-auto-tijuana-mejor-p
 const PAGE_IMAGE =
   'https://seminuevosbaja.com.mx/og-image.png';
 const WHATSAPP_NUMBER = '526461616696';
-
-function safeJsonLd(data) {
-  return JSON.stringify(data)
-    .replace(/</g, '\\u003c')
-    .replace(/>/g, '\\u003e')
-    .replace(/&/g, '\\u0026')
-    .replace(/\u2028/g, '\\u2028')
-    .replace(/\u2029/g, '\\u2029');
-}
 
 export default function VenderAutoTijuana() {
   const handleWhatsApp = () => {
@@ -170,16 +160,9 @@ export default function VenderAutoTijuana() {
           ogImageAlt: 'Análisis sobre vender un auto en Tijuana y opciones en Ensenada',
           twitterImageAlt:
             'Análisis sobre vender un auto en Tijuana y opciones en Ensenada',
-          schema: articleSchema
+          schema: [articleSchema, faqSchema]
         }}
       />
-
-      <Helmet>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: safeJsonLd(faqSchema) }}
-        />
-      </Helmet>
 
       <article className="min-h-screen bg-brand-blue pb-16 pt-24 text-white">
         <section className="relative mx-auto mb-16 max-w-5xl px-4 sm:px-6 lg:px-8">

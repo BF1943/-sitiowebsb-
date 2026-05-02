@@ -1,12 +1,13 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Users, Target, Shield, HeartHandshake as Handshake } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { PageSEO } from '@/hooks/useSEO';
 
 const AboutUs = () => {
-    const location = useLocation();
+    const pageTitle = 'Agencia de Autos en Ensenada | Seminuevos Baja - Compra y Venta Segura';
+    const pageDescription = 'Somos una agencia de autos en Ensenada con aÃ±os de experiencia. Descubre por quÃ© somos la mejor opciÃ³n para comprar y vender autos seminuevos con seguridad y garantÃ­a.';
     
     const jsonLd = {
         "@context": "https://schema.org",
@@ -27,53 +28,24 @@ const AboutUs = () => {
             "latitude": "31.8667",
             "longitude": "-116.5964"
         },
-        "url": `https://seminuevosbaja.com.mx${location.pathname}`,
+        "url": "https://seminuevosbaja.com.mx/quienes-somos/",
         "telephone": "+526469778808",
         "priceRange": "$$"
     };
 
     return (
         <>
-            <Helmet prioritizeSeoTags>
-                <title>Agencia de Autos en Ensenada | Seminuevos Baja - Compra y Venta Segura</title>
-                <meta
-                    name="description"
-                    content="Somos una agencia de autos en Ensenada con años de experiencia. Descubre por qué somos la mejor opción para comprar y vender autos seminuevos con seguridad y garantía."
-                />
-                <link rel="canonical" href={`https://seminuevosbaja.com.mx${location.pathname}`} />
-                <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
-
-                <meta property="og:locale" content="es_MX" />
-                <meta property="og:type" content="website" />
-                <meta property="og:site_name" content="Seminuevos Baja" />
-                <meta property="og:title" content="Agencia de Autos en Ensenada | Seminuevos Baja - Compra y Venta Segura" />
-                <meta
-                    property="og:description"
-                    content="Somos una agencia de autos en Ensenada con años de experiencia. Descubre por qué somos la mejor opción para comprar y vender autos seminuevos con seguridad y garantía."
-                />
-                <meta property="og:url" content={`https://seminuevosbaja.com.mx${location.pathname}`} />
-                <meta
-                    property="og:image"
-                    content="https://seminuevosbaja.com.mx/og-image.png"
-                />
-
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Agencia de Autos en Ensenada | Seminuevos Baja - Compra y Venta Segura" />
-                <meta
-                    name="twitter:description"
-                    content="Somos una agencia de autos en Ensenada con años de experiencia. Descubre por qué somos la mejor opción para comprar y vender autos seminuevos con seguridad y garantía."
-                />
-                <meta
-                    name="twitter:image"
-                    content="https://seminuevosbaja.com.mx/og-image.png"
-                />
-
-                {/* ✅ dangerouslySetInnerHTML evita problemas de parsing en react-helmet-async */}
-                <script
-                    type="application/ld+json"
-                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-                />
-            </Helmet>
+            <PageSEO
+                routeKey="about"
+                customConfig={{
+                    title: pageTitle,
+                    description: pageDescription,
+                    ogImage: '/og-image.png',
+                    ogImageAlt: 'Agencia de autos Seminuevos Baja en Ensenada',
+                    canonical: '/quienes-somos',
+                    schema: jsonLd,
+                }}
+            />
 
             {/* Main Wrapper */}
             <div className="bg-gray-50 min-h-screen">

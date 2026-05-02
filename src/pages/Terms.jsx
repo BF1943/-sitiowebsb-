@@ -1,10 +1,10 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ChevronRight, Shield, FileText, Lock, Car, Wrench, HeartHandshake as Handshake, CreditCard, Mail, Phone, MapPin } from 'lucide-react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
+import { PageSEO } from '@/hooks/useSEO';
 
 export default function Terms() {
   const currentDate = new Date().toLocaleDateString('es-MX', {
@@ -15,14 +15,13 @@ export default function Terms() {
 
   return (
     <>
-      <Helmet prioritizeSeoTags>
-        <title>Términos y Condiciones | Seminuevos Baja</title>
-        <meta name="description" content="Consulta los términos y condiciones de Seminuevos Baja: políticas de compra, venta, consignación, garantía mecánica y privacidad de nuestra agencia en Ensenada." />
-        <meta name="robots" content="index,follow" />
-        <link rel="canonical" href="https://seminuevosbaja.com.mx/terminos" />
-        <meta property="og:title" content="Términos y Condiciones | Seminuevos Baja" />
-        <meta property="og:description" content="Consulta los términos y condiciones de Seminuevos Baja: políticas de compra, venta, consignación, garantía mecánica y privacidad de nuestra agencia en Ensenada." />
-      </Helmet>
+      <PageSEO
+        routeKey="terms"
+        customConfig={{
+          description:
+            'Consulta los tÃ©rminos y condiciones de Seminuevos Baja: polÃ­ticas de compra, venta, consignaciÃ³n, garantÃ­a mecÃ¡nica y privacidad de nuestra agencia en Ensenada.',
+        }}
+      />
 
       <div className="min-h-screen bg-brand-blue pt-8 pb-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

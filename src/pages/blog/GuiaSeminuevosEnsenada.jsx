@@ -1,12 +1,11 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { CheckCircle, Shield, Car, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { PageSEO } from '@/hooks/useSEO';
 
 export default function GuiaSeminuevosEnsenada() {
-  const location = useLocation();
   const articleContent = {
     title: "Cómo Comprar un Seminuevo en Ensenada: Agencias vs. Tianguis y Qué Conviene Más",
     metaTitle: "Cómo Comprar un Seminuevo en Ensenada: Agencia vs. Tianguis | Seminuevos Baja",
@@ -64,22 +63,15 @@ export default function GuiaSeminuevosEnsenada() {
 
   return (
     <>
-      <Helmet prioritizeSeoTags>
-        <title>{articleContent.metaTitle}</title>
-        <meta name="description" content={articleContent.metaDescription} />
-        <meta property="og:title" content={articleContent.metaTitle} />
-        <meta property="og:description" content={articleContent.metaDescription} />
-        <meta property="og:type" content="article" />
-        <meta name="twitter:title" content="Cómo Comprar un Seminuevo en Ensenada: Agencia vs. Tianguis | Seminuevos Baja" />
-        <meta name="twitter:description" content="¿Comprar seminuevo en agencia o en tianguis en Ensenada? Comparamos opciones, riesgos y garantías para que tomes la mejor decisión al comprar tu próximo auto." />
-        <link rel="canonical" href={`https://seminuevosbaja.com.mx${location.pathname}`} />
-        <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
-        <meta property="og:url" content={`https://seminuevosbaja.com.mx${location.pathname}`} />
-        <meta property="og:image" content="https://seminuevosbaja.com.mx/og-image.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta property="og:locale" content="es_MX" />
-        <meta property="og:site_name" content="Seminuevos Baja" />
-      </Helmet>
+      <PageSEO
+        customConfig={{
+          title: articleContent.metaTitle,
+          description: articleContent.metaDescription,
+          canonical: '/blog/guia-seminuevos-ensenada',
+          ogType: 'article',
+          ogImage: '/og-image.png',
+        }}
+      />
 
       <div className="bg-brand-blue text-white py-12 md:py-16">
         <motion.article

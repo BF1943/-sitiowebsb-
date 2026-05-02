@@ -1,7 +1,6 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {
   ArrowLeft,
   CheckCircle,
@@ -17,9 +16,9 @@ import {
   XCircle
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { PageSEO } from '@/hooks/useSEO';
 
 export default function YardasCarrosEnsenada() {
-  const location = useLocation();
   const fadeInUp = {
     initial: { opacity: 0, y: 20 },
     whileInView: { opacity: 1, y: 0 },
@@ -29,21 +28,17 @@ export default function YardasCarrosEnsenada() {
 
   return (
     <>
-      <Helmet prioritizeSeoTags>
-        <title>¿Buscas Yardas de Carros en Ensenada? Por Qué es Mejor Comprar en una Agencia Establecida</title>
-        <meta name="description" content="Descubre por qué comprar en una agencia profesional es mejor que en yardas informales. Garantía, seguridad y transparencia en cada compra." />
-        <meta property="og:title" content="¿Buscas Yardas de Carros en Ensenada? Por Qué es Mejor Comprar en una Agencia Establecida" />
-        <meta property="og:description" content="Descubre por qué comprar en una agencia profesional es mejor que en yardas informales. Garantía, seguridad y transparencia en cada compra." />
-        <meta property="og:type" content="article" />
-        <meta name="author" content="Equipo de Edzwi" />
-        <link rel="canonical" href={`https://seminuevosbaja.com.mx${location.pathname}`} />
-        <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
-        <meta property="og:url" content={`https://seminuevosbaja.com.mx${location.pathname}`} />
-        <meta property="og:image" content="https://seminuevosbaja.com.mx/og-image.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta property="og:locale" content="es_MX" />
-        <meta property="og:site_name" content="Seminuevos Baja" />
-      </Helmet>
+      <PageSEO
+        customConfig={{
+          title: 'Â¿Buscas Yardas de Carros en Ensenada? Por QuÃ© es Mejor Comprar en una Agencia Establecida',
+          description:
+            'Descubre por quÃ© comprar en una agencia profesional es mejor que en yardas informales. GarantÃ­a, seguridad y transparencia en cada compra.',
+          canonical: '/blog/yardas-carros-ensenada',
+          ogType: 'article',
+          ogImage: '/og-image.png',
+          author: 'Equipo de Edzwi',
+        }}
+      />
 
       <div className="min-h-screen bg-gray-50 pt-24 pb-16">
         <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

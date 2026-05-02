@@ -1,11 +1,10 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { CheckCircle, AlertTriangle, Search, Car, Wrench, FileText, ArrowRight, Shield } from 'lucide-react';
+import { PageSEO } from '@/hooks/useSEO';
 
 const ComprarSinEstafa = () => {
-  const location = useLocation();
   const pageVariants = {
     initial: { opacity: 0, y: 20 },
     in: { opacity: 1, y: 0 },
@@ -26,17 +25,16 @@ const ComprarSinEstafa = () => {
       variants={pageVariants}
       transition={{ duration: 0.5 }}
     >
-      <Helmet prioritizeSeoTags>
-        <title>Cómo Comprar un Seminuevo en Baja California Sin Ser Estafado - Seminuevos Baja</title>
-        <meta name="description" content="Guía definitiva para evitar fraudes al comprar un auto seminuevo en Baja California. Aprende a revisar el REPUVE, inspeccionar mecánicamente y elegir modelos seguros." />
-        <link rel="canonical" href={`https://seminuevosbaja.com.mx${location.pathname}`} />
-        <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
-        <meta property="og:url" content={`https://seminuevosbaja.com.mx${location.pathname}`} />
-        <meta property="og:image" content="https://seminuevosbaja.com.mx/og-image.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta property="og:locale" content="es_MX" />
-        <meta property="og:site_name" content="Seminuevos Baja" />
-      </Helmet>
+      <PageSEO
+        customConfig={{
+          title: 'CÃ³mo Comprar un Seminuevo en Baja California Sin Ser Estafado - Seminuevos Baja',
+          description:
+            'GuÃ­a definitiva para evitar fraudes al comprar un auto seminuevo en Baja California. Aprende a revisar el REPUVE, inspeccionar mecÃ¡nicamente y elegir modelos seguros.',
+          canonical: '/blog/comprar-auto-seminuevo-sin-ser-estafado',
+          ogType: 'article',
+          ogImage: '/og-image.png',
+        }}
+      />
       
       <div className="bg-brand-blue text-white min-h-screen">
         <div className="relative h-64 md:h-80">
