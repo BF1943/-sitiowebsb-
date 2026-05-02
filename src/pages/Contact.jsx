@@ -55,12 +55,16 @@ export default function Contact() {
   });
 
   const [loading, setLoading] = useState(false);
+  const [formError, setFormError] = useState('');
   const { toast } = useToast();
   const supabase = useSupabase();
   const { trackWhatsAppClick } = useGoogleAnalytics();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+    if (formError) {
+      setFormError('');
+    }
     setFormData((prev) => ({
       ...prev,
       [name]: value
@@ -81,6 +85,7 @@ export default function Contact() {
 
     const phoneRegex = /^\d{10}$/;
     if (!phoneRegex.test(formData.phone)) {
+      setFormError('El telefono debe tener exactamente 10 digitos.');
       toast({
         variant: 'destructive',
         title: 'Teléfono inválido',
@@ -125,6 +130,7 @@ export default function Contact() {
         subject: '',
         message: ''
       });
+      setFormError('');
     } catch (error) {
       console.error('Error submitting contact form:', error);
       toast({
@@ -414,36 +420,44 @@ export default function Contact() {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                     <div>
-                      <label className="mb-1 block text-sm font-bold text-brand-gray-title">
+                      <label htmlFor="contact-name" className="mb-1 block text-sm font-bold text-brand-gray-title">
                         Nombre completo *
                       </label>
-                      <p className="mb-2 text-xs text-brand-gray-text">
+                      <p id="contact-name-help" className="mb-2 text-xs text-brand-gray-text">
                         Para dirigirnos a ti de forma personalizada.
                       </p>
                       <input
+                        id="contact-name"
                         type="text"
                         name="name"
                         value={formData.name}
                         onChange={handleInputChange}
                         required
+                        autoComplete="name"
+                        aria-describedby="contact-name-help"
                         className="w-full rounded-lg border border-gray-300 bg-gray-50 px-4 py-3 text-gray-900 transition-colors focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500"
                         placeholder="Ej. Juan Pérez"
                       />
                     </div>
 
                     <div>
-                      <label className="mb-1 block text-sm font-bold text-brand-gray-title">
+                      <label htmlFor="contact-phone" className="mb-1 block text-sm font-bold text-brand-gray-title">
                         Teléfono *
                       </label>
-                      <p className="mb-2 text-xs text-brand-gray-text">
+                      <p id="contact-phone-help" className="mb-2 text-xs text-brand-gray-text">
                         10 dígitos para contactarte rápidamente.
                       </p>
                       <input
+                        id="contact-phone"
                         type="tel"
                         name="phone"
                         value={formData.phone}
                         onChange={handleInputChange}
                         required
+                        autoComplete="tel-national"
+                        inputMode="numeric"
+                        aria-invalid={formError ? 'true' : undefined}
+                        aria-describedby={formError ? 'contact-phone-help contact-form-error' : 'contact-phone-help'}
                         className="w-full rounded-lg border border-gray-300 bg-gray-50 px-4 py-3 text-gray-900 transition-colors focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500"
                         placeholder="Ej. 6461234567"
                       />
@@ -451,32 +465,37 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label className="mb-1 block text-sm font-bold text-brand-gray-title">
+                    <label htmlFor="contact-email" className="mb-1 block text-sm font-bold text-brand-gray-title">
                       Correo electrónico *
                     </label>
-                    <p className="mb-2 text-xs text-brand-gray-text">
+                    <p id="contact-email-help" className="mb-2 text-xs text-brand-gray-text">
                       Donde enviaremos información detallada o seguimiento.
                     </p>
                     <input
+                      id="contact-email"
                       type="email"
                       name="email"
                       value={formData.email}
                       onChange={handleInputChange}
                       required
+                      autoComplete="email"
+                      aria-describedby="contact-email-help"
                       className="w-full rounded-lg border border-gray-300 bg-gray-50 px-4 py-3 text-gray-900 transition-colors focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500"
                       placeholder="ejemplo@correo.com"
                     />
                   </div>
 
                   <div>
-                    <label className="mb-1 block text-sm font-bold text-brand-gray-title">
+                    <label htmlFor="contact-subject" className="mb-1 block text-sm font-bold text-brand-gray-title">
                       Asunto de tu consulta *
                     </label>
                     <select
+                      id="contact-subject"
                       name="subject"
                       value={formData.subject}
                       onChange={handleInputChange}
                       required
+                      autoComplete="off"
                       className="w-full rounded-lg border border-gray-300 bg-gray-50 px-4 py-3 text-gray-900 transition-colors focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500"
                     >
                       <option value="">Selecciona cómo podemos ayudarte</option>
@@ -489,22 +508,30 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label className="mb-1 block text-sm font-bold text-brand-gray-title">
+                    <label htmlFor="contact-message" className="mb-1 block text-sm font-bold text-brand-gray-title">
                       Mensaje *
                     </label>
-                    <p className="mb-2 text-xs text-brand-gray-text">
+                    <p id="contact-message-help" className="mb-2 text-xs text-brand-gray-text">
                       Cuéntanos qué necesitas y te respondemos con mayor claridad.
                     </p>
                     <textarea
+                      id="contact-message"
                       name="message"
                       value={formData.message}
                       onChange={handleInputChange}
                       required
+                      aria-describedby="contact-message-help"
                       rows={5}
                       placeholder="Cuéntanos más detalles..."
                       className="w-full resize-none rounded-lg border border-gray-300 bg-gray-50 px-4 py-3 text-gray-900 transition-colors focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500"
                     />
                   </div>
+
+                  {formError ? (
+                    <p id="contact-form-error" className="text-sm font-bold text-red-600" role="alert">
+                      {formError}
+                    </p>
+                  ) : null}
 
                   <Button
                     type="submit"

@@ -99,40 +99,40 @@ const ValuationForm = () => {
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <label className="block text-sm font-medium text-brand-gray-title mb-2">Nombre completo *</label>
-          <input type="text" name="name" value={formData.name} onChange={handleInputChange} required className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white text-brand-gray-title" />
+          <label htmlFor="valuation-name" className="block text-sm font-medium text-brand-gray-title mb-2">Nombre completo *</label>
+          <input id="valuation-name" type="text" name="name" value={formData.name} onChange={handleInputChange} required autoComplete="name" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white text-brand-gray-title" />
         </div>
         <div>
-          <label className="block text-sm font-medium text-brand-gray-title mb-2">Teléfono *</label>
-          <input type="tel" name="phone" value={formData.phone} onChange={handleInputChange} required className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white text-brand-gray-title" />
+          <label htmlFor="valuation-phone" className="block text-sm font-medium text-brand-gray-title mb-2">Teléfono *</label>
+          <input id="valuation-phone" type="tel" name="phone" value={formData.phone} onChange={handleInputChange} required autoComplete="tel-national" inputMode="tel" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white text-brand-gray-title" />
         </div>
       </div>
       <div>
-        <label className="block text-sm font-medium text-brand-gray-title mb-2">Email</label>
-        <input type="email" name="email" value={formData.email} onChange={handleInputChange} className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white text-brand-gray-title" />
+        <label htmlFor="valuation-email" className="block text-sm font-medium text-brand-gray-title mb-2">Email</label>
+        <input id="valuation-email" type="email" name="email" value={formData.email} onChange={handleInputChange} autoComplete="email" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white text-brand-gray-title" />
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div>
-          <label className="block text-sm font-medium text-brand-gray-title mb-2">Marca *</label>
-          <input type="text" name="brand" value={formData.brand} onChange={handleInputChange} required className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white text-brand-gray-title" />
+          <label htmlFor="valuation-brand" className="block text-sm font-medium text-brand-gray-title mb-2">Marca *</label>
+          <input id="valuation-brand" type="text" name="brand" value={formData.brand} onChange={handleInputChange} required autoComplete="off" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white text-brand-gray-title" />
         </div>
         <div>
-          <label className="block text-sm font-medium text-brand-gray-title mb-2">Modelo *</label>
-          <input type="text" name="model" value={formData.model} onChange={handleInputChange} required className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white text-brand-gray-title" />
+          <label htmlFor="valuation-model" className="block text-sm font-medium text-brand-gray-title mb-2">Modelo *</label>
+          <input id="valuation-model" type="text" name="model" value={formData.model} onChange={handleInputChange} required autoComplete="off" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white text-brand-gray-title" />
         </div>
         <div>
-          <label className="block text-sm font-medium text-brand-gray-title mb-2">Año *</label>
-          <input type="number" name="year" value={formData.year} onChange={handleInputChange} required min="1990" max={new Date().getFullYear() + 1} className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white text-brand-gray-title" />
+          <label htmlFor="valuation-year" className="block text-sm font-medium text-brand-gray-title mb-2">Año *</label>
+          <input id="valuation-year" type="number" name="year" value={formData.year} onChange={handleInputChange} required min="1990" max={new Date().getFullYear() + 1} inputMode="numeric" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white text-brand-gray-title" />
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <label className="block text-sm font-medium text-brand-gray-title mb-2">Kilometraje *</label>
-          <input type="number" name="mileage" value={formData.mileage} onChange={handleInputChange} required className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white text-brand-gray-title" />
+          <label htmlFor="valuation-mileage" className="block text-sm font-medium text-brand-gray-title mb-2">Kilometraje *</label>
+          <input id="valuation-mileage" type="number" name="mileage" value={formData.mileage} onChange={handleInputChange} required min="0" inputMode="numeric" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white text-brand-gray-title" />
         </div>
         <div>
-          <label className="block text-sm font-medium text-brand-gray-title mb-2">Estado general *</label>
-          <select name="condition" value={formData.condition} onChange={handleInputChange} required className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white text-brand-gray-title">
+          <label htmlFor="valuation-condition" className="block text-sm font-medium text-brand-gray-title mb-2">Estado general *</label>
+          <select id="valuation-condition" name="condition" value={formData.condition} onChange={handleInputChange} required className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white text-brand-gray-title">
             <option value="">Seleccionar</option>
             <option value="excelente">Excelente</option>
             <option value="bueno">Bueno</option>
@@ -142,16 +142,28 @@ const ValuationForm = () => {
         </div>
       </div>
       <div>
-        <label className="block text-sm font-medium text-brand-gray-title mb-2">Descripción adicional</label>
-        <textarea name="description" value={formData.description} onChange={handleInputChange} rows={4} placeholder="Cuéntanos más detalles sobre tu auto..." className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white text-brand-gray-title" />
+        <label htmlFor="valuation-description" className="block text-sm font-medium text-brand-gray-title mb-2">Descripción adicional</label>
+        <textarea id="valuation-description" name="description" value={formData.description} onChange={handleInputChange} rows={4} placeholder="Cuéntanos más detalles sobre tu auto..." className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white text-brand-gray-title" />
       </div>
       <div>
-        <label className="block text-sm font-medium text-brand-gray-title mb-2">Fotos del vehículo</label>
-        <div onClick={() => fileInputRef.current.click()} className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center cursor-pointer hover:bg-gray-100 transition">
+        <label htmlFor="valuation-photos" className="block text-sm font-medium text-brand-gray-title mb-2">Fotos del vehículo</label>
+        <div
+          onClick={() => fileInputRef.current.click()}
+          onKeyDown={(event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+              event.preventDefault();
+              fileInputRef.current.click();
+            }
+          }}
+          role="button"
+          tabIndex={0}
+          aria-controls="valuation-photos"
+          className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center cursor-pointer hover:bg-gray-100 transition"
+        >
           <Upload className="h-12 w-12 text-gray-400 mx-auto mb-4" />
           <p className="text-gray-600 mb-2">Arrastra y suelta fotos o haz clic para seleccionar</p>
           <p className="text-sm text-gray-500">Puedes subir varias imágenes</p>
-          <input type="file" ref={fileInputRef} onChange={handleFileChange} multiple accept="image/*" className="hidden" />
+          <input id="valuation-photos" type="file" ref={fileInputRef} onChange={handleFileChange} multiple accept="image/*" className="sr-only" />
         </div>
         {files.length > 0 && (
           <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">

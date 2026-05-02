@@ -49,7 +49,7 @@ Este plan resume los hallazgos principales de la auditoria tecnica. La regla de 
    - Archivos probables: `src/components/sell-car/ValuationForm.jsx`, `src/pages/Contact.jsx`
    - Objetivo: labels conectados a inputs, autocompletado movil y validacion mas clara.
    - Riesgo: bajo.
-   - Estado: pendiente.
+   - Estado: completado.
 
 8. Unificar paginas restantes en `PageSEO`.
    - Archivos probables: `src/pages/AboutUs.jsx`, `src/pages/Terms.jsx`, `src/pages/blog/*.jsx`
