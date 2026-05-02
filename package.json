@@ -10,7 +10,7 @@
     "prerender": "node prerender.js",
     "icons": "node tools/generate-icons.js",
     "preview": "vite preview --host :: --port 3000",
-    "lint": "eslint . --quiet"
+    "lint": "eslint src contexts tools plugins prerender.js --quiet"
   },
   "dependencies": {
     "@babel/generator": "^7.26.3",
