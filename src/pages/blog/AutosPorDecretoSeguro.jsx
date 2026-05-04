@@ -153,7 +153,7 @@ const AutosPorDecretoSeguro = () => {
                   </div>
 
                   <div className="text-center">
-                    <Link to="/inventario">
+                    <Link to="/inventario/">
                       <Button size="lg" className="bg-amber-500 text-brand-blue hover:bg-amber-400 font-bold px-8 py-6 text-lg rounded-xl shadow-lg shadow-amber-500/20 transition-all hover:scale-105">
                         Ver Inventario Nacional de Agencia
                       </Button>

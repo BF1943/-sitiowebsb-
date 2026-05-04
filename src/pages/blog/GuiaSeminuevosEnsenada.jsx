@@ -141,7 +141,7 @@ export default function GuiaSeminuevosEnsenada() {
             <p className="text-lg text-gray-300 mb-6 font-bold">Explora nuestro inventario de autos nacionales, seleccionados y con garantía. La confianza que buscas está aquí.</p>
             <div className="flex justify-center gap-4 mb-8 flex-wrap">
               <Button asChild size="lg">
-                <Link to="/inventario">Ver autos seminuevos en Ensenada</Link>
+                <Link to="/inventario/">Ver autos seminuevos en Ensenada</Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-brand-blue">
                 <Link to="/contacto">Hablar con un Asesor</Link>

@@ -4,7 +4,7 @@
   export const routeTitles = {
     // Main Routes
     "/": "Seminuevos Ensenada | Autos Nacionales con Garantía | Seminuevos Baja",
-    "/inventario": "Autos Seminuevos en Ensenada | Carros en Venta con Garantía | Seminuevos Baja",
+    "/inventario": "Autos Seminuevos en Ensenada | Inventario con Garantía | Seminuevos Baja",
     "/vender": "Vende tu Auto en Ensenada | Cotización Gratis Hoy | Seminuevos Baja",
     "/consigna": "Consignación de Autos en Ensenada | Solo Pagas si se Vende | Seminuevos Baja",
     "/financiamiento": "Autos a Crédito en Ensenada | Enganche desde 10% | Seminuevos Baja",

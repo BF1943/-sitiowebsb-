@@ -375,7 +375,7 @@ export default function CarDetailPage() {
               '@type': 'ListItem',
               position: 2,
               name: 'Inventario',
-              item: `${SITE_URL}/inventario`,
+              item: `${SITE_URL}/inventario/`,
             },
             {
               '@type': 'ListItem',
@@ -497,7 +497,7 @@ export default function CarDetailPage() {
           />
           <meta name="robots" content="noindex,follow" />
           <meta name="googlebot" content="noindex,follow" />
-          <link rel="canonical" href={`${SITE_URL}/inventario`} />
+          <link rel="canonical" href={`${SITE_URL}/inventario/`} />
           <meta
             property="og:title"
             content={`Vehículo no encontrado | ${siteName || 'Seminuevos Baja'}`}
@@ -506,7 +506,7 @@ export default function CarDetailPage() {
             property="og:description"
             content="Este vehículo ya no está disponible o no pudimos cargar su información."
           />
-          <meta property="og:url" content={`${SITE_URL}/inventario`} />
+          <meta property="og:url" content={`${SITE_URL}/inventario/`} />
           <meta property="og:type" content="website" />
         </Helmet>
 
@@ -521,7 +521,7 @@ export default function CarDetailPage() {
             </p>
 
             <div className="flex justify-center gap-4">
-              <Link to="/inventario">
+              <Link to="/inventario/">
                 <Button
                   variant="outline"
                   className="border-gray-500 text-gray-300 hover:text-white"
@@ -577,7 +577,7 @@ export default function CarDetailPage() {
       <div className="min-h-screen bg-brand-blue pb-12 pt-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Link
-            to="/inventario"
+            to="/inventario/"
             className="group mb-6 flex items-center text-gray-400 transition-colors hover:text-amber-500"
           >
             <ArrowLeft className="mr-2 h-5 w-5 transform transition-transform group-hover:-translate-x-1" />

@@ -35,7 +35,7 @@ function FooterComponent() {
           <div className="col-span-1 flex flex-col items-center md:items-start text-center md:text-left">
             <span className="text-lg font-semibold text-white mb-4 block">Enlaces Rápidos</span>
             <ul className="space-y-2">
-              <li><Link to="/inventario" className="text-gray-300 hover:text-amber-500 transition-colors font-bold">Inventario</Link></li>
+              <li><Link to="/inventario/" className="text-gray-300 hover:text-amber-500 transition-colors font-bold">Inventario</Link></li>
               <li><Link to="/vender" className="text-gray-300 hover:text-amber-500 transition-colors font-bold">Vender mi Auto</Link></li>
               <li><Link to="/consigna" className="text-gray-300 hover:text-amber-500 transition-colors font-bold">Consigna tu Auto</Link></li>
               <li><Link to="/financiamiento" className="text-gray-300 hover:text-amber-500 transition-colors font-bold">Financiamiento</Link></li>

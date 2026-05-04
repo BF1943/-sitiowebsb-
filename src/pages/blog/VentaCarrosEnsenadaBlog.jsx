@@ -312,7 +312,7 @@ export default function VentaCarrosEnsenadaBlog() {
               size="lg"
               className="rounded-full bg-white px-8 py-6 text-lg font-bold text-amber-600 shadow-xl transition-all hover:-translate-y-1 hover:bg-gray-100 hover:shadow-2xl"
             >
-              <Link to="/inventario">
+              <Link to="/inventario/">
                 Ver inventario en Ensenada <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
@@ -370,7 +370,7 @@ export default function VentaCarrosEnsenadaBlog() {
 
             <div className="flex flex-wrap justify-center gap-4">
               <Link
-                to="/inventario"
+                to="/inventario/"
                 className="font-bold text-amber-500 underline decoration-2 underline-offset-4 hover:text-amber-400"
               >
                 Ver inventario

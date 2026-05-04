@@ -657,7 +657,7 @@ export default function Contact() {
             </h2>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
               <Link
-                to="/inventario"
+                to="/inventario/"
                 className="group block rounded-xl border border-white/5 bg-gray-900/40 p-4 text-center transition-colors hover:bg-gray-800"
               >
                 <h3 className="font-semibold text-white transition-colors group-hover:text-amber-500">

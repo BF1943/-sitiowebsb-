@@ -234,7 +234,7 @@ export default function Inventory() {
 
   const inventorySchema = useMemo(() => {
     const schemaCars = cars.slice(0, 24);
-    const inventoryUrl = `${SITE_URL}/inventario`;
+    const inventoryUrl = `${SITE_URL}/inventario/`;
 
     const itemList = {
       '@type': 'ItemList',

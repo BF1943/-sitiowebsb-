@@ -13,7 +13,7 @@ import {
 
 const navigation = [
   { name: 'Inicio', href: '/' },
-  { name: 'Inventario', href: '/inventario' },
+  { name: 'Inventario', href: '/inventario/' },
   {
     name: 'Vende tu Auto',
     dropdown: [

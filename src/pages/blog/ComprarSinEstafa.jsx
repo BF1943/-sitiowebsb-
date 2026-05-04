@@ -141,7 +141,7 @@ const ComprarSinEstafa = () => {
           </section>
 
           <div className="text-center">
-            <Link to="/inventario" className="inline-flex items-center bg-amber-500 text-brand-blue px-8 py-3 rounded-lg hover:bg-amber-400 transition-colors font-bold text-lg shadow-lg">
+            <Link to="/inventario/" className="inline-flex items-center bg-amber-500 text-brand-blue px-8 py-3 rounded-lg hover:bg-amber-400 transition-colors font-bold text-lg shadow-lg">
               Ver Inventario Seguro
               <ArrowRight className="h-5 w-5 ml-2" />
             </Link>

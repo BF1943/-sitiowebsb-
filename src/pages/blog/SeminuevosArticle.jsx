@@ -121,7 +121,7 @@ export default function SeminuevosArticle() {
                   asChild
                   className="w-full bg-gradient-to-r from-brand-blue to-blue-700 py-6 text-lg text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:from-blue-800 hover:to-blue-900 sm:w-auto"
                 >
-                  <Link to="/inventario">
+                  <Link to="/inventario/">
                     Ver inventario actualizado <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
@@ -196,7 +196,7 @@ export default function SeminuevosArticle() {
                   asChild
                   className="w-full border-none bg-amber-500 px-8 py-6 text-lg font-bold text-slate-900 hover:bg-amber-400 sm:w-auto"
                 >
-                  <Link to="/inventario">Revisa el inventario actualizado</Link>
+                  <Link to="/inventario/">Revisa el inventario actualizado</Link>
                 </Button>
               </div>
 
@@ -223,7 +223,7 @@ export default function SeminuevosArticle() {
                   size="lg"
                   className="h-auto bg-brand-blue px-8 py-6 text-lg font-bold text-white shadow-xl transition-all hover:bg-blue-800 hover:shadow-2xl"
                 >
-                  <Link to="/inventario">Ver autos seminuevos en Ensenada</Link>
+                  <Link to="/inventario/">Ver autos seminuevos en Ensenada</Link>
                 </Button>
 
                 <Button

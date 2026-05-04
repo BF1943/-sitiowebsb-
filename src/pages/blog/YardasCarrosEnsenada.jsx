@@ -326,7 +326,7 @@ export default function YardasCarrosEnsenada() {
                 </p>
                 <div className="flex flex-col sm:flex-row justify-center gap-4">
                   <Button asChild size="lg" className="bg-amber-500 hover:bg-amber-600 text-brand-blue font-extrabold text-lg px-8 py-6 h-auto shadow-lg hover:shadow-xl hover:scale-105 transition-all">
-                    <Link to="/inventario">
+                    <Link to="/inventario/">
                       Explora Nuestro Inventario de Autos Confiables
                       <Search className="ml-2 h-5 w-5" />
                     </Link>

@@ -245,7 +245,7 @@ export default function RutaDelVinoValleDeGuadalupe() {
                 </p>
                 
                 <div className="mt-8 text-center">
-                  <Link to="/inventario">
+                  <Link to="/inventario/">
                     <Button size="lg" className="bg-amber-500 hover:bg-amber-600 text-brand-blue font-bold text-lg px-8 py-6 h-auto shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
                       Ver SUVs disponibles (RAV4, CR-V, X-Trail, Tiguan)
                     </Button>

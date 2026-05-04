@@ -372,7 +372,7 @@ export default function Blog() {
                 </h2>
                 <div className="space-y-3">
                   <Link
-                    to="/inventario"
+                    to="/inventario/"
                     className="block rounded px-3 py-2 font-bold text-gray-300 transition-colors hover:bg-white/10 hover:text-amber-500"
                   >
                     Ver inventario en Ensenada

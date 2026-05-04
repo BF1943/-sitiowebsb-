@@ -8,9 +8,9 @@ export const routes = [
   },
   {
     path: '/inventario',
-    title: 'Autos Seminuevos en Ensenada | Seminuevos Baja',
+    title: 'Autos Seminuevos en Ensenada | Inventario con Garantía | Seminuevos Baja',
     description:
-      'Explora autos seminuevos y usados en venta en Ensenada. Unidades nacionales con financiamiento y póliza de garantía mecánica de 12 meses.',
+      'Explora autos seminuevos en Ensenada con garantía mecánica de 12 meses, financiamiento y unidades nacionales listas para entrega en Seminuevos Baja.',
   },
   {
     path: '/vender',

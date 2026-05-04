@@ -6,6 +6,28 @@ import { pathToFileURL } from 'url';
 
 const SITE_ORIGIN = 'https://seminuevosbaja.com.mx';
 
+function toCanonicalPath(value = '/') {
+  let raw = String(value || '/').trim();
+
+  if (!raw) raw = '/';
+
+  raw = raw.split('#')[0].split('?')[0];
+  raw = raw.replace(/\/{2,}/g, '/');
+
+  if (!raw.startsWith('/')) {
+    raw = `/${raw}`;
+  }
+
+  if (raw.length > 1) {
+    raw = raw.replace(/\/+$/g, '');
+  }
+
+  if (raw === '/') return '/';
+  if (/\.[a-z0-9]{2,8}$/i.test(raw)) return raw;
+
+  return `${raw}/`;
+}
+
 async function main() {
   const cwd = process.cwd();
   const configPath = path.join(cwd, 'prerender-config.js');
@@ -24,7 +46,8 @@ async function main() {
   }
 
   const lines = routes.map(({ path: routePath, title, description }) => {
-    const url = `${SITE_ORIGIN}${routePath}`;
+    const canonicalPath = toCanonicalPath(routePath);
+    const url = `${SITE_ORIGIN}${canonicalPath === '/' ? '/' : canonicalPath}`;
     const safeTitle = (title || '').trim() || routePath;
     const safeDesc = (description || '').trim();
     return safeDesc

@@ -153,7 +153,7 @@ export default function AutosChocolateVsNacionales() {
               No arriesgues tu dinero y tu seguridad. Elige certeza. Elige legal.
             </p>
             <Button asChild size="lg" className="bg-amber-500 text-brand-blue hover:bg-amber-400 font-bold text-lg">
-              <Link to="/inventario">Ver Inventario de Autos Nacionales Verificados</Link>
+              <Link to="/inventario/">Ver Inventario de Autos Nacionales Verificados</Link>
             </Button>
           </motion.section>
         </div>
