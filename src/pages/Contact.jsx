@@ -669,7 +669,7 @@ export default function Contact() {
               </Link>
 
               <Link
-                to="/financiamiento"
+                to="/financiamiento/"
                 className="group block rounded-xl border border-white/5 bg-gray-900/40 p-4 text-center transition-colors hover:bg-gray-800"
               >
                 <h3 className="font-semibold text-white transition-colors group-hover:text-amber-500">
@@ -679,7 +679,7 @@ export default function Contact() {
               </Link>
 
               <Link
-                to="/vender"
+                to="/vender/"
                 className="group block rounded-xl border border-white/5 bg-gray-900/40 p-4 text-center transition-colors hover:bg-gray-800"
               >
                 <h3 className="font-semibold text-white transition-colors group-hover:text-amber-500">
@@ -689,7 +689,7 @@ export default function Contact() {
               </Link>
 
               <Link
-                to="/consigna"
+                to="/consigna/"
                 className="group block rounded-xl border border-white/5 bg-gray-900/40 p-4 text-center transition-colors hover:bg-gray-800"
               >
                 <h3 className="font-semibold text-white transition-colors group-hover:text-amber-500">

@@ -196,7 +196,7 @@ export default function MejoresSeminuevos2025() {
                 <Link to="/inventario/">Ver autos seminuevos en Ensenada</Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-brand-blue">
-                <Link to="/contacto">Contáctanos</Link>
+                <Link to="/contacto/">Contáctanos</Link>
               </Button>
             </div>
           </footer>

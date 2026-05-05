@@ -144,7 +144,7 @@ export default function GuiaSeminuevosEnsenada() {
                 <Link to="/inventario/">Ver autos seminuevos en Ensenada</Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-brand-blue">
-                <Link to="/contacto">Hablar con un Asesor</Link>
+                <Link to="/contacto/">Hablar con un Asesor</Link>
               </Button>
             </div>
           </footer>

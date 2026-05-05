@@ -29,7 +29,7 @@ export const seoConfig = {
     ogImage: DEFAULT_OG_IMAGE,
     ogImageAlt: 'Cotización profesional para vender tu auto en Ensenada',
     ogType: 'website',
-    canonical: '/vender',
+    canonical: '/vender/',
   },
 
   consignCar: {
@@ -39,7 +39,7 @@ export const seoConfig = {
     ogImage: DEFAULT_OG_IMAGE,
     ogImageAlt: 'Consignación de autos en Ensenada con Seminuevos Baja',
     ogType: 'website',
-    canonical: '/consigna',
+    canonical: '/consigna/',
   },
 
   consignFromTijuana: {
@@ -49,7 +49,7 @@ export const seoConfig = {
     ogImage: DEFAULT_OG_IMAGE,
     ogImageAlt: 'Consignación de autos desde Tijuana en Ensenada',
     ogType: 'website',
-    canonical: '/consigna-desde-tijuana',
+    canonical: '/consigna-desde-tijuana/',
   },
 
   financing: {
@@ -59,7 +59,7 @@ export const seoConfig = {
     ogImage: DEFAULT_OG_IMAGE,
     ogImageAlt: 'Autos a crédito y financiamiento en Ensenada',
     ogType: 'website',
-    canonical: '/financiamiento',
+    canonical: '/financiamiento/',
   },
 
   earnMoney: {
@@ -69,7 +69,7 @@ export const seoConfig = {
     ogImage: 'https://seminuevosbaja.com.mx/og-image.png',
     ogImageAlt: 'Programa de referidos de autos de Seminuevos Baja',
     ogType: 'website',
-    canonical: '/gana-dinero',
+    canonical: '/gana-dinero/',
   },
 
   about: {
@@ -79,7 +79,7 @@ export const seoConfig = {
     ogImage: DEFAULT_OG_IMAGE,
     ogImageAlt: 'Agencia de autos Seminuevos Baja en Ensenada',
     ogType: 'website',
-    canonical: '/quienes-somos',
+    canonical: '/quienes-somos/',
   },
 
   blog: {
@@ -89,7 +89,7 @@ export const seoConfig = {
     ogImage: DEFAULT_OG_IMAGE,
     ogImageAlt: 'Blog de autos seminuevos en Ensenada',
     ogType: 'website',
-    canonical: '/blog',
+    canonical: '/blog/',
   },
 
   contact: {
@@ -99,7 +99,7 @@ export const seoConfig = {
     ogImage: DEFAULT_OG_IMAGE,
     ogImageAlt: 'Contacto de Seminuevos Baja en Ensenada',
     ogType: 'website',
-    canonical: '/contacto',
+    canonical: '/contacto/',
   },
 
   terms: {
@@ -109,7 +109,7 @@ export const seoConfig = {
     ogImage: DEFAULT_OG_IMAGE,
     ogImageAlt: 'Términos y condiciones de Seminuevos Baja',
     ogType: 'website',
-    canonical: '/terminos',
+    canonical: '/terminos/',
   },
 
   admin: {

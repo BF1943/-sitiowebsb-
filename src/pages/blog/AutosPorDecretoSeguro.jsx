@@ -25,7 +25,7 @@ const AutosPorDecretoSeguro = () => {
         <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="mb-12">
-            <Link to="/blog" className="inline-flex items-center text-amber-600 hover:text-amber-700 font-bold mb-6 transition-colors">
+            <Link to="/blog/" className="inline-flex items-center text-amber-600 hover:text-amber-700 font-bold mb-6 transition-colors">
               <ArrowLeft className="h-5 w-5 mr-2" />
               Volver al Blog
             </Link>

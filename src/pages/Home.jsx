@@ -549,7 +549,7 @@ export default function Home() {
                 variant="outline"
                 className="w-full border-white px-8 py-3 text-lg text-white hover:bg-white hover:text-gray-900 sm:w-auto"
               >
-                <Link to="/financiamiento">Simula tu crédito</Link>
+                <Link to="/financiamiento/">Simula tu crédito</Link>
               </Button>
 
               <Button
@@ -558,13 +558,13 @@ export default function Home() {
                 variant="outline"
                 className="w-full border-white px-8 py-3 text-lg text-white hover:bg-white hover:text-gray-900 sm:w-auto"
               >
-                <Link to="/vender">Vender mi auto</Link>
+                <Link to="/vender/">Vender mi auto</Link>
               </Button>
             </div>
 
             <p className="mt-6 text-sm font-bold text-gray-300">
               ¿Prefieres vender o consignar?{' '}
-              <Link to="/consigna" className="underline underline-offset-4 hover:text-white">
+              <Link to="/consigna/" className="underline underline-offset-4 hover:text-white">
                 Conoce cómo funciona la consignación
               </Link>
             </p>
@@ -900,13 +900,13 @@ export default function Home() {
                 size="lg"
                 className="border-white text-white hover:bg-white hover:text-gray-900"
               >
-                <Link to="/financiamiento">Simular crédito</Link>
+                <Link to="/financiamiento/">Simular crédito</Link>
               </Button>
             </div>
 
             <p className="mt-6 text-sm font-bold text-gray-300">
               ¿Quieres vender tu auto?{' '}
-              <Link to="/vender" className="underline underline-offset-4 hover:text-white">
+              <Link to="/vender/" className="underline underline-offset-4 hover:text-white">
                 Cotización de mi auto
               </Link>
             </p>

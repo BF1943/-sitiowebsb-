@@ -133,7 +133,7 @@ export default function VenderAutoFinanciado() {
               <ol className="flex items-center space-x-2 text-sm text-gray-300">
                 <li><Link to="/" className="hover:text-amber-500 transition-colors">Inicio</Link></li>
                 <li><ChevronRight className="h-4 w-4" /></li>
-                <li><Link to="/blog" className="hover:text-amber-500 transition-colors">Blog</Link></li>
+                <li><Link to="/blog/" className="hover:text-amber-500 transition-colors">Blog</Link></li>
                 <li><ChevronRight className="h-4 w-4" /></li>
                 <li className="text-white font-medium line-clamp-1" aria-current="page">Vender Auto Financiado</li>
               </ol>
@@ -159,7 +159,7 @@ export default function VenderAutoFinanciado() {
                   Cotizar mi Auto Hoy
                 </Button>
                 <Button asChild size="lg" variant="outline" className="bg-transparent border-2 border-white text-white hover:bg-white/10 font-bold px-8 py-6 rounded-xl transition-all">
-                  <Link to="/vender">Cotización profesional para tu auto</Link>
+                  <Link to="/vender/">Cotización profesional para tu auto</Link>
                 </Button>
               </div>
             </motion.div>
@@ -183,7 +183,7 @@ export default function VenderAutoFinanciado() {
               </p>
               <p>
                 Si prefieres una alternativa más sencilla, también puedes conocer nuestra{' '}
-                <Link to="/vender" className="text-amber-600 font-semibold hover:underline">
+                <Link to="/vender/" className="text-amber-600 font-semibold hover:underline">
                   opción de venta directa de autos en Ensenada
                 </Link>
                 {' '}para autos sin deuda pendiente.
@@ -337,7 +337,7 @@ export default function VenderAutoFinanciado() {
                   variant="outline"
                   className="border-2 border-white text-brand-blue hover:text-brand-blue hover:bg-white bg-white font-bold px-8 py-6 rounded-xl text-lg w-full sm:w-auto"
                 >
-                  <Link to="/contacto">Ir a Contacto</Link>
+                  <Link to="/contacto/">Ir a Contacto</Link>
                 </Button>
               </div>
             </div>

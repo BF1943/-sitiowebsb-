@@ -28,7 +28,7 @@ export default function ConsignacionAutosSegura() {
         <div className="bg-gray-50 border-b border-gray-200">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <Link
-              to="/blog"
+              to="/blog/"
               className="inline-flex items-center text-gray-600 hover:text-brand-blue transition-colors font-medium"
             >
               <ArrowLeft className="mr-2 h-4 w-4" />
@@ -166,7 +166,7 @@ export default function ConsignacionAutosSegura() {
                 En Seminuevos Baja filtramos a los compradores, garantizamos el pago y nos encargamos de todo el proceso. Sin riesgos, sin estrés.
               </p>
               <Button asChild size="lg" className="bg-amber-500 text-brand-blue hover:bg-amber-400 font-bold text-lg px-8">
-                <Link to="/consigna">
+                <Link to="/consigna/">
                   Consignar mi auto ahora →
                 </Link>
               </Button>
@@ -218,7 +218,7 @@ export default function ConsignacionAutosSegura() {
             </p>
             <p className="mb-8">
               Si prefieres una venta inmediata con pago el mismo día, también puedes conocer nuestra opción de{' '}
-              <Link to="/vender" className="text-amber-600 font-semibold hover:underline">
+              <Link to="/vender/" className="text-amber-600 font-semibold hover:underline">
                 compra directa de autos en Ensenada
               </Link>
               {' '}— sin esperas ni comisiones.
@@ -230,7 +230,7 @@ export default function ConsignacionAutosSegura() {
                 En Seminuevos Baja nos encargamos de todo. Deja tu auto en manos de expertos y recibe tu dinero seguro.
               </p>
               <Button asChild size="lg" className="bg-amber-500 text-brand-blue hover:bg-amber-400 font-bold text-lg px-8">
-                <Link to="/consigna">
+                <Link to="/consigna/">
                   Consignar mi auto ahora
                 </Link>
               </Button>

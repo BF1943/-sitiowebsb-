@@ -67,7 +67,7 @@ export default function RutaDelVinoValleDeGuadalupe() {
         </div>
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link to="/blog" className="inline-flex items-center text-amber-600 hover:text-amber-700 font-bold mb-8 transition-colors">
+          <Link to="/blog/" className="inline-flex items-center text-amber-600 hover:text-amber-700 font-bold mb-8 transition-colors">
             <ArrowLeft className="h-4 w-4 mr-2" />
             Volver al Blog
           </Link>

@@ -377,14 +377,14 @@ export default function VentaCarrosEnsenadaBlog() {
               </Link>
               <span className="text-gray-600">•</span>
               <Link
-                to="/financiamiento"
+                to="/financiamiento/"
                 className="font-bold text-amber-500 underline decoration-2 underline-offset-4 hover:text-amber-400"
               >
                 Simular crédito
               </Link>
               <span className="text-gray-600">•</span>
               <Link
-                to="/contacto"
+                to="/contacto/"
                 className="font-bold text-amber-500 underline decoration-2 underline-offset-4 hover:text-amber-400"
               >
                 Ir a contacto

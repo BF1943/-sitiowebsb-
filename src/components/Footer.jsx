@@ -36,14 +36,14 @@ function FooterComponent() {
             <span className="text-lg font-semibold text-white mb-4 block">Enlaces Rápidos</span>
             <ul className="space-y-2">
               <li><Link to="/inventario/" className="text-gray-300 hover:text-amber-500 transition-colors font-bold">Inventario</Link></li>
-              <li><Link to="/vender" className="text-gray-300 hover:text-amber-500 transition-colors font-bold">Vender mi Auto</Link></li>
-              <li><Link to="/consigna" className="text-gray-300 hover:text-amber-500 transition-colors font-bold">Consigna tu Auto</Link></li>
-              <li><Link to="/financiamiento" className="text-gray-300 hover:text-amber-500 transition-colors font-bold">Financiamiento</Link></li>
-              <li><Link to="/quienes-somos" className="text-gray-300 hover:text-amber-500 transition-colors font-bold">Quiénes Somos</Link></li>
-              <li><Link to="/blog" className="text-gray-300 hover:text-amber-500 transition-colors font-bold">Blog</Link></li>
-              <li><Link to="/gana-dinero" className="text-gray-300 hover:text-amber-500 transition-colors font-bold">Gana Dinero</Link></li>
-              <li><Link to="/contacto" className="text-gray-300 hover:text-amber-500 transition-colors font-bold">Contacto</Link></li>
-              <li><Link to="/terminos" className="text-gray-300 hover:text-amber-500 transition-colors font-bold">Términos y Condiciones</Link></li>
+              <li><Link to="/vender/" className="text-gray-300 hover:text-amber-500 transition-colors font-bold">Vender mi Auto</Link></li>
+              <li><Link to="/consigna/" className="text-gray-300 hover:text-amber-500 transition-colors font-bold">Consigna tu Auto</Link></li>
+              <li><Link to="/financiamiento/" className="text-gray-300 hover:text-amber-500 transition-colors font-bold">Financiamiento</Link></li>
+              <li><Link to="/quienes-somos/" className="text-gray-300 hover:text-amber-500 transition-colors font-bold">Quiénes Somos</Link></li>
+              <li><Link to="/blog/" className="text-gray-300 hover:text-amber-500 transition-colors font-bold">Blog</Link></li>
+              <li><Link to="/gana-dinero/" className="text-gray-300 hover:text-amber-500 transition-colors font-bold">Gana Dinero</Link></li>
+              <li><Link to="/contacto/" className="text-gray-300 hover:text-amber-500 transition-colors font-bold">Contacto</Link></li>
+              <li><Link to="/terminos/" className="text-gray-300 hover:text-amber-500 transition-colors font-bold">Términos y Condiciones</Link></li>
             </ul>
           </div>
 

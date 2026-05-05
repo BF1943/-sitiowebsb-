@@ -383,7 +383,7 @@ export default function VenderAutoTijuana() {
                 variant="outline"
                 className="rounded-xl border-white px-10 py-6 text-lg font-bold text-white hover:bg-white hover:text-brand-blue"
               >
-                <Link to="/consigna-desde-tijuana">
+                <Link to="/consigna-desde-tijuana/">
                   Ver opción en Ensenada
                 </Link>
               </Button>

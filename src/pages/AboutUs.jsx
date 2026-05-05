@@ -187,7 +187,7 @@ const AboutUs = () => {
                                 <Link to="/inventario/">Ver autos seminuevos en Ensenada</Link>
                             </Button>
                             <Button asChild size="lg" variant="outline" className="px-8 py-6 text-lg border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white">
-                                <Link to="/vender">Vender mi Auto</Link>
+                                <Link to="/vender/">Vender mi Auto</Link>
                             </Button>
                         </div>
                     </div>

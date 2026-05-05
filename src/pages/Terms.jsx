@@ -210,7 +210,7 @@ export default function Terms() {
             </div>
 
             <Button asChild size="lg" className="bg-amber-500 hover:bg-amber-600 text-gray-900 font-bold px-8">
-              <Link to="/contacto">Contactar a un Asesor</Link>
+              <Link to="/contacto/">Contactar a un Asesor</Link>
             </Button>
           </motion.div>
 

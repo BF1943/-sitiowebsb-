@@ -45,7 +45,7 @@ export default function YardasCarrosEnsenada() {
 
           {/* Breadcrumb & Navigation */}
           <nav className="mb-8 flex items-center text-sm text-gray-500">
-            <Link to="/blog" className="hover:text-brand-blue flex items-center transition-colors">
+            <Link to="/blog/" className="hover:text-brand-blue flex items-center transition-colors">
               <ArrowLeft className="h-4 w-4 mr-1" />
               Volver al Blog
             </Link>
@@ -261,7 +261,7 @@ export default function YardasCarrosEnsenada() {
                   Con nosotros, puedes dar un enganche accesible y pagar el resto en mensualidades cómodas. Esto te permite acceder a un auto mejor, más nuevo y más seguro que el que podrías comprar solo con tus ahorros en efectivo en una yarda.
                 </p>
                 <Button asChild className="bg-amber-500 hover:bg-amber-600 text-brand-blue font-bold w-full md:w-auto">
-                  <Link to="/financiamiento">
+                  <Link to="/financiamiento/">
                     Visita nuestra página de Financiamiento
                   </Link>
                 </Button>
@@ -332,7 +332,7 @@ export default function YardasCarrosEnsenada() {
                     </Link>
                   </Button>
                   <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-brand-blue font-bold text-lg px-8 py-6 h-auto">
-                    <Link to="/quienes-somos">
+                    <Link to="/quienes-somos/">
                       Conoce Nuestra Agencia
                     </Link>
                   </Button>

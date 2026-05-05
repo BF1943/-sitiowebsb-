@@ -289,7 +289,7 @@ export default function ConsignaDesdeTijuana() {
 
           <div className="mt-6 text-center">
             <Link
-              to="/consigna"
+              to="/consigna/"
               className="font-bold text-amber-400 underline hover:text-amber-300"
             >
               Ver proceso completo de consignación
@@ -345,7 +345,7 @@ export default function ConsignaDesdeTijuana() {
           <div className="rounded-lg border border-gray-700 bg-gray-900/50 p-4 text-center">
             <p className="font-bold text-gray-300">
               Si necesitas vender hoy, la consignación no es tu opción.{' '}
-              <Link to="/vender" className="text-amber-400 underline hover:text-amber-300">
+              <Link to="/vender/" className="text-amber-400 underline hover:text-amber-300">
                 Consulta nuestra venta directa
               </Link>.
             </p>
@@ -424,7 +424,7 @@ export default function ConsignaDesdeTijuana() {
                 variant="outline"
                 className="rounded-xl border-white px-10 py-6 text-lg font-bold text-white hover:bg-white hover:text-brand-blue"
               >
-                <Link to="/consigna">Ver proceso completo de consignación</Link>
+                <Link to="/consigna/">Ver proceso completo de consignación</Link>
               </Button>
             </div>
           </motion.div>

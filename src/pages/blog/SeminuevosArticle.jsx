@@ -232,7 +232,7 @@ export default function SeminuevosArticle() {
                   size="lg"
                   className="h-auto border-2 border-brand-blue px-8 py-6 text-lg font-bold text-brand-blue hover:bg-blue-50"
                 >
-                  <Link to="/contacto">Agendar una cita</Link>
+                  <Link to="/contacto/">Agendar una cita</Link>
                 </Button>
               </div>
             </motion.section>

@@ -17,14 +17,14 @@ const navigation = [
   {
     name: 'Vende tu Auto',
     dropdown: [
-      { name: 'Vender mi Auto', href: '/vender' },
-      { name: 'Consigna tu Auto', href: '/consigna' },
+      { name: 'Vender mi Auto', href: '/vender/' },
+      { name: 'Consigna tu Auto', href: '/consigna/' },
     ]
   },
-  { name: 'Financiamiento', href: '/financiamiento' },
-  { name: 'Quiénes Somos', href: '/quienes-somos' },
-  { name: 'Blog', href: '/blog' },
-  { name: 'Contacto', href: '/contacto' },
+  { name: 'Financiamiento', href: '/financiamiento/' },
+  { name: 'Quiénes Somos', href: '/quienes-somos/' },
+  { name: 'Blog', href: '/blog/' },
+  { name: 'Contacto', href: '/contacto/' },
 ];
 
 const NavLink = ({ href, children, currentPath, onClick }) => (
@@ -114,7 +114,7 @@ function HeaderComponent() {
 
           <div className="hidden md:block">
             <Button asChild>
-              <Link to="/vender">Vender mi Auto</Link>
+              <Link to="/vender/">Vender mi Auto</Link>
             </Button>
           </div>
 
@@ -170,7 +170,7 @@ function HeaderComponent() {
               ))}
               <div className="pt-4 px-2">
                 <Button asChild className="w-full">
-                  <Link to="/vender" onClick={closeMenu}>Vender mi Auto</Link>
+                  <Link to="/vender/" onClick={closeMenu}>Vender mi Auto</Link>
                 </Button>
               </div>
             </div>

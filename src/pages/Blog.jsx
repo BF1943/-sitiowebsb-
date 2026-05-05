@@ -378,19 +378,19 @@ export default function Blog() {
                     Ver inventario en Ensenada
                   </Link>
                   <Link
-                    to="/financiamiento"
+                    to="/financiamiento/"
                     className="block rounded px-3 py-2 font-bold text-gray-300 transition-colors hover:bg-white/10 hover:text-amber-500"
                   >
                     Simular crédito automotriz
                   </Link>
                   <Link
-                    to="/vender"
+                    to="/vender/"
                     className="block rounded px-3 py-2 font-bold text-gray-300 transition-colors hover:bg-white/10 hover:text-amber-500"
                   >
                     Vender mi auto
                   </Link>
                   <Link
-                    to="/consigna"
+                    to="/consigna/"
                     className="block rounded px-3 py-2 font-bold text-gray-300 transition-colors hover:bg-white/10 hover:text-amber-500"
                   >
                     Consignación de autos
@@ -407,7 +407,7 @@ export default function Blog() {
                   asesoramos directamente.
                 </p>
                 <Link
-                  to="/contacto"
+                  to="/contacto/"
                   className="block w-full rounded-lg bg-amber-500 py-2 text-center font-bold text-brand-blue transition-colors hover:bg-amber-400"
                 >
                   Contactar ahora

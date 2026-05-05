@@ -39,7 +39,7 @@ export default function InventoryFinancingInfo() {
               </div>
             </div>
 
-            <Link to="/financiamiento">
+            <Link to="/financiamiento/">
               <Button size="lg" className="bg-amber-500 text-brand-blue hover:bg-amber-400 font-bold text-lg px-8">
                 Ver Requisitos Completos <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
