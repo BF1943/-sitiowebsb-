@@ -14,13 +14,16 @@ export default function ConsignHero({ onActionClick }) {
           className="text-left"
         >
           <span className="inline-block py-1 px-3 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold mb-4 border border-amber-500/30">
-            VENTA EN CONSIGNACIÓN EN ENSENADA
+            CONSIGNACIÓN DE AUTOS EN BAJA CALIFORNIA
           </span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
-            <span className="text-amber-500">Consignación de Autos en Ensenada</span> — Vende Seguro y al Mejor Precio
+            Consigna tu auto en <span className="text-amber-500">Baja California</span> y véndelo con apoyo profesional en Ensenada
           </h1>
-          <p className="text-lg md:text-xl text-gray-300 mb-8 font-medium">
-            Consignar tu auto en Ensenada con Seminuevos Baja es la mejor decisión. Maximiza tu ganancia sin correr riesgos — gestionamos marketing, financiamiento para compradores y todos los trámites legales en Baja California.
+          <p className="text-lg md:text-xl text-gray-300 mb-4 font-medium">
+            En Seminuevos Baja evaluamos autos de Ensenada, Tijuana, Mexicali, Rosarito, Tecate y otras ciudades de Baja California para venderlos mediante consignación profesional desde nuestras instalaciones en Ensenada.
+          </p>
+          <p className="text-base md:text-lg text-gray-400 mb-8 font-medium">
+            Revisamos tu unidad, definimos un monto neto razonable para ti y, si aceptas, promovemos el auto con compradores reales, opciones de financiamiento y un proceso seguro de venta.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button
@@ -28,9 +31,12 @@ export default function ConsignHero({ onActionClick }) {
               size="lg"
               className="text-lg px-8 py-6 rounded-xl shadow-lg shadow-amber-500/20 bg-amber-500 text-brand-blue hover:bg-amber-400 font-bold"
             >
-              Consigna tu auto ahora
+              Revisar si mi auto aplica
             </Button>
           </div>
+          <p className="mt-4 text-sm text-gray-400">
+            Evaluación inicial por WhatsApp. La aceptación está sujeta a evaluación comercial: si tu auto no cumple con las condiciones para consignación, te lo decimos antes de que te muevas.
+          </p>
         </motion.div>
 
         {/* Right Section: Image */}

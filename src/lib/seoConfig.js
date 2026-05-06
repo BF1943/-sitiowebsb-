@@ -33,11 +33,11 @@ export const seoConfig = {
   },
 
   consignCar: {
-    title: 'Consigna tu Auto en Ensenada | Precio Justo de Mercado',
+    title: 'Consigna tu Auto en Baja California | Véndelo en Ensenada',
     description:
-      'Consigna tu auto en Ensenada y véndelo a un precio justo de mercado con apoyo profesional y atención a compradores reales.',
+      'Consigna tu auto desde Ensenada, Tijuana, Mexicali, Rosarito o Tecate. Evaluamos tu unidad, acordamos un monto neto y la promovemos desde Seminuevos Baja.',
     ogImage: DEFAULT_OG_IMAGE,
-    ogImageAlt: 'Consignación de autos en Ensenada con Seminuevos Baja',
+    ogImageAlt: 'Consignación de autos en Baja California con Seminuevos Baja',
     ogType: 'website',
     canonical: '/consigna/',
   },

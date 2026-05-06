@@ -1,5 +1,4 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { MessageCircle } from 'lucide-react';
@@ -7,35 +6,28 @@ import { useGoogleAnalytics } from '@/hooks/useGoogleAnalytics';
 import { PageSEO } from '@/hooks/useSEO';
 
 import ConsignHero from '@/components/consign-car/ConsignHero';
+import RegionalConsign from '@/components/consign-car/RegionalConsign';
 import WhatIsConsignment from '@/components/consign-car/WhatIsConsignment';
 import ConsignProcess from '@/components/consign-car/ConsignProcess';
 import ConsignFees from '@/components/consign-car/ConsignFees';
 import ConsignTestimonials from '@/components/consign-car/ConsignTestimonials';
 import ConsignFAQ from '@/components/consign-car/ConsignFAQ';
 import ConsignAdvantages from '@/components/consign-car/ConsignAdvantages';
+import { consignFaqData } from '@/components/consign-car/consignFaqData';
 
-const PAGE_URL = 'https://seminuevosbaja.com.mx/consigna';
+const PAGE_URL = 'https://seminuevosbaja.com.mx/consigna/';
 const PAGE_IMAGE =
   'https://seminuevosbaja.com.mx/og-image.png';
 const BUSINESS_PHONE = '+526469778808';
 const WHATSAPP_NUMBER = '526461616696';
 
-function safeJsonLd(data) {
-  return JSON.stringify(data)
-    .replace(/</g, '\\u003c')
-    .replace(/>/g, '\\u003e')
-    .replace(/&/g, '\\u0026')
-    .replace(/\u2028/g, '\\u2028')
-    .replace(/\u2029/g, '\\u2029');
-}
-
 const ConsignCar = () => {
   const { trackLeadInterest, trackWhatsAppClick } = useGoogleAnalytics();
 
   const pageTitle =
-    'Consigna tu Auto en Ensenada | Precio Justo de Mercado';
+    'Consigna tu Auto en Baja California | Véndelo en Ensenada';
   const pageDescription =
-    'Consigna tu auto en Ensenada y véndelo a un precio justo de mercado con apoyo profesional y atención a compradores reales.';
+    'Consigna tu auto desde Ensenada, Tijuana, Mexicali, Rosarito o Tecate. Evaluamos tu unidad, acordamos un monto neto y la promovemos desde Seminuevos Baja.';
 
   const handleChatbotClick = () => {
     trackLeadInterest({
@@ -47,44 +39,24 @@ const ConsignCar = () => {
     trackWhatsAppClick('WhatsApp', 'Consign Car Page');
 
     const message =
-      'Hola Max, vengo de la página de consignación. ¿Me ayudas a revisar si mi auto aplica para consignación?';
+      'Hola Max, vengo de la página de consignación. Quiero saber si mi auto aplica para consignación. Te comparto marca, modelo, año, versión, kilometraje, ciudad donde se encuentra y fotos.';
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
   const faqSchema = {
-    '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: [
-      {
-        '@type': 'Question',
-        name: '¿Qué documentos necesito para consignar mi auto en Ensenada?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Para iniciar el trámite de consignación en Seminuevos Baja necesitas factura original, tarjeta de circulación vigente, identificación oficial y comprobante de domicilio.'
-        }
-      },
-      {
-        '@type': 'Question',
-        name: '¿Cuánto tarda en venderse un auto en consignación?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'El tiempo de venta puede variar según marca, modelo, precio y demanda. En muchos casos, con buena presentación, publicidad y opciones de financiamiento, la venta puede lograrse en pocas semanas.'
-        }
-      },
-      {
-        '@type': 'Question',
-        name: '¿Es seguro dejar mi auto a consignación?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Sí. Tu auto se resguarda en nuestras instalaciones y nosotros atendemos la promoción, citas y seguimiento para reducir riesgos como fraudes, transferencias falsas o trato con desconocidos.'
-        }
+    mainEntity: consignFaqData.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer
       }
-    ]
+    }))
   };
 
   const dealerSchema = {
-    '@context': 'https://schema.org',
     '@type': 'AutoDealer',
     name: 'Seminuevos Baja',
     alternateName: 'Seminuevos Ensenada',
@@ -92,7 +64,7 @@ const ConsignCar = () => {
     image: PAGE_IMAGE,
     logo: PAGE_IMAGE,
     description:
-      'Consigna tu auto en Ensenada con Seminuevos Baja. Te ayudamos con mayor exposición, proceso claro y acompañamiento profesional durante la venta.',
+      'Evaluamos autos de Baja California y los vendemos mediante consignación profesional desde Ensenada. Acordamos un monto neto con el propietario y promovemos la unidad con compradores reales.',
     telephone: BUSINESS_PHONE,
     priceRange: '$$',
     address: {
@@ -117,7 +89,12 @@ const ConsignCar = () => {
         closes: '15:00'
       }
     ],
-    areaServed: ['Ensenada', 'Tijuana', 'Rosarito', 'San Quintín', 'Valle de Guadalupe']
+    areaServed: ['Ensenada', 'Tijuana', 'Mexicali', 'Rosarito', 'Tecate', 'San Quintín', 'Valle de Guadalupe']
+  };
+
+  const combinedSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [dealerSchema, faqSchema]
   };
 
   return (
@@ -127,24 +104,19 @@ const ConsignCar = () => {
         customConfig={{
           title: pageTitle,
           description: pageDescription,
-          canonical: '/consigna',
+          canonical: '/consigna/',
           ogImage: PAGE_IMAGE,
           twitterImage: PAGE_IMAGE,
-          ogImageAlt: 'Consignación de autos en Ensenada con Seminuevos Baja',
-          twitterImageAlt: 'Consignación de autos en Ensenada con Seminuevos Baja',
-          schema: dealerSchema
+          ogImageAlt: 'Consignación de autos en Baja California con Seminuevos Baja',
+          twitterImageAlt: 'Consignación de autos en Baja California con Seminuevos Baja',
+          schema: combinedSchema
         }}
       />
 
-      <Helmet>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: safeJsonLd(faqSchema) }}
-        />
-      </Helmet>
-
       <div className="bg-white">
         <ConsignHero onActionClick={handleChatbotClick} />
+
+        <RegionalConsign />
 
         <WhatIsConsignment />
 
@@ -173,11 +145,19 @@ const ConsignCar = () => {
             </div>
 
             <h2 className="mb-6 text-3xl font-bold text-white md:text-4xl">
-              ¿Listo para vender sin preocuparte por todo el proceso?
+              ¿Quieres saber si tu auto aplica para consignación?
             </h2>
 
-            <p className="mb-8 text-lg font-medium text-gray-400">
-              Habla con Max y revisamos si tu auto es buena opción para consignación, con información clara desde el inicio y sin presión innecesaria.
+            <p className="mb-4 text-lg font-medium text-gray-300">
+              Envíanos los datos de tu auto por WhatsApp. Revisamos marca, modelo, año, kilometraje, condiciones, documentación y precio esperado.
+            </p>
+
+            <p className="mb-4 text-base font-medium text-gray-400">
+              Si tu auto tiene condiciones comerciales para consignación, te explicamos el monto neto sugerido, la estrategia de venta y los siguientes pasos.
+            </p>
+
+            <p className="mb-8 text-base font-medium text-gray-400">
+              Si tu auto no cumple con las condiciones comerciales para consignación, te lo diremos con claridad y te explicaremos por qué.
             </p>
 
             <Button
@@ -185,7 +165,7 @@ const ConsignCar = () => {
               size="lg"
               className="btn-glow transform rounded-xl bg-amber-500 px-12 py-6 text-lg font-bold text-brand-blue shadow-lg shadow-amber-500/20 transition-transform duration-300 hover:scale-105 hover:bg-amber-400"
             >
-              Hablar con Max
+              Hablar con Max por WhatsApp
             </Button>
           </motion.div>
         </section>

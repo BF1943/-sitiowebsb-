@@ -1,28 +1,38 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Search, Sparkles, Award, DollarSign } from 'lucide-react';
+import { MessageCircle, Calculator, ClipboardCheck, Camera, Users, DollarSign } from 'lucide-react';
 
 const ConsignProcess = () => {
     const steps = [
-        { 
-            icon: <Search className="h-8 w-8 text-white"/>, 
-            title: "1. Inspección y Avalúo", 
-            description: "Trae tu auto a nuestras instalaciones en Ensenada. Realizamos una inspección física, mecánica y legal gratuita para definir el precio más competitivo en el mercado de Baja California." 
+        {
+            icon: <MessageCircle className="h-8 w-8 text-white"/>,
+            title: "1. Pre-evaluación por WhatsApp",
+            description: "Nos compartes marca, modelo, año, versión, kilometraje, ciudad, fotos, factura, adeudos y condiciones generales. Hacemos una primera revisión."
         },
-        { 
-            icon: <Sparkles className="h-8 w-8 text-white"/>, 
-            title: "2. Preparación y Marketing", 
-            description: "Tomamos fotos profesionales y publicamos tu auto en todos nuestros canales digitales premium, apoyados por Max (IA) para difusión masiva." 
+        {
+            icon: <Calculator className="h-8 w-8 text-white"/>,
+            title: "2. Estimación de monto neto",
+            description: "Te orientamos sobre un monto neto razonable según mercado, demanda, condiciones de la unidad y kilometraje. Si tu expectativa está muy por encima del mercado, te lo decimos con claridad."
         },
-        { 
-            icon: <Award className="h-8 w-8 text-white"/>, 
-            title: "3. Gestión de Venta", 
-            description: "Filtramos a los interesados, mostramos el auto y ofrecemos opciones de crédito a los compradores para facilitar la venta." 
+        {
+            icon: <ClipboardCheck className="h-8 w-8 text-white"/>,
+            title: "3. Revisión física y contrato",
+            description: "Si ambas partes están de acuerdo, se revisa físicamente el auto, se valida la documentación y se firma contrato de consignación con el monto neto pactado y las condiciones de venta."
         },
-        { 
-            icon: <DollarSign className="h-8 w-8 text-white"/>, 
-            title: "4. Cierre y Pago", 
-            description: "Una vez vendido, gestionamos el cambio de propietario y te transferimos tu dinero de forma segura. Sin sorpresas." 
+        {
+            icon: <Camera className="h-8 w-8 text-white"/>,
+            title: "4. Preparación y publicación",
+            description: "Tomamos fotografías, preparamos la publicación, integramos el auto al inventario y lo promovemos en nuestros canales digitales."
+        },
+        {
+            icon: <Users className="h-8 w-8 text-white"/>,
+            title: "5. Atención a compradores",
+            description: "Atendemos interesados, filtramos prospectos, mostramos el auto en nuestras instalaciones y gestionamos opciones de financiamiento cuando aplica."
+        },
+        {
+            icon: <DollarSign className="h-8 w-8 text-white"/>,
+            title: "6. Cierre y pago",
+            description: "Cuando se concreta la venta, se realiza la documentación correspondiente, se confirma el pago y el propietario recibe el monto neto acordado en contrato."
         },
     ];
 
@@ -30,15 +40,15 @@ const ConsignProcess = () => {
         <section className="py-20 bg-gray-900 text-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">Proceso de Consignación de Autos en Ensenada</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold mb-4">Cómo funciona el proceso de consignación</h2>
                     <p className="text-gray-400 max-w-2xl mx-auto">
-                        Nuestro sistema de consignación de autos en Ensenada está diseñado para que vendas tu auto rápido, seguro y al mejor precio en Baja California.
+                        El proceso inicia con una evaluación comercial. No aceptamos autos únicamente porque el propietario quiera dejarlos en venta; primero revisamos si la unidad tiene condiciones reales para venderse.
                     </p>
                 </div>
 
-                <div className="grid md:grid-cols-4 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     {steps.map((step, index) => (
-                        <motion.div 
+                        <motion.div
                             key={index}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -55,9 +65,6 @@ const ConsignProcess = () => {
                                     {step.description}
                                 </p>
                             </div>
-                            {index < steps.length - 1 && (
-                                <div className="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gray-600 transform -translate-y-1/2 z-0" />
-                            )}
                         </motion.div>
                     ))}
                 </div>

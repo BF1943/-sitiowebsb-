@@ -1,57 +1,77 @@
 import React from 'react';
-import { CheckCircle2 } from 'lucide-react';
+import { ClipboardList, FileSignature, TrendingUp, Wallet, AlertCircle } from 'lucide-react';
 
 const ConsignFees = () => {
+    const flowSteps = [
+        {
+            icon: <ClipboardList className="h-6 w-6 text-brand-blue" />,
+            title: 'Evaluación comercial',
+            description: 'Revisamos marca, modelo, año, versión, kilometraje, condiciones, documentación y demanda real de mercado.'
+        },
+        {
+            icon: <FileSignature className="h-6 w-6 text-brand-blue" />,
+            title: 'Monto neto acordado',
+            description: 'Te proponemos un monto neto razonable. Si aceptas, ese monto queda establecido por contrato.'
+        },
+        {
+            icon: <TrendingUp className="h-6 w-6 text-brand-blue" />,
+            title: 'Precio comercial final',
+            description: 'Publicamos el auto a un precio comercial superior. La diferencia es la utilidad de Seminuevos Baja por gestión y promoción.'
+        },
+        {
+            icon: <Wallet className="h-6 w-6 text-brand-blue" />,
+            title: 'Tú recibes el monto neto',
+            description: 'Al concretarse la venta, recibes exactamente el monto neto acordado en contrato.'
+        }
+    ];
+
     return (
         <section className="py-16 bg-gray-50 border-y border-gray-200">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h2 className="text-3xl font-bold text-gray-900 mb-6">Comisiones Claras para Consignar tu Auto en Ensenada</h2>
-                        <p className="text-lg text-gray-700 mb-6">
-                            En Seminuevos Baja, la agencia de consignación de autos en Ensenada más transparente, no hay letras chiquitas ni costos ocultos. Consignar tu auto con nosotros es claro desde el primer día.
-                        </p>
-                        <div className="space-y-4">
-                            <div className="flex items-start">
-                                <CheckCircle2 className="h-6 w-6 text-green-500 mt-1 mr-3 flex-shrink-0" />
-                                <div>
-                                    <h3 className="font-bold text-gray-900">Sin costo por ingreso</h3>
-                                    <p className="text-gray-600">La inspección, toma de fotografías y publicación inicial son totalmente gratuitas.</p>
-                                </div>
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl font-bold text-gray-900 mb-4">Monto neto claro desde el inicio</h2>
+                </div>
+
+                <div className="max-w-4xl mx-auto space-y-5 text-gray-700 text-lg leading-relaxed mb-12">
+                    <p>
+                        En Seminuevos Baja no trabajamos con una comisión confusa ni con cargos sorpresa para el propietario.
+                    </p>
+                    <p>
+                        Primero evaluamos tu auto de acuerdo con su marca, modelo, año, versión, kilometraje, condiciones generales, documentación y demanda real en el mercado.
+                    </p>
+                    <p>
+                        Con base en esa revisión, te proponemos un monto neto de venta. Si estás de acuerdo, ese monto queda establecido por contrato.
+                    </p>
+                    <p>
+                        Después, Seminuevos Baja publica el auto a un precio comercial final. La diferencia entre el monto neto pactado y el precio final de venta corresponde a nuestra utilidad por la promoción, atención a compradores, negociación, financiamiento y cierre de la operación.
+                    </p>
+                    <p>
+                        Así sabes desde el inicio cuánto recibirías por tu auto si se vende.
+                    </p>
+                </div>
+
+                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+                    {flowSteps.map((step, index) => (
+                        <div key={index} className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
+                            <div className="mb-4 inline-flex p-3 bg-blue-50 rounded-full">
+                                {step.icon}
                             </div>
-                            <div className="flex items-start">
-                                <CheckCircle2 className="h-6 w-6 text-green-500 mt-1 mr-3 flex-shrink-0" />
-                                <div>
-                                    <h3 className="font-bold text-gray-900">Comisión solo por éxito</h3>
-                                    <p className="text-gray-600">Solo cobramos una comisión pactada previamente cuando tu auto se vende. Si no se vende, no pagas.</p>
-                                </div>
-                            </div>
-                            <div className="flex items-start">
-                                <CheckCircle2 className="h-6 w-6 text-green-500 mt-1 mr-3 flex-shrink-0" />
-                                <div>
-                                    <h3 className="font-bold text-gray-900">Precio Neto Garantizado</h3>
-                                    <p className="text-gray-600">Acordamos un monto neto que tú recibirás. Nosotros sumamos nuestra comisión al precio final de venta.</p>
-                                </div>
-                            </div>
+                            <h3 className="font-bold text-gray-900 mb-2">{step.title}</h3>
+                            <p className="text-sm text-gray-600 leading-relaxed">{step.description}</p>
                         </div>
-                    </div>
-                    <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
-                        <h3 className="text-xl font-bold text-brand-blue mb-4 text-center">Ejemplo de Venta</h3>
-                        <div className="space-y-4">
-                            <div className="flex justify-between p-3 bg-gray-50 rounded">
-                                <span className="text-gray-600">Precio Mercado:</span>
-                                <span className="font-bold text-gray-900">$250,000 MXN</span>
-                            </div>
-                            <div className="flex justify-between p-3 bg-gray-50 rounded">
-                                <span className="text-gray-600">Gastos Admin y Marketing:</span>
-                                <span className="font-bold text-green-600 font-mono">INCLUIDO</span>
-                            </div>
-                            <div className="border-t border-gray-200 my-2 pt-2 flex justify-between p-3 bg-amber-50 rounded border border-amber-100">
-                                <span className="font-bold text-gray-900">Tú Recibes:</span>
-                                <span className="font-bold text-amber-600 text-lg">$230,000 MXN*</span>
-                            </div>
-                            <p className="text-xs text-gray-400 mt-2 text-center">
-                                *Montos aproximados y sujetos a negociación específica por unidad.
+                    ))}
+                </div>
+
+                <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6 md:p-8">
+                    <div className="flex items-start">
+                        <AlertCircle className="h-6 w-6 text-amber-600 mr-4 mt-1 flex-shrink-0" />
+                        <div>
+                            <h3 className="text-xl font-bold text-gray-900 mb-3">Aceptación sujeta a evaluación comercial</h3>
+                            <p className="text-gray-700 leading-relaxed mb-3">
+                                No todos los autos son candidatos para consignación. Para aceptar una unidad, el precio esperado debe estar dentro de un rango razonable de mercado.
+                            </p>
+                            <p className="text-gray-700 leading-relaxed">
+                                Si el propietario busca un precio muy por encima del valor real del auto, lo correcto es ajustar la expectativa antes de firmar. Publicar un auto con precio inflado solo reduce las posibilidades de venta y hace perder tiempo a ambas partes.
                             </p>
                         </div>
                     </div>
